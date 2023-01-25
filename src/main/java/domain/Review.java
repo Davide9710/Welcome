@@ -31,4 +31,6 @@ public class Review {
     private Integer stars; /*from 0 to 5 constraint*/
 
     private String content;
+
+    private Image[] photos;
 }

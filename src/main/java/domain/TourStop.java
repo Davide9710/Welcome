@@ -15,5 +15,18 @@ public class TourStop {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long locationId;
+    private String title;
+    private Double latitude;
+    private Double longitude;
+    private Integer index;
+    private String description;
+    private Double cost;
+    private Long duration;
+    private Double transferCost;
+    private Long transferDuration;
+    private String transferType;
+    private String transferDetails;
+    private String otherOptions;
+
+    private Image[] photos;
 }

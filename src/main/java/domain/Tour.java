@@ -24,8 +24,6 @@ public class Tour {
 
     private Long aproxDuration;
 
-    private Long cityId;
-
     @CreationTimestamp
     @Column(updatable = false, nullable = false)
     private Instant creationTime;
