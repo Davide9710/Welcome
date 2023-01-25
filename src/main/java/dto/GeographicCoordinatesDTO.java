@@ -1,5 +1,7 @@
 package dto;
 
-public record GeographicCoordinatesDTO(String latitude,
-                                       String longitude) {
+import javax.validation.constraints.NotNull;
+
+public record GeographicCoordinatesDTO(@NotNull String latitude,
+                                       @NotNull String longitude) {
 }

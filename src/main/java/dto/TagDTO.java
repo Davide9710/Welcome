@@ -1,4 +1,6 @@
 package dto;
 
-public record TagDTO(String name) {
+import javax.validation.constraints.NotNull;
+
+public record TagDTO(@NotNull String name) {
 }

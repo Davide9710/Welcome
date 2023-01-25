@@ -1,10 +1,11 @@
 package dto;
 
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 import javax.validation.constraints.PositiveOrZero;
 import java.util.List;
 
-public record CreateTourRequestDTO(String cityName,
+public record CreateTourRequestDTO(@NotNull String cityName,
                                    String theme,
                                    List<TagDTO> tags,
                                    @Positive(message = "Duration must be greater than zero") Long aproxDuration,
