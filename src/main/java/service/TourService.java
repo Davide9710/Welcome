@@ -22,5 +22,7 @@ public class TourService {
     public Tour create(Tour tour) {
         return tourRepository.save(tour);
     }
+
+
 }
 

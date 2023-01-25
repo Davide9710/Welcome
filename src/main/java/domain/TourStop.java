@@ -2,11 +2,15 @@ package domain;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import dto.GeographicCoordinatesDTO;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.List;
 
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -16,17 +20,18 @@ public class TourStop {
     private Long id;
 
     private String title;
-    private Double latitude;
-    private Double longitude;
+
+    @Embedded
+    private GeographicCoordinates geographicCoordinates;
     private Integer index;
     private String description;
     private Double cost;
     private Long duration;
-    private Double transferCost;
-    private Long transferDuration;
-    private String transferType;
-    private String transferDetails;
+
+    @Embedded
+    private Transport transport;
     private String otherOptions;
 
-//    private Image[] photos;
+    @OneToMany()
+    private List<Image> photos;
 }

@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import service.TourService;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping(value = "/tour", produces = MediaType.APPLICATION_JSON_VALUE)
 public class TourController {
@@ -38,7 +40,7 @@ public class TourController {
     }
 
     @PostMapping("/create")
-    public CreateTourResponseDTO create(@RequestBody CreateTourRequestDTO createTourRequestDTO){
+    public CreateTourResponseDTO create(@RequestBody @Valid CreateTourRequestDTO createTourRequestDTO){
         Tour tour = CreateTourRequestDTOMapper.INSTANCE.convert(createTourRequestDTO);
         Tour savedTour = tourService.create(tour);
         return CreateTourResponseDTOMapper.INSTANCE.convert(savedTour);

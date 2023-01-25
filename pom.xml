@@ -46,6 +46,7 @@
         <sonar.coverage.jacoco.xmlReportPaths>target/coverage-reports/jacoco-ut/jacoco.xml
         </sonar.coverage.jacoco.xmlReportPaths>
         <org.jpamodelgen.version>5.6.11.Final</org.jpamodelgen.version>
+        <org.projectlombok.version>1.18.24</org.projectlombok.version>
     </properties>
 
     <dependencies>
@@ -178,6 +179,12 @@
         <!--            <artifactId>hibernate-jpamodelgen</artifactId>-->
         <!--            <version>${jpamodelgen.six.version}</version>-->
         <!--        </dependency>-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>

@@ -9,9 +9,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import java.time.Instant;
+import java.util.List;
 
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -32,5 +34,6 @@ public class Review {
 
     private String content;
 
-//    private Image[] photos;
+    @OneToMany
+    private List<Image> photos;
 }
