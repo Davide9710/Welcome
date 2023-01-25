@@ -32,5 +32,5 @@ public class Review {
 
     private String content;
 
-    private Image[] photos;
+//    private Image[] photos;
 }

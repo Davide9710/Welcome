@@ -28,5 +28,5 @@ public class TourStop {
     private String transferDetails;
     private String otherOptions;
 
-    private Image[] photos;
+//    private Image[] photos;
 }
