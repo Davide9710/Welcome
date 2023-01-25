@@ -1,10 +1,12 @@
 package dto;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PositiveOrZero;
 import java.util.List;
 
-public record TourStopDTO(String name,
+public record TourStopDTO(@NotNull String name,
                           String description,
-                          Double cost,
+                          @PositiveOrZero(message = "TourStop cost must be greater than zero") Double cost,
                           GeographicCoordinatesDTO geographicCoordinatesDTO,
                           TransportDTO transportDTO,
                           List<ImageDTO> image) {
