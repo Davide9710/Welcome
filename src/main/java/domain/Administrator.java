@@ -9,7 +9,7 @@ import javax.persistence.Id;
 
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Administrator {
+public class Administrator extends User{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

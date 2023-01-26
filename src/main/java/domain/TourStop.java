@@ -6,6 +6,7 @@ import dto.GeographicCoordinatesDTO;
 
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -32,6 +33,9 @@ public class TourStop {
     private Transport transport;
     private String otherOptions;
 
-    @OneToMany()
+    @OneToMany(fetch = FetchType.EAGER) //TODO it should be eager but paginated
     private List<Image> photos;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<Suggestion> suggestions;
 }

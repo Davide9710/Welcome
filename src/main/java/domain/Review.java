@@ -6,9 +6,11 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -34,6 +36,9 @@ public class Review {
 
     private String content;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Image> photos;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Tourist tourist;
 }
