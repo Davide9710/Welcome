@@ -2,7 +2,6 @@ package domain;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import dto.GeographicCoordinatesDTO;
 
 import javax.persistence.Embedded;
 import javax.persistence.Entity;

@@ -1,7 +1,6 @@
 package domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.checkerframework.common.value.qual.IntVal;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.Column;

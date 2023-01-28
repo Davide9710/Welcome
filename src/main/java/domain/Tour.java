@@ -29,6 +29,8 @@ public class Tour {
 
     private Long aproxDuration;
 
+    private TourStatus tourStatus;
+
     @CreationTimestamp
     @Column(updatable = false, nullable = false)
     private Instant creationTime;
@@ -57,4 +59,13 @@ public class Tour {
 
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Tag> tags;
+
+    public enum TourStatus{
+        ACTIVE,
+        DELETED
+    }
+
+    public void setTourStatus(TourStatus tourStatus) {
+        this.tourStatus = tourStatus;
+    }
 }

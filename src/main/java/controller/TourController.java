@@ -1,7 +1,6 @@
 package controller;
 
 
-import com.google.common.base.Preconditions;
 import domain.Tour;
 import dto.CreateTourRequestDTO;
 import dto.CreateTourResponseDTO;
@@ -14,6 +13,7 @@ import mapper.EditTourResponseDTOMapper;
 import mapper.TourResponseDTOMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -37,8 +37,6 @@ public class TourController {
 
     @GetMapping("/{id}")
     public TourResponseDTO get(@PathVariable("id") Long id){
-        Preconditions.checkNotNull(id);
-
         Tour tour = tourService.getTour(id);
         return TourResponseDTOMapper.INSTANCE.convert(tour);
     }
@@ -52,8 +50,12 @@ public class TourController {
 
     @PatchMapping("/{id}")
     public EditTourResponseDTO edit(@PathVariable("id") Long id, @RequestBody EditTourRequestDTO editTourRequestDTO){
-        Preconditions.checkNotNull(id);
         Tour editedTour = tourService.edit(id, editTourRequestDTO);
         return EditTourResponseDTOMapper.INSTANCE.convert(editedTour);
+    }
+
+    @DeleteMapping("/{id}")
+    void delete(@PathVariable("id") Long id){
+        tourService.delete(id);
     }
 }
