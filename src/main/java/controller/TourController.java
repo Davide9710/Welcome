@@ -13,6 +13,7 @@ import mapper.EditTourResponseDTOMapper;
 import mapper.TourResponseDTOMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -42,10 +43,10 @@ public class TourController {
     }
 
     @PostMapping("/create")
-    public CreateTourResponseDTO create(@RequestBody @Valid CreateTourRequestDTO createTourRequestDTO){
+    public ResponseEntity<CreateTourResponseDTO> create(@RequestBody @Valid CreateTourRequestDTO createTourRequestDTO){
         Tour tour = CreateTourRequestDTOMapper.INSTANCE.convert(createTourRequestDTO);
         Tour savedTour = tourService.create(tour);
-        return CreateTourResponseDTOMapper.INSTANCE.convert(savedTour);
+        return ResponseEntity.ok(CreateTourResponseDTOMapper.INSTANCE.convert(savedTour));
     }
 
     @PatchMapping("/{id}")
