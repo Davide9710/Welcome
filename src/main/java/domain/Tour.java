@@ -25,9 +25,9 @@ public class Tour {
 
     private String title;
 
-    private Double aproxCost;
+    private Double approxCost;
 
-    private Long aproxDuration;
+    private Long approxDuration;
 
     private TourStatus tourStatus;
 

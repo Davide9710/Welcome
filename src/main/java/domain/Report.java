@@ -19,5 +19,5 @@ public class Report {
     private String reason;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Tourist tourist;
+    private Tourist author;
 }

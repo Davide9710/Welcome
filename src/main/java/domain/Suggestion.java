@@ -19,5 +19,5 @@ public class Suggestion {
     private String description;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    private Tourist tourist;
+    private Tourist author;
 }

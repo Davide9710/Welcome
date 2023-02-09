@@ -26,14 +26,13 @@ public class TourStop {
     private Integer index;
     private String description;
     private Double cost;
-    private Long duration;
+    private String duration;
 
     @Embedded
     private Transport transport;
-    private String otherOptions;
 
-    @OneToMany(fetch = FetchType.EAGER) //TODO it should be eager but paginated
-    private List<Image> photos;
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<Image> images;
 
     @OneToMany(fetch = FetchType.LAZY)
     private List<Suggestion> suggestions;

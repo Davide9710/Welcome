@@ -25,7 +25,7 @@ public class Review {
 
     @CreationTimestamp
     @Column(updatable = false, nullable = false)
-    private Instant creationTime;
+    private Instant creationTimestamp;
 
     private String title;
 
@@ -36,8 +36,8 @@ public class Review {
     private String content;
 
     @OneToMany(fetch = FetchType.EAGER)
-    private List<Image> photos;
+    private List<Image> images;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    private Tourist tourist;
+    private Tourist author;
 }

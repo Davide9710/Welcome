@@ -9,29 +9,16 @@ public class Transport {
     private Long transferDuration;
     private String transferType;
     private String transferDetails;
+    private String otherOptions;
 
     public Transport() {
     }
 
-    public Transport(Double transferCost, Long transferDuration, String transferType, String transferDetails) {
+    public Transport(Double transferCost, Long transferDuration, String transferType, String transferDetails, String otherOptions) {
         this.transferCost = transferCost;
         this.transferDuration = transferDuration;
         this.transferType = transferType;
         this.transferDetails = transferDetails;
+        this.otherOptions = otherOptions;
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Transport transport = (Transport) o;
-        return Objects.equals(transferCost, transport.transferCost) && Objects.equals(transferDuration, transport.transferDuration) && Objects.equals(transferType, transport.transferType) && Objects.equals(transferDetails, transport.transferDetails);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(transferCost, transferDuration, transferType, transferDetails);
-    }
-
-
 }
