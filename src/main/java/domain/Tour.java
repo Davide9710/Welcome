@@ -68,4 +68,8 @@ public class Tour {
     public void setTourStatus(TourStatus tourStatus) {
         this.tourStatus = tourStatus;
     }
+
+    public List<Tag> getTags() {
+        return tags;
+    }
 }

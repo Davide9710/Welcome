@@ -23,4 +23,12 @@ public class Tag {
 
     @ManyToMany(fetch = FetchType.LAZY)
     private List<Tour> tours;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void addTour(Tour tour){
+        tours.add(tour);
+    }
 }

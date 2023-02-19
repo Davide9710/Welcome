@@ -7,7 +7,7 @@ import java.util.List;
 public record CreateTourRequestDTO(String title,
                                    @NotNull Long cityId,
                                    ThemeDTO theme,
-                                   List<TagDTO> tags,
+                                   List<TagRequestDTO> tags,
                                    String approxDuration,
                                    @PositiveOrZero(message = "Cost must be greater than zero") Double approxCost,
                                    List<TourStopDTO> stops) {

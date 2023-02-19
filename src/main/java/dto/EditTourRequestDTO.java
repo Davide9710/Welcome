@@ -7,5 +7,5 @@ public record EditTourRequestDTO(String title,
                                  Double aproxCost,
                                  Long aproxDuration,
                                  CityDTO city,
-                                 List<TagDTO> tags) {
+                                 List<TagRequestDTO> tags) {
 }
