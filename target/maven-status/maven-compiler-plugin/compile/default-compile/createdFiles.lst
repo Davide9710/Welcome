@@ -2,7 +2,6 @@ dto\TourStopDTO.class
 domain\Report.class
 domain\Message.class
 domain\GeographicCoordinates$GeographicCoordinatesBuilder.class
-config\WebConfiguration$1.class
 mapper\TourResponseDTOMapper.class
 controller\GuideController.class
 domain\Image.class
@@ -37,6 +36,7 @@ service\GuideService.class
 config\WebConfiguration.class
 domain\TourStop.class
 dto\EditTourRequestDTO.class
+application\WelcomeApplication$1.class
 domain\Theme.class
 dto\TransportDTO.class
 dto\TourResponseDTO.class
