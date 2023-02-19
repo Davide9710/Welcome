@@ -40,4 +40,60 @@ public class Review {
 
     @ManyToOne(fetch = FetchType.EAGER)
     private Tourist author;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Instant getCreationTimestamp() {
+        return creationTimestamp;
+    }
+
+    public void setCreationTimestamp(Instant creationTimestamp) {
+        this.creationTimestamp = creationTimestamp;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public Integer getStars() {
+        return stars;
+    }
+
+    public void setStars(Integer stars) {
+        this.stars = stars;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public List<Image> getImages() {
+        return images;
+    }
+
+    public void setImages(List<Image> images) {
+        this.images = images;
+    }
+
+    public Tourist getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Tourist author) {
+        this.author = author;
+    }
 }

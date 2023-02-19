@@ -1,28 +1,37 @@
 package service;
 
+import domain.Image;
 import domain.Tag;
 import domain.Tour;
+import domain.TourStop;
 import dto.EditTourRequestDTO;
 import exception.TourNotPresentException;
 import mapper.EditTourRequestDTOMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import repository.ImageRepository;
 import repository.TagRepository;
+import repository.ThemeRepository;
 import repository.TourRepository;
+import repository.TourStopRepository;
 
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Service
 public class TourService {
     private final TourRepository tourRepository;
     private final TagRepository tagRepository;
+    private final ThemeRepository themeRepository;
+    private final TourStopRepository tourStopRepository;
+    private final ImageRepository imageRepository;
 
     @Autowired
-    public TourService(TourRepository tourRepository, TagRepository tagRepository) {
+    public TourService(TourRepository tourRepository, TagRepository tagRepository, ThemeRepository themeRepository, TourStopRepository tourStopRepository, ImageRepository imageRepository) {
         this.tourRepository = tourRepository;
         this.tagRepository = tagRepository;
+        this.themeRepository = themeRepository;
+        this.tourStopRepository = tourStopRepository;
+        this.imageRepository = imageRepository;
     }
 
 
@@ -31,11 +40,17 @@ public class TourService {
     }
 
     public Tour create(Tour tour) {
-        List<Tag> tags = tour.getTags().stream().filter(tag -> tag.getId() != null).toList();
-        tags.forEach(tag -> {
-            tag.addTour(tour);
-            tagRepository.save(tag);
-        });
+        tour.getTags().stream()
+                .filter(tag -> tag.getId() != null)
+                .forEach(tag -> tag.addTour(tour));
+        tagRepository.saveAll(tour.getTags());
+
+        themeRepository.save(tour.getTheme());
+
+        imageRepository.saveAll(tour.getStops().stream().flatMap(tourStop -> tourStop.getImages().stream()).toList());
+
+        tourStopRepository.saveAll(tour.getStops());
+
         return tourRepository.save(tour);
     }
 

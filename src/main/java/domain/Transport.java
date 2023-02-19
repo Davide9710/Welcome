@@ -21,4 +21,44 @@ public class Transport {
         this.transferDetails = transferDetails;
         this.otherOptions = otherOptions;
     }
+
+    public Double getTransferCost() {
+        return transferCost;
+    }
+
+    public void setTransferCost(Double transferCost) {
+        this.transferCost = transferCost;
+    }
+
+    public Long getTransferDuration() {
+        return transferDuration;
+    }
+
+    public void setTransferDuration(Long transferDuration) {
+        this.transferDuration = transferDuration;
+    }
+
+    public String getTransferType() {
+        return transferType;
+    }
+
+    public void setTransferType(String transferType) {
+        this.transferType = transferType;
+    }
+
+    public String getTransferDetails() {
+        return transferDetails;
+    }
+
+    public void setTransferDetails(String transferDetails) {
+        this.transferDetails = transferDetails;
+    }
+
+    public String getOtherOptions() {
+        return otherOptions;
+    }
+
+    public void setOtherOptions(String otherOptions) {
+        this.otherOptions = otherOptions;
+    }
 }

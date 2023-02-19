@@ -39,6 +39,7 @@ public class TourController {
     @GetMapping("/{id}")
     public TourResponseDTO get(@PathVariable("id") Long id){
         Tour tour = tourService.getTour(id);
+        System.out.println("DEBUG: tour: " + tour.toString());
         return TourResponseDTOMapper.INSTANCE.convert(tour);
     }
 

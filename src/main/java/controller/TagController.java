@@ -2,6 +2,7 @@ package controller;
 
 import domain.Tag;
 import dto.TagListResponseDTO;
+import dto.TagResponseDTO;
 import mapper.TagResponseDTOMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -23,7 +24,7 @@ public class TagController {
     }
 
     @GetMapping("/")
-    public TagListResponseDTO getAll(){
+    public List<TagResponseDTO> getAll(){
         List<Tag> tagList = tagService.getAll();
         return TagResponseDTOMapper.INSTANCE.convert(tagList);
     }

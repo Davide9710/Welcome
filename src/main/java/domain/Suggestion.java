@@ -20,4 +20,28 @@ public class Suggestion {
 
     @ManyToOne(fetch = FetchType.EAGER)
     private Tourist author;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Tourist getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Tourist author) {
+        this.author = author;
+    }
 }

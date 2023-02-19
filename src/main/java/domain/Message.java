@@ -30,4 +30,36 @@ public class Message {
     @CreationTimestamp
     @Column(updatable = false, nullable = false)
     private Instant creationTime;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public List<PlatformUser> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<PlatformUser> users) {
+        this.users = users;
+    }
+
+    public Instant getCreationTime() {
+        return creationTime;
+    }
+
+    public void setCreationTime(Instant creationTime) {
+        this.creationTime = creationTime;
+    }
 }

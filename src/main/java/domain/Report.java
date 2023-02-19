@@ -20,4 +20,28 @@ public class Report {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Tourist author;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getReason() {
+        return reason;
+    }
+
+    public void setReason(String reason) {
+        this.reason = reason;
+    }
+
+    public Tourist getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Tourist author) {
+        this.author = author;
+    }
 }
