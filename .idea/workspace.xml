@@ -5,156 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ae4ab8eb-788c-4ce3-9c02-59964e1fe0b9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/WelcomeDB.mv.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/WelcomeDB.trace.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/application/WelcomeApplication$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/application/WelcomeApplication.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/config/WebConfiguration.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/controller/AuthorizationController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/controller/CityController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/controller/GuideController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/controller/TagController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/controller/ThemeController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/controller/TourController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/domain/Administrator.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/domain/Administrator_.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/domain/City.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/domain/City_.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/domain/GeographicCoordinates$GeographicCoordinatesBuilder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/domain/GeographicCoordinates.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/domain/GeographicCoordinates_.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/domain/Guide.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/domain/Guide_.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/domain/Image.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/domain/Image_.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/domain/Message.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/domain/Message_.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/domain/PlatformUser.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/domain/PlatformUser_.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/domain/Report.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/domain/Report_.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/domain/Review.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/domain/Review_.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/domain/Suggestion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/domain/Suggestion_.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/domain/Tag.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/domain/Tag_.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/domain/Theme.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/domain/Theme_.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/domain/Tour$TourStatus.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/domain/Tour.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/domain/TourStop.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/domain/TourStop_.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/domain/Tour_.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/domain/Tourist.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/domain/Tourist_.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/domain/Transport.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/domain/Transport_.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/domain/User.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/domain/User_.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dto/CityDTO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dto/CityListResponseDTO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dto/CityRequestDTO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dto/CityResponseDTO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dto/CreateTourRequestDTO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dto/CreateTourResponseDTO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dto/EditTourRequestDTO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dto/EditTourResponseDTO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dto/GeographicCoordinatesDTO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dto/GetTourByGuideIdResponseDTO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dto/ImageDTO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dto/LoginRequestDTO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dto/LoginResponseDTO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dto/TagListResponseDTO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dto/TagRequestDTO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dto/TagResponseDTO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dto/ThemeDTO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dto/ThemeListResponseDTO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dto/ThemeResponseDTO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dto/TourDTO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dto/TourResponseDTO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dto/TourStopDTO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dto/TransportDTO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/exception/TourNotPresentException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mapper/CityDTOMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mapper/CityDTOMapperImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mapper/CityRequestDTOMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mapper/CityRequestDTOMapperImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mapper/CityResponseDTOMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mapper/CreateTourRequestDTOMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mapper/CreateTourRequestDTOMapperImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mapper/CreateTourResponseDTOMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mapper/CreateTourResponseDTOMapperImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mapper/EditTourRequestDTOMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mapper/EditTourRequestDTOMapperImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mapper/EditTourResponseDTOMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mapper/EditTourResponseDTOMapperImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mapper/TagDTOMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mapper/TagDTOMapperImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mapper/TagResponseDTOMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mapper/TagResponseDTOMapperImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mapper/ThemeResponseDTOMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mapper/ThemeResponseDTOMapperImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mapper/TourDTOMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mapper/TourDTOMapperImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mapper/TourResponseDTOMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mapper/TourResponseDTOMapperImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mapper/TourStopDTOMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mapper/TourStopDTOMapperImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/repository/CityRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/repository/GuideRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/repository/ImageRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/repository/TagRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/repository/ThemeRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/repository/TourRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/repository/TourStopRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/service/AuthorizationService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/service/CityService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/service/GuideService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/service/TagService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/service/ThemeService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/service/TourService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/generated-sources/annotations/domain/Administrator_.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/generated-sources/annotations/domain/City_.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/generated-sources/annotations/domain/GeographicCoordinates_.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/generated-sources/annotations/domain/Guide_.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/generated-sources/annotations/domain/Image_.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/generated-sources/annotations/domain/Message_.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/generated-sources/annotations/domain/PlatformUser_.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/generated-sources/annotations/domain/Report_.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/generated-sources/annotations/domain/Review_.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/generated-sources/annotations/domain/Suggestion_.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/generated-sources/annotations/domain/Tag_.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/generated-sources/annotations/domain/Theme_.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/generated-sources/annotations/domain/TourStop_.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/generated-sources/annotations/domain/Tour_.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/generated-sources/annotations/domain/Tourist_.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/generated-sources/annotations/domain/Transport_.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/generated-sources/annotations/domain/User_.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/generated-sources/annotations/mapper/CityDTOMapperImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/generated-sources/annotations/mapper/CityRequestDTOMapperImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/generated-sources/annotations/mapper/CreateTourRequestDTOMapperImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/generated-sources/annotations/mapper/CreateTourResponseDTOMapperImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/generated-sources/annotations/mapper/EditTourRequestDTOMapperImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/generated-sources/annotations/mapper/EditTourResponseDTOMapperImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/generated-sources/annotations/mapper/TagDTOMapperImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/generated-sources/annotations/mapper/TagResponseDTOMapperImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/generated-sources/annotations/mapper/ThemeResponseDTOMapperImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/generated-sources/annotations/mapper/TourDTOMapperImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/generated-sources/annotations/mapper/TourResponseDTOMapperImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/generated-sources/annotations/mapper/TourStopDTOMapperImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/Annotation processing/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/Annotation processing/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -204,7 +55,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../sld-product-permission-core" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
@@ -250,6 +101,7 @@
       <workItem from="1672503575061" duration="2310000" />
       <workItem from="1674680781392" duration="316000" />
       <workItem from="1677083826791" duration="1221000" />
+      <workItem from="1677085115364" duration="953000" />
     </task>
     <servers />
   </component>
