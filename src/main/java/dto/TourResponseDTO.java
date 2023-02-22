@@ -1,5 +1,8 @@
 package dto;
 
-public record TourResponseDTO() {
+import domain.Tour;
+
+public record TourResponseDTO(String title,
+                              Tour.TourStatus tourStatus) {
 
 }

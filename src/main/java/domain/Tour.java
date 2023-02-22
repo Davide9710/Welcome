@@ -31,7 +31,7 @@ public class Tour {
 
     private Long approxDuration;
 
-    private TourStatus tourStatus;
+    private TourStatus tourStatus = TourStatus.ACTIVE;
 
     @CreationTimestamp
     @Column(updatable = false, nullable = false)
