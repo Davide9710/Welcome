@@ -23,7 +23,7 @@ public class TagController {
         this.tagService = tagService;
     }
 
-    @GetMapping("/")
+    @GetMapping
     public List<TagResponseDTO> getAll(){
         List<Tag> tagList = tagService.getAll();
         return TagResponseDTOMapper.INSTANCE.convert(tagList);

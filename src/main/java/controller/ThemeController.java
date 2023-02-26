@@ -23,7 +23,7 @@ public class ThemeController {
         this.themeService = themeService;
     }
 
-    @GetMapping("/")
+    @GetMapping
     public List<ThemeResponseDTO> getAll(){
         List<Theme> themes = themeService.getAll();
         return ThemeResponseDTOMapper.INSTANCE.convert(themes);
