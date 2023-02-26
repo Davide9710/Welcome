@@ -29,7 +29,7 @@ public class Tour {
 
     private Double approxCost;
 
-    private Long approxDuration;
+    private String approxDuration;
 
     private TourStatus tourStatus = TourStatus.ACTIVE;
 
@@ -123,11 +123,11 @@ public class Tour {
         this.approxCost = approxCost;
     }
 
-    public Long getApproxDuration() {
+    public String getApproxDuration() {
         return approxDuration;
     }
 
-    public void setApproxDuration(Long approxDuration) {
+    public void setApproxDuration(String approxDuration) {
         this.approxDuration = approxDuration;
     }
 

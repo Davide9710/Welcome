@@ -1,12 +1,11 @@
 package domain;
 
 import javax.persistence.Embeddable;
-import java.util.Objects;
 
 @Embeddable
 public class Transport {
     private Double transferCost;
-    private Long transferDuration;
+    private String transferDuration;
     private String transferType;
     private String transferDetails;
     private String otherOptions;
@@ -14,7 +13,7 @@ public class Transport {
     public Transport() {
     }
 
-    public Transport(Double transferCost, Long transferDuration, String transferType, String transferDetails, String otherOptions) {
+    public Transport(Double transferCost, String transferDuration, String transferType, String transferDetails, String otherOptions) {
         this.transferCost = transferCost;
         this.transferDuration = transferDuration;
         this.transferType = transferType;
@@ -30,11 +29,11 @@ public class Transport {
         this.transferCost = transferCost;
     }
 
-    public Long getTransferDuration() {
+    public String getTransferDuration() {
         return transferDuration;
     }
 
-    public void setTransferDuration(Long transferDuration) {
+    public void setTransferDuration(String transferDuration) {
         this.transferDuration = transferDuration;
     }
 

@@ -3,7 +3,6 @@ package domain;
 import lombok.Builder;
 
 import javax.persistence.Embeddable;
-import java.util.Objects;
 
 @Embeddable
 @Builder
