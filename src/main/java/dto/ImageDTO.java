@@ -1,4 +1,4 @@
 package dto;
 
-public record ImageDTO(Byte[] image) {
+public record ImageDTO(String image) {
 }

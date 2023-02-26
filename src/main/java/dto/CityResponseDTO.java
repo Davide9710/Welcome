@@ -1,4 +1,4 @@
 package dto;
 
-public record CityResponseDTO(String name) {
+public record CityResponseDTO(Long id, String name) {
 }

@@ -1,7 +1,6 @@
 package controller;
 
 import domain.City;
-import dto.CityListResponseDTO;
 import dto.CityResponseDTO;
 import mapper.CityResponseDTOMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,10 +24,9 @@ public class CityController {
 
 
     @GetMapping
-    public CityListResponseDTO getAll(){
+    public List<CityResponseDTO> getAll(){
         List<City> cities = cityService.getAll();
-        List<CityResponseDTO> convert = CityResponseDTOMapper.INSTANCE.convert(cities);
-        return new CityListResponseDTO(convert);
+        return CityResponseDTOMapper.INSTANCE.convert(cities);
     }
 
 }

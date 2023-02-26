@@ -1,7 +1,6 @@
 package controller;
 
 import domain.Tour;
-import dto.GetTourByGuideIdResponseDTO;
 import dto.TourDTO;
 import mapper.TourDTOMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,12 +30,10 @@ public class GuideController {
     }
 
     @GetMapping("/{guideId}/tours")
-    public GetTourByGuideIdResponseDTO getTourByGuideId(@PathVariable("guideId") Long guideId,
-                                                        @PositiveOrZero @RequestParam("page") Integer page,
-                                                        @Positive @RequestParam("size") Integer size){
+    public List<TourDTO> getTourByGuideId(@PathVariable("guideId") Long guideId,
+                                          @PositiveOrZero @RequestParam("page") Integer page,
+                                          @Positive @RequestParam("size") Integer size){
         List<Tour> tourList = guideService.getToursByGuideId(guideId, page, size);
-        List<TourDTO> tourDTOS = TourDTOMapper.INSTANCE.convert(tourList);
-
-        return new GetTourByGuideIdResponseDTO(tourDTOS);
+        return TourDTOMapper.INSTANCE.convert(tourList);
     }
 }

@@ -21,13 +21,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 import service.TourService;
 
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping(value = "/tour", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/tour",
+        consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.MULTIPART_FORM_DATA_VALUE},
+        produces = MediaType.APPLICATION_JSON_VALUE)
 public class TourController {
     private final TourService tourService;
 
