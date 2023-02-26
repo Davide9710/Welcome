@@ -2,6 +2,7 @@ package controller;
 
 import domain.City;
 import dto.CityListResponseDTO;
+import dto.CityResponseDTO;
 import mapper.CityResponseDTOMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -26,7 +27,8 @@ public class CityController {
     @GetMapping
     public CityListResponseDTO getAll(){
         List<City> cities = cityService.getAll();
-        return CityResponseDTOMapper.INSTANCE.convert(cities);
+        List<CityResponseDTO> convert = CityResponseDTOMapper.INSTANCE.convert(cities);
+        return new CityListResponseDTO(convert);
     }
 
 }
