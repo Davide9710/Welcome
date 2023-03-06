@@ -23,7 +23,7 @@ public class TourStop {
     private String title;
 
     @Embedded
-    private GeographicCoordinates geographicCoordinates;
+    private GeographicCoordinates coordinates;
     private Integer index;
     private String description;
     private Double cost;
@@ -56,11 +56,11 @@ public class TourStop {
     }
 
     public GeographicCoordinates getGeographicCoordinates() {
-        return geographicCoordinates;
+        return coordinates;
     }
 
     public void setGeographicCoordinates(GeographicCoordinates geographicCoordinates) {
-        this.geographicCoordinates = geographicCoordinates;
+        this.coordinates = geographicCoordinates;
     }
 
     public Integer getIndex() {

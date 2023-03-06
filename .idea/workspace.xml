@@ -8,9 +8,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/WelcomeDB.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/WelcomeDB.mv.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/WelcomeDB.trace.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/WelcomeDB.trace.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/TourStop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/TourStop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dto/GeographicCoordinatesDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/GeographicCoordinatesDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dto/TourStopDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/TourStopDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mapper/CreateTourRequestDTOMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mapper/CreateTourRequestDTOMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mapper/TourStopDTOMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mapper/TourStopDTOMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/controller/CityController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/CityController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/controller/GuideController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/GuideController.class" afterDir="false" />
@@ -162,7 +162,7 @@
       <workItem from="1677426630490" duration="2188000" />
       <workItem from="1677429925771" duration="4935000" />
       <workItem from="1678090838799" duration="1377000" />
-      <workItem from="1678113669541" duration="6779000" />
+      <workItem from="1678113669541" duration="8683000" />
     </task>
     <servers />
   </component>
@@ -179,5 +179,26 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/service/TourService.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/service/TourService.java</url>
+          <line>45</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/controller/TourController.java</url>
+          <line>49</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
