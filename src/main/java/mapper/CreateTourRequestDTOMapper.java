@@ -18,16 +18,16 @@ public interface CreateTourRequestDTOMapper {
 
     Tour convert(CreateTourRequestDTO createTourRequestDTO);
 
-    default ImageDTO convert(Image image){
+    default String convert(Image image){
         Byte[] value = image.getImage();
         Base64.Encoder encoder = Base64.getEncoder();
         byte[] valueConverted = ArrayUtils.toPrimitive(value);
-        return new ImageDTO(encoder.encodeToString(valueConverted));
+        return encoder.encodeToString(valueConverted);
     }
 
-    default Image convert(ImageDTO dto){
+    default Image convert(String dto){
         Base64.Decoder decoder = Base64.getDecoder();
-        String[] split = dto.image().split(",");
+        String[] split = dto.split(",");
         String image64 = split[1];
         byte[] decode = decoder.decode(image64);
         Image image = new Image();
