@@ -27,7 +27,9 @@ public interface CreateTourRequestDTOMapper {
 
     default Image convert(ImageDTO dto){
         Base64.Decoder decoder = Base64.getDecoder();
-        byte[] decode = decoder.decode(dto.image());
+        String[] split = dto.image().split(",");
+        String image64 = split[1];
+        byte[] decode = decoder.decode(image64);
         Image image = new Image();
         image.setImage(ArrayUtils.toObject(decode));
         return image;
