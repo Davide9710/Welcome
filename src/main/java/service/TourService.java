@@ -15,8 +15,6 @@ import repository.ThemeRepository;
 import repository.TourRepository;
 import repository.TourStopRepository;
 
-import java.util.List;
-
 @Service
 public class TourService {
     private final TourRepository tourRepository;
@@ -39,13 +37,15 @@ public class TourService {
         return tourRepository.findById(id).orElseThrow(TourNotPresentException::new);
     }
 
-    public Tour create(Tour tour) {
+    /*public Tour create(Tour tour) {
+        //All tags without id are NEW tags, so they need to be saved before
         tour.getTags().stream()
                 .filter(tag -> tag.getId() == null)
                 .forEach(tagRepository::save);
 
         tour.getTags().forEach(tag -> tag.addTour(tour));
 
+        //If the theme has no id, it means it is a new theme, so it needs to be saved before
         if(tour.getTheme().getId() == null){
             themeRepository.save(tour.getTheme());
         }
@@ -54,6 +54,10 @@ public class TourService {
 
         tourStopRepository.saveAll(tour.getStops());
 
+        return tourRepository.save(tour);
+    }*/
+
+    public Tour create(Tour tour) {
         return tourRepository.save(tour);
     }
 

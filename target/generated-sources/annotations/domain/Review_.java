@@ -17,6 +17,7 @@ public abstract class Review_ {
 	public static volatile SingularAttribute<Review, Integer> stars;
 	public static volatile SingularAttribute<Review, String> title;
 	public static volatile SingularAttribute<Review, String> content;
+	public static volatile SingularAttribute<Review, Tour> tour;
 
 	public static final String IMAGES = "images";
 	public static final String AUTHOR = "author";
@@ -25,6 +26,7 @@ public abstract class Review_ {
 	public static final String STARS = "stars";
 	public static final String TITLE = "title";
 	public static final String CONTENT = "content";
+	public static final String TOUR = "tour";
 
 }
 

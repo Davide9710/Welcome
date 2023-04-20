@@ -4,6 +4,7 @@ import domain.Tour.TourStatus;
 import java.time.Instant;
 import javax.annotation.Generated;
 import javax.persistence.metamodel.ListAttribute;
+import javax.persistence.metamodel.SetAttribute;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
@@ -15,7 +16,7 @@ public abstract class Tour_ {
 	public static volatile SingularAttribute<Tour, Instant> creationTime;
 	public static volatile SingularAttribute<Tour, City> city;
 	public static volatile SingularAttribute<Tour, String> title;
-	public static volatile ListAttribute<Tour, Tag> tags;
+	public static volatile SetAttribute<Tour, Tag> tags;
 	public static volatile SingularAttribute<Tour, Double> approxCost;
 	public static volatile ListAttribute<Tour, Review> reviews;
 	public static volatile SingularAttribute<Tour, Instant> lastUpdate;
@@ -23,9 +24,10 @@ public abstract class Tour_ {
 	public static volatile ListAttribute<Tour, Suggestion> suggestions;
 	public static volatile SingularAttribute<Tour, Theme> theme;
 	public static volatile SingularAttribute<Tour, Long> id;
-	public static volatile ListAttribute<Tour, Tourist> tourists;
+	public static volatile SetAttribute<Tour, Tourist> tourists;
 	public static volatile ListAttribute<Tour, TourStop> stops;
 	public static volatile SingularAttribute<Tour, TourStatus> tourStatus;
+	public static volatile SingularAttribute<Tour, Guide> guide;
 
 	public static final String REPORTS = "reports";
 	public static final String CREATION_TIME = "creationTime";
@@ -42,6 +44,7 @@ public abstract class Tour_ {
 	public static final String TOURISTS = "tourists";
 	public static final String STOPS = "stops";
 	public static final String TOUR_STATUS = "tourStatus";
+	public static final String GUIDE = "guide";
 
 }
 

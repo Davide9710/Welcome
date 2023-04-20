@@ -10,7 +10,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -22,15 +24,11 @@ public class Tag {
     @Column(unique = true)
     private String name;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    private List<Tour> tours = new ArrayList<>();
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "tags")
+    private Set<Tour> tours = new HashSet<>();
 
     public Long getId() {
         return id;
-    }
-
-    public void addTour(Tour tour){
-        tours.add(tour);
     }
 
     public void setId(Long id) {
@@ -45,11 +43,7 @@ public class Tag {
         this.name = name;
     }
 
-    public List<Tour> getTours() {
+    public Set<Tour> getTours() {
         return tours;
-    }
-
-    public void setTours(List<Tour> tours) {
-        this.tours = tours;
     }
 }

@@ -5,18 +5,23 @@ import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import java.time.Instant;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -45,8 +50,8 @@ public class Tour {
     @ManyToOne(fetch = FetchType.EAGER)
     private Guide guide;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    private List<Tourist> tourists = new ArrayList<>();
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "tours")
+    private Set<Tourist> tourists = new HashSet<>();
 
     @OneToMany(fetch = FetchType.LAZY)
     private List<Review> reviews = new ArrayList<>();
@@ -57,16 +62,20 @@ public class Tour {
     @OneToMany(fetch = FetchType.LAZY)
     private List<Suggestion> suggestions = new ArrayList<>();
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<TourStop> stops = new ArrayList<>();
 
     @ManyToOne(fetch = FetchType.EAGER)
     private City city;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    private List<Tag> tags = new ArrayList<>();
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "tour_tag",
+        joinColumns = @JoinColumn(name = "tour_id"),
+        inverseJoinColumns = @JoinColumn(name = "tag_id")
+    )
+    private Set<Tag> tags = new HashSet<>();
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Theme theme;
 
     public enum TourStatus{
@@ -76,10 +85,6 @@ public class Tour {
 
     public void setTourStatus(TourStatus tourStatus) {
         this.tourStatus = tourStatus;
-    }
-
-    public List<Tag> getTags() {
-        return tags;
     }
 
     @Override
@@ -155,11 +160,11 @@ public class Tour {
         this.lastUpdate = lastUpdate;
     }
 
-    public List<Tourist> getTourists() {
+    public Set<Tourist> getTourists() {
         return tourists;
     }
 
-    public void setTourists(List<Tourist> tourists) {
+    public void setTourists(Set<Tourist> tourists) {
         this.tourists = tourists;
     }
 
@@ -203,11 +208,6 @@ public class Tour {
         this.city = city;
     }
 
-    public void setTags(List<Tag> tags) {
-        this.tags = tags;
-        tags.forEach(tag -> tag.addTour(this));
-    }
-
     public Theme getTheme() {
         return theme;
     }
@@ -219,6 +219,20 @@ public class Tour {
 
     public void addTag(Tag tag){
         this.tags.add(tag);
-        tag.addTour(this);
+        tag.getTours().add(this);
     }
+
+    public void removeTag(Tag tag){
+        this.tags.remove(tag);
+        tag.getTours().remove(this);
+    }
+
+    public void addTourist(Tourist tourist) {
+        tourists.remove(tourist);
+    }
+
+    public void removeTourist(Tourist tourist) {
+        tourists.remove(tourist);
+    }
+
 }

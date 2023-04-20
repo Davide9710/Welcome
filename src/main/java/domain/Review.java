@@ -42,6 +42,9 @@ public class Review {
     @ManyToOne(fetch = FetchType.EAGER)
     private Tourist author;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Tour tour;
+
     public Long getId() {
         return id;
     }

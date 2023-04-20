@@ -2,6 +2,7 @@ package domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -22,7 +23,7 @@ public class Theme {
     @Column(unique = true)
     private String name;
 
-    @OneToMany(mappedBy = "theme", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "theme", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Tour> tours = new ArrayList<>();
 
     public Long getId() {

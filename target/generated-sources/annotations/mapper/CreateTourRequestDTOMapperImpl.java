@@ -1,7 +1,6 @@
 package mapper;
 
 import domain.Image;
-import domain.Tag;
 import domain.Theme;
 import domain.Tour;
 import domain.TourStop;
@@ -18,7 +17,7 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-03-06T18:22:29+0100",
+    date = "2023-04-20T16:21:55+0200",
     comments = "version: 1.4.2.Final, compiler: javac, environment: Java 17.0.2 (Oracle Corporation)"
 )
 public class CreateTourRequestDTOMapperImpl implements CreateTourRequestDTOMapper {
@@ -31,19 +30,18 @@ public class CreateTourRequestDTOMapperImpl implements CreateTourRequestDTOMappe
 
         String title = null;
         ThemeDTO theme = null;
-        List<TagRequestDTO> tags = null;
         String approxDuration = null;
         Double approxCost = null;
         List<TourStopDTO> stops = null;
 
         title = tour.getTitle();
         theme = themeToThemeDTO( tour.getTheme() );
-        tags = tagListToTagRequestDTOList( tour.getTags() );
         approxDuration = tour.getApproxDuration();
         approxCost = tour.getApproxCost();
         stops = tourStopListToTourStopDTOList( tour.getStops() );
 
         CityRequestDTO cityRequestDTO = null;
+        List<TagRequestDTO> tags = null;
 
         CreateTourRequestDTO createTourRequestDTO = new CreateTourRequestDTO( title, cityRequestDTO, theme, tags, approxDuration, approxCost, stops );
 
@@ -62,7 +60,6 @@ public class CreateTourRequestDTOMapperImpl implements CreateTourRequestDTOMappe
         tour.setApproxCost( createTourRequestDTO.approxCost() );
         tour.setApproxDuration( createTourRequestDTO.approxDuration() );
         tour.setStops( tourStopDTOListToTourStopList( createTourRequestDTO.stops() ) );
-        tour.setTags( tagRequestDTOListToTagList( createTourRequestDTO.tags() ) );
         tour.setTheme( themeDTOToTheme( createTourRequestDTO.theme() ) );
 
         return tour;
@@ -80,35 +77,6 @@ public class CreateTourRequestDTOMapperImpl implements CreateTourRequestDTOMappe
         ThemeDTO themeDTO = new ThemeDTO( name );
 
         return themeDTO;
-    }
-
-    protected TagRequestDTO tagToTagRequestDTO(Tag tag) {
-        if ( tag == null ) {
-            return null;
-        }
-
-        Long id = null;
-        String name = null;
-
-        id = tag.getId();
-        name = tag.getName();
-
-        TagRequestDTO tagRequestDTO = new TagRequestDTO( id, name );
-
-        return tagRequestDTO;
-    }
-
-    protected List<TagRequestDTO> tagListToTagRequestDTOList(List<Tag> list) {
-        if ( list == null ) {
-            return null;
-        }
-
-        List<TagRequestDTO> list1 = new ArrayList<TagRequestDTO>( list.size() );
-        for ( Tag tag : list ) {
-            list1.add( tagToTagRequestDTO( tag ) );
-        }
-
-        return list1;
     }
 
     protected List<String> imageListToStringList(List<Image> list) {
@@ -132,18 +100,20 @@ public class CreateTourRequestDTOMapperImpl implements CreateTourRequestDTOMappe
         String title = null;
         String description = null;
         Double cost = null;
+        String duration = null;
         List<String> images = null;
 
         title = tourStop.getTitle();
         description = tourStop.getDescription();
         cost = tourStop.getCost();
+        duration = tourStop.getDuration();
         images = imageListToStringList( tourStop.getImages() );
 
         String name = null;
         GeographicCoordinatesDTO coordinates = null;
         TransportDTO transportDTO = null;
 
-        TourStopDTO tourStopDTO = new TourStopDTO( title, name, description, cost, coordinates, transportDTO, images );
+        TourStopDTO tourStopDTO = new TourStopDTO( title, name, description, cost, duration, coordinates, transportDTO, images );
 
         return tourStopDTO;
     }
@@ -184,6 +154,7 @@ public class CreateTourRequestDTOMapperImpl implements CreateTourRequestDTOMappe
         tourStop.setTitle( tourStopDTO.title() );
         tourStop.setDescription( tourStopDTO.description() );
         tourStop.setCost( tourStopDTO.cost() );
+        tourStop.setDuration( tourStopDTO.duration() );
         tourStop.setImages( stringListToImageList( tourStopDTO.images() ) );
 
         return tourStop;
@@ -197,32 +168,6 @@ public class CreateTourRequestDTOMapperImpl implements CreateTourRequestDTOMappe
         List<TourStop> list1 = new ArrayList<TourStop>( list.size() );
         for ( TourStopDTO tourStopDTO : list ) {
             list1.add( tourStopDTOToTourStop( tourStopDTO ) );
-        }
-
-        return list1;
-    }
-
-    protected Tag tagRequestDTOToTag(TagRequestDTO tagRequestDTO) {
-        if ( tagRequestDTO == null ) {
-            return null;
-        }
-
-        Tag tag = new Tag();
-
-        tag.setId( tagRequestDTO.id() );
-        tag.setName( tagRequestDTO.name() );
-
-        return tag;
-    }
-
-    protected List<Tag> tagRequestDTOListToTagList(List<TagRequestDTO> list) {
-        if ( list == null ) {
-            return null;
-        }
-
-        List<Tag> list1 = new ArrayList<Tag>( list.size() );
-        for ( TagRequestDTO tagRequestDTO : list ) {
-            list1.add( tagRequestDTOToTag( tagRequestDTO ) );
         }
 
         return list1;

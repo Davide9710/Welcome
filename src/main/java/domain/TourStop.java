@@ -3,13 +3,16 @@ package domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
+import org.hibernate.annotations.SQLDelete;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,12 +36,14 @@ public class TourStop {
     @Embedded
     private Transport transport;
 
-    @OneToMany(mappedBy = "tourStop", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "tourStop", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Image> images = new ArrayList<>();
 
     @OneToMany(mappedBy = "tourStop", fetch = FetchType.LAZY)
     private List<Suggestion> suggestions = new ArrayList<>();
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Tour tour;
 
     public Long getId() {
         return id;

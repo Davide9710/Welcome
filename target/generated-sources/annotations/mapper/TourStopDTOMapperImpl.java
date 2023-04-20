@@ -11,7 +11,7 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-03-06T18:22:29+0100",
+    date = "2023-04-20T16:21:55+0200",
     comments = "version: 1.4.2.Final, compiler: javac, environment: Java 17.0.2 (Oracle Corporation)"
 )
 public class TourStopDTOMapperImpl implements TourStopDTOMapper {
@@ -27,6 +27,7 @@ public class TourStopDTOMapperImpl implements TourStopDTOMapper {
         tourStop.setTitle( tourStopDTO.title() );
         tourStop.setDescription( tourStopDTO.description() );
         tourStop.setCost( tourStopDTO.cost() );
+        tourStop.setDuration( tourStopDTO.duration() );
         tourStop.setImages( stringListToImageList( tourStopDTO.images() ) );
 
         return tourStop;
@@ -41,18 +42,20 @@ public class TourStopDTOMapperImpl implements TourStopDTOMapper {
         String title = null;
         String description = null;
         Double cost = null;
+        String duration = null;
         List<String> images = null;
 
         title = tourStop.getTitle();
         description = tourStop.getDescription();
         cost = tourStop.getCost();
+        duration = tourStop.getDuration();
         images = imageListToStringList( tourStop.getImages() );
 
         String name = null;
         GeographicCoordinatesDTO coordinates = null;
         TransportDTO transportDTO = null;
 
-        TourStopDTO tourStopDTO = new TourStopDTO( title, name, description, cost, coordinates, transportDTO, images );
+        TourStopDTO tourStopDTO = new TourStopDTO( title, name, description, cost, duration, coordinates, transportDTO, images );
 
         return tourStopDTO;
     }
