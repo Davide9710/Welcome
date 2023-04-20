@@ -7,7 +7,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import java.util.List;
@@ -28,8 +28,11 @@ public abstract class PlatformUser extends User{
 
     private String lastName;
 
-    @ManyToMany(fetch = FetchType.LAZY) //TODO should be paginated
-    private List<Message> messages;
+    @OneToMany(mappedBy = "receiver", fetch = FetchType.LAZY)
+    private List<Message> messagesReceived;
+
+    @OneToMany(mappedBy = "sender", fetch = FetchType.LAZY)
+    private List<Message> messagesSend;
 
     public Long getId() {
         return id;
@@ -53,13 +56,5 @@ public abstract class PlatformUser extends User{
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public List<Message> getMessages() {
-        return messages;
-    }
-
-    public void setMessages(List<Message> messages) {
-        this.messages = messages;
     }
 }

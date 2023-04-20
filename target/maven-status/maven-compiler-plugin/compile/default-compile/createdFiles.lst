@@ -37,6 +37,7 @@ mapper\CreateTourResponseDTOMapper.class
 mapper\TagDTOMapper.class
 dto\CityResponseDTO.class
 dto\TagListResponseDTO.class
+mapper\ImageDTOMapper.class
 repository\TagRepository.class
 repository\GuideRepository.class
 repository\TourRepository.class

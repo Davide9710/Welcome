@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -20,8 +21,8 @@ public class Guide extends PlatformUser{
 
     private String organizationName;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    private List<Tour> tours;
+    @OneToMany(mappedBy = "guide", fetch = FetchType.LAZY)
+    private List<Tour> tours = new ArrayList<>();
 
     @ManyToOne(fetch = FetchType.EAGER)
     private City city;

@@ -3,6 +3,7 @@ domain\User_.class
 domain\Transport_.class
 mapper\TourStopDTOMapperImpl.class
 mapper\EditTourRequestDTOMapperImpl.class
+mapper\ImageDTOMapperImpl.class
 domain\Guide_.class
 domain\Image_.class
 mapper\ThemeResponseDTOMapperImpl.class

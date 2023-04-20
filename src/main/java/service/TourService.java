@@ -41,11 +41,14 @@ public class TourService {
 
     public Tour create(Tour tour) {
         tour.getTags().stream()
-                .filter(tag -> tag.getId() != null)
-                .forEach(tag -> tag.addTour(tour));
-        tagRepository.saveAll(tour.getTags());
+                .filter(tag -> tag.getId() == null)
+                .forEach(tagRepository::save);
 
-        themeRepository.save(tour.getTheme());
+        tour.getTags().forEach(tag -> tag.addTour(tour));
+
+        if(tour.getTheme().getId() == null){
+            themeRepository.save(tour.getTheme());
+        }
 
         imageRepository.saveAll(tour.getStops().stream().flatMap(tourStop -> tourStop.getImages().stream()).toList());
 

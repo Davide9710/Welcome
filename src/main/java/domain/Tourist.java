@@ -10,9 +10,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Table(name = "tourist")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Tourist {
     @Id
@@ -20,17 +23,16 @@ public class Tourist {
     private Long id;
 
     @ManyToMany(fetch = FetchType.LAZY)
-    private List<Tour> tours;
+    private List<Tour> tours = new ArrayList<>();
 
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "review_id")
-    private List<Review> reviews;
+    @OneToMany(mappedBy = "author", fetch = FetchType.LAZY)
+    private List<Review> reviews = new ArrayList<>();
 
-    @OneToMany(fetch = FetchType.LAZY)
-    private List<Report> reports;
+    @OneToMany(mappedBy = "author", fetch = FetchType.LAZY)
+    private List<Report> reports = new ArrayList<>();
 
-    @OneToMany(fetch = FetchType.LAZY)
-    private List<Suggestion> suggestions;
+    @OneToMany(mappedBy = "author", fetch = FetchType.LAZY)
+    private List<Suggestion> suggestions = new ArrayList<>();
 
     public Long getId() {
         return id;

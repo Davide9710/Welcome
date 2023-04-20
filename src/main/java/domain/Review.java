@@ -14,6 +14,7 @@ import javax.persistence.OneToMany;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -31,12 +32,12 @@ public class Review {
 
     @Min(0)
     @Max(5)
-    private Integer stars; /*from 0 to 5 constraint*/
+    private Integer stars;
 
     private String content;
 
-    @OneToMany(fetch = FetchType.EAGER)
-    private List<Image> images;
+    @OneToMany(mappedBy = "review", fetch = FetchType.EAGER)
+    private List<Image> images = new ArrayList<>();
 
     @ManyToOne(fetch = FetchType.EAGER)
     private Tourist author;

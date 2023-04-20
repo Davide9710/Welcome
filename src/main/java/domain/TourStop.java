@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -32,11 +33,11 @@ public class TourStop {
     @Embedded
     private Transport transport;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    private List<Image> images;
+    @OneToMany(mappedBy = "tourStop", fetch = FetchType.LAZY)
+    private List<Image> images = new ArrayList<>();
 
-    @OneToMany(fetch = FetchType.LAZY)
-    private List<Suggestion> suggestions;
+    @OneToMany(mappedBy = "tourStop", fetch = FetchType.LAZY)
+    private List<Suggestion> suggestions = new ArrayList<>();
 
 
     public Long getId() {

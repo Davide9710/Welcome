@@ -19,7 +19,7 @@ public abstract class Tour_ {
 	public static volatile SingularAttribute<Tour, Double> approxCost;
 	public static volatile ListAttribute<Tour, Review> reviews;
 	public static volatile SingularAttribute<Tour, Instant> lastUpdate;
-	public static volatile SingularAttribute<Tour, Long> approxDuration;
+	public static volatile SingularAttribute<Tour, String> approxDuration;
 	public static volatile ListAttribute<Tour, Suggestion> suggestions;
 	public static volatile SingularAttribute<Tour, Theme> theme;
 	public static volatile SingularAttribute<Tour, Long> id;

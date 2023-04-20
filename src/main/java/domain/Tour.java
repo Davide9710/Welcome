@@ -15,6 +15,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -41,26 +42,29 @@ public class Tour {
     @Column(nullable = false)
     private Instant lastUpdate;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Guide guide;
+
     @ManyToMany(fetch = FetchType.LAZY)
-    private List<Tourist> tourists;
+    private List<Tourist> tourists = new ArrayList<>();
 
     @OneToMany(fetch = FetchType.LAZY)
-    private List<Review> reviews;
+    private List<Review> reviews = new ArrayList<>();
 
     @OneToMany(fetch = FetchType.LAZY)
-    private List<Report> reports;
+    private List<Report> reports = new ArrayList<>();
 
     @OneToMany(fetch = FetchType.LAZY)
-    private List<Suggestion> suggestions;
+    private List<Suggestion> suggestions = new ArrayList<>();
 
     @OneToMany(fetch = FetchType.LAZY)
-    private List<TourStop> stops;
+    private List<TourStop> stops = new ArrayList<>();
 
     @ManyToOne(fetch = FetchType.EAGER)
     private City city;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    private List<Tag> tags;
+    private List<Tag> tags = new ArrayList<>();
 
     @ManyToOne
     private Theme theme;
@@ -201,6 +205,7 @@ public class Tour {
 
     public void setTags(List<Tag> tags) {
         this.tags = tags;
+        tags.forEach(tag -> tag.addTour(this));
     }
 
     public Theme getTheme() {
@@ -209,5 +214,11 @@ public class Tour {
 
     public void setTheme(Theme theme) {
         this.theme = theme;
+        theme.getTours().add(this);
+    }
+
+    public void addTag(Tag tag){
+        this.tags.add(tag);
+        tag.addTour(this);
     }
 }

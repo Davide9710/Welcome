@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -21,8 +22,8 @@ public class Theme {
     @Column(unique = true)
     private String name;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    private List<Tour> tours;
+    @OneToMany(mappedBy = "theme", fetch = FetchType.LAZY)
+    private List<Tour> tours = new ArrayList<>();
 
     public Long getId() {
         return id;

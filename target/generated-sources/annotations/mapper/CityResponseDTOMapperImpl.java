@@ -8,7 +8,7 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-02-26T17:16:10+0100",
+    date = "2023-03-06T18:22:29+0100",
     comments = "version: 1.4.2.Final, compiler: javac, environment: Java 17.0.2 (Oracle Corporation)"
 )
 public class CityResponseDTOMapperImpl implements CityResponseDTOMapper {
@@ -32,11 +32,13 @@ public class CityResponseDTOMapperImpl implements CityResponseDTOMapper {
             return null;
         }
 
+        Long id = null;
         String name = null;
 
+        id = city.getId();
         name = city.getName();
 
-        CityResponseDTO cityResponseDTO = new CityResponseDTO( name );
+        CityResponseDTO cityResponseDTO = new CityResponseDTO( id, name );
 
         return cityResponseDTO;
     }
