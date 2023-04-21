@@ -49,4 +49,12 @@ public class Theme {
     public void setTours(List<Tour> tours) {
         this.tours = tours;
     }
+
+    @Override
+    public String toString() {
+        return "Theme{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

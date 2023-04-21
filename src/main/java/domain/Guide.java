@@ -24,7 +24,7 @@ public class Guide extends PlatformUser{
     @OneToMany(mappedBy = "guide", fetch = FetchType.LAZY)
     private List<Tour> tours = new ArrayList<>();
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     private City city;
 
     public Long getId() {

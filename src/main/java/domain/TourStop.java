@@ -1,10 +1,6 @@
 package domain;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.Data;
-import org.hibernate.annotations.SQLDelete;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -123,5 +119,19 @@ public class TourStop {
 
     public void setSuggestions(List<Suggestion> suggestions) {
         this.suggestions = suggestions;
+    }
+
+    @Override
+    public String toString() {
+        return "TourStop{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", coordinates=" + coordinates +
+                ", index=" + index +
+                ", description='" + description + '\'' +
+                ", cost=" + cost +
+                ", duration='" + duration + '\'' +
+                ", transport=" + transport +
+                '}';
     }
 }

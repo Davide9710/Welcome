@@ -3,6 +3,8 @@ package domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.CascadeType;
@@ -47,35 +49,36 @@ public class Tour {
     @Column(nullable = false)
     private Instant lastUpdate;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Guide guide;
 
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "tours")
     private Set<Tourist> tourists = new HashSet<>();
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @Fetch(value = FetchMode.JOIN)
     private List<Review> reviews = new ArrayList<>();
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "")
     private List<Report> reports = new ArrayList<>();
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private List<Suggestion> suggestions = new ArrayList<>();
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<TourStop> stops = new ArrayList<>();
+    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+    private List<TourStop> TourStops = new ArrayList<>();
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     private City city;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinTable(name = "tour_tag",
         joinColumns = @JoinColumn(name = "tour_id"),
         inverseJoinColumns = @JoinColumn(name = "tag_id")
     )
     private Set<Tag> tags = new HashSet<>();
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     private Theme theme;
 
     public enum TourStatus{
@@ -97,14 +100,6 @@ public class Tour {
                 ", tourStatus=" + tourStatus +
                 ", creationTime=" + creationTime +
                 ", lastUpdate=" + lastUpdate +
-                ", tourists=" + tourists +
-                ", reviews=" + reviews +
-                ", reports=" + reports +
-                ", suggestions=" + suggestions +
-                ", stops=" + stops +
-                ", city=" + city +
-                ", tags=" + tags +
-                ", theme=" + theme +
                 '}';
     }
 
@@ -192,12 +187,12 @@ public class Tour {
         this.suggestions = suggestions;
     }
 
-    public List<TourStop> getStops() {
-        return stops;
+    public List<TourStop> getTourStops() {
+        return TourStops;
     }
 
-    public void setStops(List<TourStop> stops) {
-        this.stops = stops;
+    public void setTourStops(List<TourStop> TourStops) {
+        this.TourStops = TourStops;
     }
 
     public City getCity() {

@@ -36,10 +36,10 @@ public class Review {
 
     private String content;
 
-    @OneToMany(mappedBy = "review", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "review", fetch = FetchType.LAZY)
     private List<Image> images = new ArrayList<>();
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Tourist author;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -99,5 +99,16 @@ public class Review {
 
     public void setAuthor(Tourist author) {
         this.author = author;
+    }
+
+    @Override
+    public String toString() {
+        return "Review{" +
+                "id=" + id +
+                ", creationTimestamp=" + creationTimestamp +
+                ", title='" + title + '\'' +
+                ", stars=" + stars +
+                ", content='" + content + '\'' +
+                '}';
     }
 }

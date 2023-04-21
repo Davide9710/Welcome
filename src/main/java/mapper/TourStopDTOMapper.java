@@ -2,7 +2,6 @@ package mapper;
 
 import domain.Image;
 import domain.TourStop;
-import dto.ImageDTO;
 import dto.TourStopDTO;
 import org.apache.commons.lang3.ArrayUtils;
 import org.mapstruct.Mapper;

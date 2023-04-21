@@ -1,9 +1,6 @@
 package service;
 
-import domain.Image;
-import domain.Tag;
 import domain.Tour;
-import domain.TourStop;
 import dto.EditTourRequestDTO;
 import exception.TourNotPresentException;
 import mapper.EditTourRequestDTOMapper;

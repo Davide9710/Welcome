@@ -7,6 +7,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -20,6 +21,10 @@ public class Report {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Tourist author;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "tour_reports")
+    private Tour tour;
 
     public Long getId() {
         return id;
@@ -43,5 +48,13 @@ public class Report {
 
     public void setAuthor(Tourist author) {
         this.author = author;
+    }
+
+    @Override
+    public String toString() {
+        return "Report{" +
+                "id=" + id +
+                ", reason='" + reason + '\'' +
+                '}';
     }
 }

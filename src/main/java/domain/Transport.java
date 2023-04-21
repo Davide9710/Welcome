@@ -60,4 +60,15 @@ public class Transport {
     public void setOtherOptions(String otherOptions) {
         this.otherOptions = otherOptions;
     }
+
+    @Override
+    public String toString() {
+        return "Transport{" +
+                "transferCost=" + transferCost +
+                ", transferDuration='" + transferDuration + '\'' +
+                ", transferType='" + transferType + '\'' +
+                ", transferDetails='" + transferDetails + '\'' +
+                ", otherOptions='" + otherOptions + '\'' +
+                '}';
+    }
 }

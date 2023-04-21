@@ -18,7 +18,7 @@ public class Suggestion {
 
     private String description;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Tourist author;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -46,5 +46,13 @@ public class Suggestion {
 
     public void setAuthor(Tourist author) {
         this.author = author;
+    }
+
+    @Override
+    public String toString() {
+        return "Suggestion{" +
+                "id=" + id +
+                ", description='" + description + '\'' +
+                '}';
     }
 }

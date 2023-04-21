@@ -21,11 +21,11 @@ public abstract class Tour_ {
 	public static volatile ListAttribute<Tour, Review> reviews;
 	public static volatile SingularAttribute<Tour, Instant> lastUpdate;
 	public static volatile SingularAttribute<Tour, String> approxDuration;
+	public static volatile ListAttribute<Tour, TourStop> TourStops;
 	public static volatile ListAttribute<Tour, Suggestion> suggestions;
 	public static volatile SingularAttribute<Tour, Theme> theme;
 	public static volatile SingularAttribute<Tour, Long> id;
 	public static volatile SetAttribute<Tour, Tourist> tourists;
-	public static volatile ListAttribute<Tour, TourStop> stops;
 	public static volatile SingularAttribute<Tour, TourStatus> tourStatus;
 	public static volatile SingularAttribute<Tour, Guide> guide;
 
@@ -38,11 +38,11 @@ public abstract class Tour_ {
 	public static final String REVIEWS = "reviews";
 	public static final String LAST_UPDATE = "lastUpdate";
 	public static final String APPROX_DURATION = "approxDuration";
+	public static final String TOUR_STOPS = "TourStops";
 	public static final String SUGGESTIONS = "suggestions";
 	public static final String THEME = "theme";
 	public static final String ID = "id";
 	public static final String TOURISTS = "tourists";
-	public static final String STOPS = "stops";
 	public static final String TOUR_STATUS = "tourStatus";
 	public static final String GUIDE = "guide";
 

@@ -46,4 +46,12 @@ public class Tag {
     public Set<Tour> getTours() {
         return tours;
     }
+
+    @Override
+    public String toString() {
+        return "Tag{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

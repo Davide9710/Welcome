@@ -89,4 +89,11 @@ public class Tourist {
         this.tours.remove(tour);
         tour.getTourists().remove(this);
     }
+
+    @Override
+    public String toString() {
+        return "Tourist{" +
+                "id=" + id +
+                '}';
+    }
 }
