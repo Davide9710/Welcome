@@ -12,8 +12,8 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-04-21T08:37:49+0200",
-    comments = "version: 1.4.2.Final, compiler: javac, environment: Java 17.0.2 (Oracle Corporation)"
+    date = "2023-04-21T17:00:02+0200",
+    comments = "version: 1.5.3.Final, compiler: javac, environment: Java 17.0.2 (Oracle Corporation)"
 )
 public class CreateTourRequestDTOMapperImpl implements CreateTourRequestDTOMapper {
 
@@ -24,17 +24,11 @@ public class CreateTourRequestDTOMapperImpl implements CreateTourRequestDTOMappe
         }
 
         String title = null;
+        CityRequestDTO cityRequestDTO = null;
         ThemeDTO theme = null;
+        List<TagRequestDTO> tags = null;
         String approxDuration = null;
         Double approxCost = null;
-
-        title = tour.getTitle();
-        theme = themeToThemeDTO( tour.getTheme() );
-        approxDuration = tour.getApproxDuration();
-        approxCost = tour.getApproxCost();
-
-        CityRequestDTO cityRequestDTO = null;
-        List<TagRequestDTO> tags = null;
         List<TourStopDTO> stops = null;
 
         CreateTourRequestDTO createTourRequestDTO = new CreateTourRequestDTO( title, cityRequestDTO, theme, tags, approxDuration, approxCost, stops );
@@ -50,26 +44,9 @@ public class CreateTourRequestDTOMapperImpl implements CreateTourRequestDTOMappe
 
         Tour tour = new Tour();
 
-        tour.setTitle( createTourRequestDTO.title() );
-        tour.setApproxCost( createTourRequestDTO.approxCost() );
-        tour.setApproxDuration( createTourRequestDTO.approxDuration() );
         tour.setTheme( themeDTOToTheme( createTourRequestDTO.theme() ) );
 
         return tour;
-    }
-
-    protected ThemeDTO themeToThemeDTO(Theme theme) {
-        if ( theme == null ) {
-            return null;
-        }
-
-        String name = null;
-
-        name = theme.getName();
-
-        ThemeDTO themeDTO = new ThemeDTO( name );
-
-        return themeDTO;
     }
 
     protected Theme themeDTOToTheme(ThemeDTO themeDTO) {

@@ -86,10 +86,6 @@ public class Tour {
         DELETED
     }
 
-    public void setTourStatus(TourStatus tourStatus) {
-        this.tourStatus = tourStatus;
-    }
-
     @Override
     public String toString() {
         return "Tour{" +
@@ -101,110 +97,6 @@ public class Tour {
                 ", creationTime=" + creationTime +
                 ", lastUpdate=" + lastUpdate +
                 '}';
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public Double getApproxCost() {
-        return approxCost;
-    }
-
-    public void setApproxCost(Double approxCost) {
-        this.approxCost = approxCost;
-    }
-
-    public String getApproxDuration() {
-        return approxDuration;
-    }
-
-    public void setApproxDuration(String approxDuration) {
-        this.approxDuration = approxDuration;
-    }
-
-    public TourStatus getTourStatus() {
-        return tourStatus;
-    }
-
-    public Instant getCreationTime() {
-        return creationTime;
-    }
-
-    public void setCreationTime(Instant creationTime) {
-        this.creationTime = creationTime;
-    }
-
-    public Instant getLastUpdate() {
-        return lastUpdate;
-    }
-
-    public void setLastUpdate(Instant lastUpdate) {
-        this.lastUpdate = lastUpdate;
-    }
-
-    public Set<Tourist> getTourists() {
-        return tourists;
-    }
-
-    public void setTourists(Set<Tourist> tourists) {
-        this.tourists = tourists;
-    }
-
-    public List<Review> getReviews() {
-        return reviews;
-    }
-
-    public void setReviews(List<Review> reviews) {
-        this.reviews = reviews;
-    }
-
-    public List<Report> getReports() {
-        return reports;
-    }
-
-    public void setReports(List<Report> reports) {
-        this.reports = reports;
-    }
-
-    public List<Suggestion> getSuggestions() {
-        return suggestions;
-    }
-
-    public void setSuggestions(List<Suggestion> suggestions) {
-        this.suggestions = suggestions;
-    }
-
-    public List<TourStop> getTourStops() {
-        return TourStops;
-    }
-
-    public void setTourStops(List<TourStop> TourStops) {
-        this.TourStops = TourStops;
-    }
-
-    public City getCity() {
-        return city;
-    }
-
-    public void setCity(City city) {
-        this.city = city;
-    }
-
-    public Theme getTheme() {
-        return theme;
     }
 
     public void setTheme(Theme theme) {

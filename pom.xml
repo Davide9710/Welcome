@@ -23,20 +23,20 @@
         <guava.version>31.1-jre</guava.version>
         <commons-lang3.version>3.8.1</commons-lang3.version>
         <asserj.version>3.22.0</asserj.version>
-        <sld-groovy.version>4.0.1</sld-groovy.version>
-        <spock-spring.version>2.2-M1-groovy-4.0</spock-spring.version>
-        <spock-core.version>2.2-M1-groovy-4.0</spock-core.version>
+        <sld-groovy.version>4.0.10</sld-groovy.version>
+        <spock-spring.version>2.3-groovy-4.0</spock-spring.version>
+        <spock-core.version>2.3-groovy-4.0</spock-core.version>
         <gmavenplus-plugin.version>1.13.1</gmavenplus-plugin.version>
-        <org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
+        <org.mapstruct.version>1.5.3.Final</org.mapstruct.version>
         <sld-feign-okhttp.version>11.8</sld-feign-okhttp.version>
         <spring-cloud.version>2021.0.2</spring-cloud.version>
         <sld-feign-jackson.version>11.8</sld-feign-jackson.version>
-        <springdoc.version>1.6.8</springdoc.version>
+        <springdoc.version>1.6.15</springdoc.version>
         <springfox.version>3.0.0</springfox.version>
         <openapi-plugin.version>5.4.0</openapi-plugin.version>
-        <jackson-databind.version>0.2.2</jackson-databind.version>
+        <jackson-databind.version>0.2.6</jackson-databind.version>
         <spring-cloud.version>2021.0.3</spring-cloud.version>
-        <surefire.version>3.0.0-M6</surefire.version>
+        <surefire.version>3.0.0</surefire.version>
         <failsafe.version>3.0.0-M6</failsafe.version>
         <jacoco.version>0.8.8</jacoco.version>
         <surefire.skip>false</surefire.skip>
@@ -46,7 +46,7 @@
         <sonar.coverage.jacoco.xmlReportPaths>target/coverage-reports/jacoco-ut/jacoco.xml
         </sonar.coverage.jacoco.xmlReportPaths>
         <org.jpamodelgen.version>5.6.11.Final</org.jpamodelgen.version>
-        <org.projectlombok.version>1.18.24</org.projectlombok.version>
+        <org.projectlombok.version>1.18.26</org.projectlombok.version>
     </properties>
 
     <dependencies>
@@ -111,7 +111,6 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>${commons-lang3.version}</version>
         </dependency>
         <dependency>
             <groupId>com.google.guava</groupId>
@@ -126,12 +125,6 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
-        <dependency>
-            <groupId>io.github.openfeign</groupId>
-            <artifactId>feign-jackson</artifactId>
-            <version>${sld-feign-jackson.version}</version>
-        </dependency>
-
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
@@ -165,15 +158,6 @@
 <!--            <groupId>org.springframework.cloud</groupId>-->
 <!--            <artifactId>spring-cloud-starter-consul-discovery</artifactId>-->
 <!--        </dependency>-->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-sleuth</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>net.logstash.logback</groupId>
-            <artifactId>logstash-logback-encoder</artifactId>
-            <version>6.6</version>
-        </dependency>
         <!--        <dependency>-->
         <!--            <groupId>org.hibernate.orm</groupId>-->
         <!--            <artifactId>hibernate-jpamodelgen</artifactId>-->
@@ -182,7 +166,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>${lombok.version}</version>
+            <version>${org.projectlombok.version}</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
@@ -225,6 +209,11 @@
                                     <groupId>org.mapstruct</groupId>
                                     <artifactId>mapstruct-processor</artifactId>
                                     <version>${org.mapstruct.version}</version>
+                                </path>
+                                <path>
+                                    <groupId>org.projectlombok</groupId>
+                                    <artifactId>lombok</artifactId>
+                                    <version>${org.projectlombok.version}</version>
                                 </path>
                             </annotationProcessorPaths>
                         </configuration>

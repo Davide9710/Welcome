@@ -1,14 +1,13 @@
 package mapper;
 
 import domain.Tour;
-import domain.Tour.TourStatus;
 import dto.TourResponseDTO;
 import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-04-21T08:37:49+0200",
-    comments = "version: 1.4.2.Final, compiler: javac, environment: Java 17.0.2 (Oracle Corporation)"
+    date = "2023-04-21T17:00:02+0200",
+    comments = "version: 1.5.3.Final, compiler: javac, environment: Java 17.0.2 (Oracle Corporation)"
 )
 public class TourResponseDTOMapperImpl implements TourResponseDTOMapper {
 
@@ -20,9 +19,6 @@ public class TourResponseDTOMapperImpl implements TourResponseDTOMapper {
 
         Tour tour = new Tour();
 
-        tour.setTourStatus( tourDTO.tourStatus() );
-        tour.setTitle( tourDTO.title() );
-
         return tour;
     }
 
@@ -33,10 +29,7 @@ public class TourResponseDTOMapperImpl implements TourResponseDTOMapper {
         }
 
         String title = null;
-        TourStatus tourStatus = null;
-
-        title = tour.getTitle();
-        tourStatus = tour.getTourStatus();
+        Tour.TourStatus tourStatus = null;
 
         TourResponseDTO tourResponseDTO = new TourResponseDTO( title, tourStatus );
 
