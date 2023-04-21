@@ -7,6 +7,7 @@ import dto.CreateTourResponseDTO;
 import dto.EditTourRequestDTO;
 import dto.EditTourResponseDTO;
 import dto.TourResponseDTO;
+import lombok.extern.slf4j.Slf4j;
 import mapper.CreateTourRequestDTOMapper;
 import mapper.CreateTourResponseDTOMapper;
 import mapper.EditTourResponseDTOMapper;
@@ -30,6 +31,7 @@ import javax.validation.Valid;
 @RequestMapping(value = "/tour",
         consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.MULTIPART_FORM_DATA_VALUE},
         produces = MediaType.APPLICATION_JSON_VALUE)
+@Slf4j
 public class TourController {
     private final TourService tourService;
 
@@ -47,6 +49,7 @@ public class TourController {
 
     @PostMapping("/create")
     public ResponseEntity<CreateTourResponseDTO> create(@RequestBody @Valid CreateTourRequestDTO createTourRequestDTO){
+        log.debug("create, request {}", createTourRequestDTO);
         Tour tour = CreateTourRequestDTOMapper.INSTANCE.convert(createTourRequestDTO);
         Tour savedTour = tourService.create(tour);
         return ResponseEntity.ok(CreateTourResponseDTOMapper.INSTANCE.convert(savedTour));

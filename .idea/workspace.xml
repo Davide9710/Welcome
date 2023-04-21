@@ -5,54 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ae4ab8eb-788c-4ce3-9c02-59964e1fe0b9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/loback.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/WelcomeDB.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/WelcomeDB.mv.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/WelcomeDB.trace.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/WelcomeDB.trace.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/Tour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/Tour.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/domain/Administrator_.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/domain/City_.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/domain/GeographicCoordinates.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/domain/GeographicCoordinates.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/domain/GeographicCoordinates_.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/domain/Guide_.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/domain/Image.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/domain/Image.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/domain/Image_.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/domain/Message_.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/domain/PlatformUser_.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/domain/Report.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/domain/Report.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/domain/Report_.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/domain/Review.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/domain/Review.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/domain/Review_.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/domain/Suggestion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/domain/Suggestion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/domain/Suggestion_.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/domain/Tag.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/domain/Tag.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/domain/Tag_.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/domain/Theme_.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/domain/Tour.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/domain/Tour.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/domain/TourStop.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/domain/TourStop.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/domain/TourStop_.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/domain/Tour_.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/domain/Tourist.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/domain/Tourist.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/domain/Tourist_.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/domain/Transport.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/domain/Transport.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/domain/Transport_.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/domain/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/domain/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/domain/User_.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/CityDTOMapperImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/CityRequestDTOMapperImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/CityResponseDTOMapperImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/CreateTourRequestDTOMapperImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/CreateTourResponseDTOMapperImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/EditTourRequestDTOMapperImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/EditTourResponseDTOMapperImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/TagDTOMapperImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/TagResponseDTOMapperImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/ThemeResponseDTOMapperImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/TourDTOMapperImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/TourResponseDTOMapperImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/TourStopDTOMapperImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/TourController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/TourController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/TourController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/TourController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/CreateTourRequestDTOMapperImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/CreateTourRequestDTOMapperImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/CreateTourResponseDTOMapperImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/CreateTourResponseDTOMapperImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/EditTourRequestDTOMapperImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/EditTourRequestDTOMapperImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/TourResponseDTOMapperImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/TourResponseDTOMapperImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/mapper/CityDTOMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/mapper/CityDTOMapperImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/mapper/CityRequestDTOMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/mapper/CityRequestDTOMapperImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/mapper/CityResponseDTOMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/mapper/CityResponseDTOMapperImpl.java" afterDir="false" />
@@ -66,7 +30,7 @@
       <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/mapper/TourDTOMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/mapper/TourDTOMapperImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/mapper/TourResponseDTOMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/mapper/TourResponseDTOMapperImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/mapper/TourStopDTOMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/mapper/TourStopDTOMapperImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/Annotation processing/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/Annotation processing/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +156,7 @@
       <workItem from="1681970651176" duration="13479000" />
       <workItem from="1682057533668" duration="8212000" />
       <workItem from="1682085680174" duration="1203000" />
-      <workItem from="1682087020990" duration="613000" />
+      <workItem from="1682087020990" duration="1879000" />
     </task>
     <servers />
   </component>
@@ -230,10 +194,20 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/controller/TourController.java</url>
-          <line>49</line>
-          <option name="timeStamp" value="13" />
+          <line>52</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/controller/TourController.java</url>
+          <line>51</line>
+          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="SpringBootApplicationConfigurationType">
+        <watch expression="((Logger)((Logger)log).parent).effectiveLevelInt" custom="ch.qos.logback.classic.Logger" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
