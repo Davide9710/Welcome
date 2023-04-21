@@ -49,7 +49,7 @@ public class TourController {
 
     @PostMapping("/create")
     public ResponseEntity<CreateTourResponseDTO> create(@RequestBody @Valid CreateTourRequestDTO createTourRequestDTO){
-        log.debug("create, request {}", createTourRequestDTO);
+        log.info("create, request {}", createTourRequestDTO);
         Tour tour = CreateTourRequestDTOMapper.INSTANCE.convert(createTourRequestDTO);
         Tour savedTour = tourService.create(tour);
         return ResponseEntity.ok(CreateTourResponseDTOMapper.INSTANCE.convert(savedTour));
