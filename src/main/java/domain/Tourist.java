@@ -17,7 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "tourist")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Tourist {
     @Id

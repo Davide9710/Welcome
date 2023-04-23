@@ -31,7 +31,8 @@ public class TourService {
 
 
     public Tour getTour(Long id) {
-        return tourRepository.findById(id).orElseThrow(TourNotPresentException::new);
+        return tourRepository.findById(id)
+                .orElseThrow(TourNotPresentException::new);
     }
 
     /*public Tour create(Tour tour) {

@@ -6,20 +6,20 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-04-21T17:14:19+0200",
+    date = "2023-04-22T12:38:23+0200",
     comments = "version: 1.5.3.Final, compiler: javac, environment: Java 17.0.2 (Oracle Corporation)"
 )
 public class CityRequestDTOMapperImpl implements CityRequestDTOMapper {
 
     @Override
-    public City convert(CityRequestDTO cityListResponseDTO) {
-        if ( cityListResponseDTO == null ) {
+    public City convert(CityRequestDTO cityRequestDTO) {
+        if ( cityRequestDTO == null ) {
             return null;
         }
 
         City city = new City();
 
-        city.setId( cityListResponseDTO.id() );
+        city.setId( cityRequestDTO.id() );
 
         return city;
     }

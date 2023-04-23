@@ -1,5 +1,6 @@
 package mapper;
 
+import domain.City;
 import domain.Tag;
 import domain.Theme;
 import domain.Tour;
@@ -16,7 +17,7 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-04-21T17:14:19+0200",
+    date = "2023-04-22T12:38:23+0200",
     comments = "version: 1.5.3.Final, compiler: javac, environment: Java 17.0.2 (Oracle Corporation)"
 )
 public class CreateTourRequestDTOMapperImpl implements CreateTourRequestDTOMapper {
@@ -28,21 +29,22 @@ public class CreateTourRequestDTOMapperImpl implements CreateTourRequestDTOMappe
         }
 
         String title = null;
+        CityRequestDTO city = null;
         ThemeDTO theme = null;
         List<TagRequestDTO> tags = null;
         String approxDuration = null;
         Double approxCost = null;
 
         title = tour.getTitle();
+        city = cityToCityRequestDTO( tour.getCity() );
         theme = themeToThemeDTO( tour.getTheme() );
         tags = tagSetToTagRequestDTOList( tour.getTags() );
         approxDuration = tour.getApproxDuration();
         approxCost = tour.getApproxCost();
 
-        CityRequestDTO cityRequestDTO = null;
         List<TourStopDTO> stops = null;
 
-        CreateTourRequestDTO createTourRequestDTO = new CreateTourRequestDTO( title, cityRequestDTO, theme, tags, approxDuration, approxCost, stops );
+        CreateTourRequestDTO createTourRequestDTO = new CreateTourRequestDTO( title, city, theme, tags, approxDuration, approxCost, stops );
 
         return createTourRequestDTO;
     }
@@ -59,9 +61,24 @@ public class CreateTourRequestDTOMapperImpl implements CreateTourRequestDTOMappe
         tour.setTitle( createTourRequestDTO.title() );
         tour.setApproxCost( createTourRequestDTO.approxCost() );
         tour.setApproxDuration( createTourRequestDTO.approxDuration() );
+        tour.setCity( cityRequestDTOToCity( createTourRequestDTO.city() ) );
         tour.setTags( tagRequestDTOListToTagSet( createTourRequestDTO.tags() ) );
 
         return tour;
+    }
+
+    protected CityRequestDTO cityToCityRequestDTO(City city) {
+        if ( city == null ) {
+            return null;
+        }
+
+        Long id = null;
+
+        id = city.getId();
+
+        CityRequestDTO cityRequestDTO = new CityRequestDTO( id );
+
+        return cityRequestDTO;
     }
 
     protected ThemeDTO themeToThemeDTO(Theme theme) {
@@ -117,6 +134,18 @@ public class CreateTourRequestDTOMapperImpl implements CreateTourRequestDTOMappe
         theme.setName( themeDTO.name() );
 
         return theme;
+    }
+
+    protected City cityRequestDTOToCity(CityRequestDTO cityRequestDTO) {
+        if ( cityRequestDTO == null ) {
+            return null;
+        }
+
+        City city = new City();
+
+        city.setId( cityRequestDTO.id() );
+
+        return city;
     }
 
     protected Tag tagRequestDTOToTag(TagRequestDTO tagRequestDTO) {

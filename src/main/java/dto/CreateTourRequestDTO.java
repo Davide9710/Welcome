@@ -4,7 +4,7 @@ import javax.validation.constraints.PositiveOrZero;
 import java.util.List;
 
 public record CreateTourRequestDTO(String title,
-                                   CityRequestDTO cityRequestDTO,
+                                   CityRequestDTO city,
                                    ThemeDTO theme,
                                    List<TagRequestDTO> tags,
                                    String approxDuration,

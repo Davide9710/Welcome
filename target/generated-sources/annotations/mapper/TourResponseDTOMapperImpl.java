@@ -1,12 +1,14 @@
 package mapper;
 
+import domain.City;
 import domain.Tour;
+import dto.CityResponseDTO;
 import dto.TourResponseDTO;
 import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-04-21T17:14:19+0200",
+    date = "2023-04-22T12:38:23+0200",
     comments = "version: 1.5.3.Final, compiler: javac, environment: Java 17.0.2 (Oracle Corporation)"
 )
 public class TourResponseDTOMapperImpl implements TourResponseDTOMapper {
@@ -21,6 +23,7 @@ public class TourResponseDTOMapperImpl implements TourResponseDTOMapper {
 
         tour.setTitle( tourDTO.title() );
         tour.setTourStatus( tourDTO.tourStatus() );
+        tour.setCity( cityResponseDTOToCity( tourDTO.city() ) );
 
         return tour;
     }
@@ -33,12 +36,43 @@ public class TourResponseDTOMapperImpl implements TourResponseDTOMapper {
 
         String title = null;
         Tour.TourStatus tourStatus = null;
+        CityResponseDTO city = null;
 
         title = tour.getTitle();
         tourStatus = tour.getTourStatus();
+        city = cityToCityResponseDTO( tour.getCity() );
 
-        TourResponseDTO tourResponseDTO = new TourResponseDTO( title, tourStatus );
+        TourResponseDTO tourResponseDTO = new TourResponseDTO( title, tourStatus, city );
 
         return tourResponseDTO;
+    }
+
+    protected City cityResponseDTOToCity(CityResponseDTO cityResponseDTO) {
+        if ( cityResponseDTO == null ) {
+            return null;
+        }
+
+        City city = new City();
+
+        city.setId( cityResponseDTO.id() );
+        city.setName( cityResponseDTO.name() );
+
+        return city;
+    }
+
+    protected CityResponseDTO cityToCityResponseDTO(City city) {
+        if ( city == null ) {
+            return null;
+        }
+
+        Long id = null;
+        String name = null;
+
+        id = city.getId();
+        name = city.getName();
+
+        CityResponseDTO cityResponseDTO = new CityResponseDTO( id, name );
+
+        return cityResponseDTO;
     }
 }

@@ -42,27 +42,33 @@ public class TourController {
 
     @GetMapping("/{id}")
     public TourResponseDTO get(@PathVariable("id") Long id){
+        log.info("get tour, id {}", id);
         Tour tour = tourService.getTour(id);
-        System.out.println("DEBUG: tour: " + tour.toString());
+        log.info("tour retreived {}", tour);
         return TourResponseDTOMapper.INSTANCE.convert(tour);
     }
 
     @PostMapping("/create")
     public ResponseEntity<CreateTourResponseDTO> create(@RequestBody @Valid CreateTourRequestDTO createTourRequestDTO){
-        log.info("create, request {}", createTourRequestDTO);
+        log.info("create tour, request {}", createTourRequestDTO);
         Tour tour = CreateTourRequestDTOMapper.INSTANCE.convert(createTourRequestDTO);
+        log.info("request converted into tour {}", tour);
         Tour savedTour = tourService.create(tour);
+        log.info("tour create successfully, saved tour {}", savedTour);
         return ResponseEntity.ok(CreateTourResponseDTOMapper.INSTANCE.convert(savedTour));
     }
 
     @PatchMapping("/{id}")
     public EditTourResponseDTO edit(@PathVariable("id") Long id, @RequestBody EditTourRequestDTO editTourRequestDTO){
+        log.info("edit tour, id {}, edit request {}", id, editTourRequestDTO);
         Tour editedTour = tourService.edit(id, editTourRequestDTO);
+        log.info("edited tour {}", editedTour);
         return EditTourResponseDTOMapper.INSTANCE.convert(editedTour);
     }
 
     @DeleteMapping("/{id}")
     void delete(@PathVariable("id") Long id){
+        log.info("delete tour, id {}", id);
         tourService.delete(id);
     }
 }

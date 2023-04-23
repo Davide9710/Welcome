@@ -9,7 +9,7 @@ import org.mapstruct.factory.Mappers;
 public interface CityRequestDTOMapper {
     CityRequestDTOMapper INSTANCE = Mappers.getMapper(CityRequestDTOMapper.class);
 
-    City convert(CityRequestDTO cityListResponseDTO);
+    City convert(CityRequestDTO cityRequestDTO);
 
     CityRequestDTO convert(City city);
 
