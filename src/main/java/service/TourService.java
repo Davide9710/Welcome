@@ -2,15 +2,21 @@ package service;
 
 import domain.Tour;
 import dto.EditTourRequestDTO;
+import dto.SearchTourRequestDTO;
 import exception.TourNotPresentException;
 import mapper.EditTourRequestDTOMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import repository.ImageRepository;
 import repository.TagRepository;
 import repository.ThemeRepository;
 import repository.TourRepository;
 import repository.TourStopRepository;
+import specification.SearchTourSpecification;
+
+import java.util.List;
 
 @Service
 public class TourService {
@@ -69,6 +75,13 @@ public class TourService {
         Tour byId = tourRepository.findById(id).orElseThrow(TourNotPresentException::new);
         byId.setStatus(Tour.TourStatus.DELETED);
         tourRepository.save(byId);
+    }
+
+    public List<Tour> search(SearchTourRequestDTO searchTourRequestDTO) {
+        SearchTourSpecification specification = new SearchTourSpecification(searchTourRequestDTO);
+        //TODO qui il paging come lo gestiamo?
+        Page<Tour> tours = tourRepository.findAll(specification, Pageable.ofSize(10));
+        return tours.getContent();
     }
 }
 

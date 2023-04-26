@@ -6,6 +6,8 @@ import dto.CreateTourRequestDTO;
 import dto.CreateTourResponseDTO;
 import dto.EditTourRequestDTO;
 import dto.EditTourResponseDTO;
+import dto.SearchTourRequestDTO;
+import dto.SearchTourResponseDTO;
 import dto.TourResponseDTO;
 import lombok.extern.slf4j.Slf4j;
 import mapper.CreateTourRequestDTOMapper;
@@ -26,6 +28,7 @@ import org.springframework.web.bind.annotation.RestController;
 import service.TourService;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/tour",
@@ -70,5 +73,14 @@ public class TourController {
     void delete(@PathVariable("id") Long id){
         log.info("delete tour, id {}", id);
         tourService.delete(id);
+    }
+
+    @PostMapping("/search")
+    public SearchTourResponseDTO search(@RequestBody SearchTourRequestDTO searchTourRequestDTO){
+        log.info("search tour, request {}", searchTourRequestDTO);
+        List<Tour> tours = tourService.search(searchTourRequestDTO);
+        log.info("found tours {}", tours);
+        List<TourResponseDTO> tourDTOList = TourResponseDTOMapper.INSTANCE.convert(tours);
+        return new SearchTourResponseDTO(tourDTOList);
     }
 }
