@@ -3,8 +3,6 @@ package domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.CascadeType;
@@ -39,7 +37,7 @@ public class Tour {
 
     private String approxDuration;
 
-    private TourStatus tourStatus = TourStatus.ACTIVE;
+    private TourStatus status = TourStatus.ACTIVE;
 
     @CreationTimestamp
     @Column(updatable = false, nullable = false)
@@ -55,17 +53,16 @@ public class Tour {
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "tours")
     private Set<Tourist> tourists = new HashSet<>();
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-    @Fetch(value = FetchMode.JOIN)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "tour")
     private List<Review> reviews = new ArrayList<>();
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "tour")
     private List<Report> reports = new ArrayList<>();
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "tour")
     private List<Suggestion> suggestions = new ArrayList<>();
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, mappedBy = "tour")
     private List<TourStop> TourStops = new ArrayList<>();
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -93,7 +90,7 @@ public class Tour {
                 ", title='" + title + '\'' +
                 ", approxCost=" + approxCost +
                 ", approxDuration=" + approxDuration +
-                ", tourStatus=" + tourStatus +
+                ", tourStatus=" + status +
                 ", creationTime=" + creationTime +
                 ", lastUpdate=" + lastUpdate +
                 '}';

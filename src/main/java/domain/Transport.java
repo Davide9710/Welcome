@@ -4,71 +4,71 @@ import javax.persistence.Embeddable;
 
 @Embeddable
 public class Transport {
-    private Double transferCost;
-    private String transferDuration;
-    private String transferType;
-    private String transferDetails;
-    private String otherOptions;
+    private Double transportCost;
+    private String transportDuration;
+    private String transportType;
+    private String transportDetails;
+    private String transportOtherOptions;
 
     public Transport() {
     }
 
-    public Transport(Double transferCost, String transferDuration, String transferType, String transferDetails, String otherOptions) {
-        this.transferCost = transferCost;
-        this.transferDuration = transferDuration;
-        this.transferType = transferType;
-        this.transferDetails = transferDetails;
-        this.otherOptions = otherOptions;
+    public Transport(Double transportCost, String transportDuration, String transportType, String transportDetails, String transportOtherOptions) {
+        this.transportCost = transportCost;
+        this.transportDuration = transportDuration;
+        this.transportType = transportType;
+        this.transportDetails = transportDetails;
+        this.transportOtherOptions = transportOtherOptions;
     }
 
-    public Double getTransferCost() {
-        return transferCost;
+    public Double getTransportCost() {
+        return transportCost;
     }
 
-    public void setTransferCost(Double transferCost) {
-        this.transferCost = transferCost;
+    public void setTransportCost(Double transferCost) {
+        this.transportCost = transferCost;
     }
 
-    public String getTransferDuration() {
-        return transferDuration;
+    public String getTransportDuration() {
+        return transportDuration;
     }
 
-    public void setTransferDuration(String transferDuration) {
-        this.transferDuration = transferDuration;
+    public void setTransportDuration(String transferDuration) {
+        this.transportDuration = transferDuration;
     }
 
-    public String getTransferType() {
-        return transferType;
+    public String getTransportType() {
+        return transportType;
     }
 
-    public void setTransferType(String transferType) {
-        this.transferType = transferType;
+    public void setTransportType(String transferType) {
+        this.transportType = transferType;
     }
 
-    public String getTransferDetails() {
-        return transferDetails;
+    public String getTransportDetails() {
+        return transportDetails;
     }
 
-    public void setTransferDetails(String transferDetails) {
-        this.transferDetails = transferDetails;
+    public void setTransportDetails(String transferDetails) {
+        this.transportDetails = transferDetails;
     }
 
-    public String getOtherOptions() {
-        return otherOptions;
+    public String getTransportOtherOptions() {
+        return transportOtherOptions;
     }
 
-    public void setOtherOptions(String otherOptions) {
-        this.otherOptions = otherOptions;
+    public void setTransportOtherOptions(String otherOptions) {
+        this.transportOtherOptions = otherOptions;
     }
 
     @Override
     public String toString() {
         return "Transport{" +
-                "transferCost=" + transferCost +
-                ", transferDuration='" + transferDuration + '\'' +
-                ", transferType='" + transferType + '\'' +
-                ", transferDetails='" + transferDetails + '\'' +
-                ", otherOptions='" + otherOptions + '\'' +
+                "transferCost=" + transportCost +
+                ", transferDuration='" + transportDuration + '\'' +
+                ", transferType='" + transportType + '\'' +
+                ", transferDetails='" + transportDetails + '\'' +
+                ", otherOptions='" + transportOtherOptions + '\'' +
                 '}';
     }
 }

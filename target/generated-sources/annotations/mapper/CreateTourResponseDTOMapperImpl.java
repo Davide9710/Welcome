@@ -17,7 +17,7 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-04-22T12:38:23+0200",
+    date = "2023-04-25T09:27:03+0200",
     comments = "version: 1.5.3.Final, compiler: javac, environment: Java 17.0.2 (Oracle Corporation)"
 )
 public class CreateTourResponseDTOMapperImpl implements CreateTourResponseDTOMapper {
@@ -31,7 +31,6 @@ public class CreateTourResponseDTOMapperImpl implements CreateTourResponseDTOMap
         String title = null;
         Double approxCost = null;
         String approxDuration = null;
-        Tour.TourStatus tourStatus = null;
         Instant creationTime = null;
         Instant lastUpdate = null;
         CityDTO city = null;
@@ -41,12 +40,13 @@ public class CreateTourResponseDTOMapperImpl implements CreateTourResponseDTOMap
         title = tour.getTitle();
         approxCost = tour.getApproxCost();
         approxDuration = tour.getApproxDuration();
-        tourStatus = tour.getTourStatus();
         creationTime = tour.getCreationTime();
         lastUpdate = tour.getLastUpdate();
         city = cityToCityDTO( tour.getCity() );
         tags = tagSetToTagResponseDTOList( tour.getTags() );
         theme = themeToThemeDTO( tour.getTheme() );
+
+        Tour.TourStatus tourStatus = null;
 
         CreateTourResponseDTO createTourResponseDTO = new CreateTourResponseDTO( title, approxCost, approxDuration, tourStatus, creationTime, lastUpdate, city, tags, theme );
 
@@ -65,7 +65,6 @@ public class CreateTourResponseDTOMapperImpl implements CreateTourResponseDTOMap
         tour.setTitle( createTourResponseDTO.title() );
         tour.setApproxCost( createTourResponseDTO.approxCost() );
         tour.setApproxDuration( createTourResponseDTO.approxDuration() );
-        tour.setTourStatus( createTourResponseDTO.tourStatus() );
         tour.setCreationTime( createTourResponseDTO.creationTime() );
         tour.setLastUpdate( createTourResponseDTO.lastUpdate() );
         tour.setCity( cityDTOToCity( createTourResponseDTO.city() ) );

@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface TourRepository extends JpaRepository<Tour, Long> {
 
-    List<Tour> findByIdAndTourStatus(Long id, Tour.TourStatus active);
+    List<Tour> findByIdAndStatus(Long id, Tour.TourStatus status);
 }

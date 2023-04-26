@@ -8,24 +8,40 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/WelcomeDB.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/WelcomeDB.mv.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/WelcomeDB.trace.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/WelcomeDB.trace.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/TourController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/TourController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/City.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/Suggestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/Suggestion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/domain/Tour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/Tour.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/Tourist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/Tourist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dto/CreateTourRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/CreateTourRequestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/Transport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/Transport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dto/CreateTourResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/CreateTourResponseDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dto/TagListResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/TagListResponseDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dto/ThemeListResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/ThemeListResponseDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dto/TourResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/TourResponseDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mapper/CityRequestDTOMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mapper/CityRequestDTOMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dto/TourStopDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/TourStopDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dto/TransportDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/TransportDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/TourRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/TourRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/TourService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/TourService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/TourController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/TourController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/domain/City.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/domain/City.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/domain/Suggestion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/domain/Suggestion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/domain/Suggestion_.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/domain/Suggestion_.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/domain/Tour$TourStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/domain/Tour$TourStatus.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/domain/Tour.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/domain/Tour.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/domain/Tourist.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/domain/Tourist.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dto/CreateTourRequestDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dto/CreateTourRequestDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/domain/Tour_.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/domain/Tour_.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/domain/Transport.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/domain/Transport.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/domain/Transport_.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/domain/Transport_.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dto/CreateTourResponseDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dto/CreateTourResponseDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dto/TagListResponseDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dto/TagListResponseDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dto/ThemeListResponseDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dto/ThemeListResponseDTO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/dto/TourResponseDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dto/TourResponseDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/CityRequestDTOMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/CityRequestDTOMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/CityRequestDTOMapperImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/CityRequestDTOMapperImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/CreateTourRequestDTOMapperImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/CreateTourRequestDTOMapperImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dto/TourStopDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dto/TourStopDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dto/TransportDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dto/TransportDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/CreateTourResponseDTOMapperImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/CreateTourResponseDTOMapperImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/mapper/TourResponseDTOMapperImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/TourResponseDTOMapperImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/TourStopDTOMapperImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/TourStopDTOMapperImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/repository/TourRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repository/TourRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/service/TourService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/TourService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/domain/Suggestion_.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/domain/Suggestion_.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/domain/Tour_.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/domain/Tour_.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/domain/Transport_.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/domain/Transport_.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/mapper/CityDTOMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/mapper/CityDTOMapperImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/mapper/CityRequestDTOMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/mapper/CityRequestDTOMapperImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/mapper/CityResponseDTOMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/mapper/CityResponseDTOMapperImpl.java" afterDir="false" />
@@ -104,7 +120,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Cucumber" />
   </component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
@@ -165,7 +181,8 @@
       <workItem from="1682057533668" duration="8212000" />
       <workItem from="1682085680174" duration="1203000" />
       <workItem from="1682087020990" duration="3200000" />
-      <workItem from="1682156770852" duration="2275000" />
+      <workItem from="1682156770852" duration="3428000" />
+      <workItem from="1682405496350" duration="3523000" />
     </task>
     <servers />
   </component>
@@ -197,46 +214,6 @@
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/controller/TourController.java</url>
-          <line>55</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/controller/TourController.java</url>
-          <line>56</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/controller/TourController.java</url>
-          <line>44</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/controller/TourController.java</url>
-          <line>62</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/controller/TourController.java</url>
-          <line>70</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/service/TourService.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/service/TourService.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/target/classes/mapper/CreateTourResponseDTOMapperImpl.class</url>
-          <line>66</line>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/target/generated-sources/annotations/mapper/CityRequestDTOMapperImpl.java</url>
           <line>19</line>
           <option name="timeStamp" value="28" />
@@ -248,8 +225,33 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/controller/TourController.java</url>
-          <line>53</line>
+          <line>55</line>
           <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/controller/TourController.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/service/TourService.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/service/TourService.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/service/TourService.java</url>
+          <line>58</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/controller/TourController.java</url>
+          <line>56</line>
+          <option name="timeStamp" value="37" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -8,7 +8,7 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-04-22T12:38:23+0200",
+    date = "2023-04-25T09:27:03+0200",
     comments = "version: 1.5.3.Final, compiler: javac, environment: Java 17.0.2 (Oracle Corporation)"
 )
 public class TourResponseDTOMapperImpl implements TourResponseDTOMapper {
@@ -22,7 +22,7 @@ public class TourResponseDTOMapperImpl implements TourResponseDTOMapper {
         Tour tour = new Tour();
 
         tour.setTitle( tourDTO.title() );
-        tour.setTourStatus( tourDTO.tourStatus() );
+        tour.setStatus( tourDTO.status() );
         tour.setCity( cityResponseDTOToCity( tourDTO.city() ) );
 
         return tour;
@@ -35,14 +35,14 @@ public class TourResponseDTOMapperImpl implements TourResponseDTOMapper {
         }
 
         String title = null;
-        Tour.TourStatus tourStatus = null;
+        Tour.TourStatus status = null;
         CityResponseDTO city = null;
 
         title = tour.getTitle();
-        tourStatus = tour.getTourStatus();
+        status = tour.getStatus();
         city = cityToCityResponseDTO( tour.getCity() );
 
-        TourResponseDTO tourResponseDTO = new TourResponseDTO( title, tourStatus, city );
+        TourResponseDTO tourResponseDTO = new TourResponseDTO( title, status, city );
 
         return tourResponseDTO;
     }

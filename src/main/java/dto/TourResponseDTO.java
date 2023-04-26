@@ -3,7 +3,7 @@ package dto;
 import domain.Tour;
 
 public record TourResponseDTO(String title,
-                              Tour.TourStatus tourStatus,
+                              Tour.TourStatus status,
                               CityResponseDTO city) {
 
 }

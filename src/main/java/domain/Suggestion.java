@@ -24,6 +24,9 @@ public class Suggestion {
     @ManyToOne(fetch = FetchType.LAZY)
     private TourStop tourStop;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Tour tour;
+
     public Long getId() {
         return id;
     }

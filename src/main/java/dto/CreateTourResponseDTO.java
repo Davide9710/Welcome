@@ -8,7 +8,7 @@ import java.util.List;
 public record CreateTourResponseDTO(String title,
                                     Double approxCost,
                                     String approxDuration,
-                                    Tour.TourStatus tourStatus,
+                                    Tour.TourStatus status,
                                     Instant creationTime,
                                     Instant lastUpdate,
                                     CityDTO city,

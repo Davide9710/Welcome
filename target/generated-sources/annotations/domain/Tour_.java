@@ -26,8 +26,8 @@ public abstract class Tour_ {
 	public static volatile SingularAttribute<Tour, Theme> theme;
 	public static volatile SingularAttribute<Tour, Long> id;
 	public static volatile SetAttribute<Tour, Tourist> tourists;
-	public static volatile SingularAttribute<Tour, TourStatus> tourStatus;
 	public static volatile SingularAttribute<Tour, Guide> guide;
+	public static volatile SingularAttribute<Tour, TourStatus> status;
 
 	public static final String REPORTS = "reports";
 	public static final String CREATION_TIME = "creationTime";
@@ -43,8 +43,8 @@ public abstract class Tour_ {
 	public static final String THEME = "theme";
 	public static final String ID = "id";
 	public static final String TOURISTS = "tourists";
-	public static final String TOUR_STATUS = "tourStatus";
 	public static final String GUIDE = "guide";
+	public static final String STATUS = "status";
 
 }
 

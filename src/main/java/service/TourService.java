@@ -67,7 +67,7 @@ public class TourService {
 
     public void delete(Long id) {
         Tour byId = tourRepository.findById(id).orElseThrow(TourNotPresentException::new);
-        byId.setTourStatus(Tour.TourStatus.DELETED);
+        byId.setStatus(Tour.TourStatus.DELETED);
         tourRepository.save(byId);
     }
 }

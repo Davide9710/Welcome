@@ -8,17 +8,17 @@ import javax.persistence.metamodel.StaticMetamodel;
 @StaticMetamodel(Transport.class)
 public abstract class Transport_ {
 
-	public static volatile SingularAttribute<Transport, String> transferDetails;
-	public static volatile SingularAttribute<Transport, String> transferType;
-	public static volatile SingularAttribute<Transport, Double> transferCost;
-	public static volatile SingularAttribute<Transport, String> otherOptions;
-	public static volatile SingularAttribute<Transport, String> transferDuration;
+	public static volatile SingularAttribute<Transport, String> transportDetails;
+	public static volatile SingularAttribute<Transport, String> transportOtherOptions;
+	public static volatile SingularAttribute<Transport, Double> transportCost;
+	public static volatile SingularAttribute<Transport, String> transportType;
+	public static volatile SingularAttribute<Transport, String> transportDuration;
 
-	public static final String TRANSFER_DETAILS = "transferDetails";
-	public static final String TRANSFER_TYPE = "transferType";
-	public static final String TRANSFER_COST = "transferCost";
-	public static final String OTHER_OPTIONS = "otherOptions";
-	public static final String TRANSFER_DURATION = "transferDuration";
+	public static final String TRANSPORT_DETAILS = "transportDetails";
+	public static final String TRANSPORT_OTHER_OPTIONS = "transportOtherOptions";
+	public static final String TRANSPORT_COST = "transportCost";
+	public static final String TRANSPORT_TYPE = "transportType";
+	public static final String TRANSPORT_DURATION = "transportDuration";
 
 }
 

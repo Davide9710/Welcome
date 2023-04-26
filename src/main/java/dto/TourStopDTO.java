@@ -10,6 +10,6 @@ public record TourStopDTO(String title,
                           @PositiveOrZero(message = "TourStop cost must be greater than zero") Double cost,
                           String duration,
                           GeographicCoordinatesDTO coordinates,
-                          TransportDTO transportDTO,
+                          TransportDTO transport,
                           List<String> images) {
 }
