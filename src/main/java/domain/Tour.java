@@ -79,7 +79,7 @@ public class Tour {
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     private Theme theme;
 
-    @Formula("SELECT AVG(ALL r.stars) FROM reviews r")
+    @Formula("SELECT AVG(r.stars) FROM Review r WHERE r.tour_id = id")
     private Double rating;
 
     public enum TourStatus{

@@ -5,30 +5,28 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.web.client.TestRestTemplate
 import org.springframework.http.HttpEntity
-import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpMethod
 import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.context.TestPropertySource
+import org.springframework.test.context.jdbc.Sql
 import spock.lang.Specification
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = WelcomeApplication)
-@TestPropertySource(locations = ["classpath:application-test.properties"],
-        properties = "spring.sql.init.data-locations=classpath:search.sql"
-)
-@ActiveProfiles("local")
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = WelcomeApplication.class)
+@TestPropertySource(locations = ["classpath:application-test.properties"])
+@ActiveProfiles("test")
+@Sql("/data-test.sql")
 class TourControllerTestIT extends Specification {
 
     @Autowired
     TestRestTemplate testRestTemplate
 
-    def "search Tour API"(){
+    def "search Tour API"() {
         given:
 
         when:
-        HttpHeaders headers = new HttpHeaders()
         SearchTourRequestDTO request = new SearchTourRequestDTO(cityId, duration, themeName, tagNames)
 
-        HttpEntity<String> httpEntity = new HttpEntity<>(request, headers)
+        HttpEntity<String> httpEntity = new HttpEntity<>(request)
 
 
         def response =
@@ -39,10 +37,12 @@ class TourControllerTestIT extends Specification {
                         SearchTourResponseDTO)
 
         then:
+        response.getStatusCode().value() == expectedStatusCode
 
         where:
-        cityId | duration | themeName | tagNames || expectedStatusCode
-        1L | 2
+        cityId | duration | themeName | tagNames    || expectedStatusCode
+        1L     | 120      | "theme"   | ["tagName"] || 200
+        null   | null     | null      | null        || 200
 
     }
 }
