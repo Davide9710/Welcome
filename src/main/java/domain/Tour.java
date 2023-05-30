@@ -3,6 +3,7 @@ package domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.Formula;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.CascadeType;
@@ -35,7 +36,7 @@ public class Tour {
 
     private Double approxCost;
 
-    private String approxDuration;
+    private Integer approxDuration;
 
     private TourStatus status = TourStatus.ACTIVE;
 
@@ -77,6 +78,9 @@ public class Tour {
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     private Theme theme;
+
+    @Formula("SELECT AVG(ALL r.stars) FROM reviews r")
+    private Double rating;
 
     public enum TourStatus{
         ACTIVE,

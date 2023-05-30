@@ -32,6 +32,7 @@ public class Review {
 
     @Min(0)
     @Max(5)
+    @Column(name = "stars")
     private Integer stars;
 
     private String content;

@@ -7,7 +7,9 @@ import exception.TourNotPresentException;
 import mapper.EditTourRequestDTOMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import repository.ImageRepository;
 import repository.TagRepository;
@@ -80,7 +82,9 @@ public class TourService {
     public List<Tour> search(SearchTourRequestDTO searchTourRequestDTO) {
         SearchTourSpecification specification = new SearchTourSpecification(searchTourRequestDTO);
         //TODO qui il paging come lo gestiamo?
-        Page<Tour> tours = tourRepository.findAll(specification, Pageable.ofSize(10));
+        //TODO ordina i risultati
+        PageRequest of = PageRequest.of(1, 10, Sort.by(""));
+        Page<Tour> tours = tourRepository.findAll(specification, of);
         return tours.getContent();
     }
 }

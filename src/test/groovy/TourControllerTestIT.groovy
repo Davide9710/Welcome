@@ -12,8 +12,8 @@ import org.springframework.test.context.TestPropertySource
 import spock.lang.Specification
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = WelcomeApplication)
-@TestPropertySource(locations = ["classpath:application-test.properties"]
-/*, properties = "spring.sql.init.data-locations=classpath:confirm.sql"*/
+@TestPropertySource(locations = ["classpath:application-test.properties"],
+        properties = "spring.sql.init.data-locations=classpath:search.sql"
 )
 @ActiveProfiles("local")
 class TourControllerTestIT extends Specification {
@@ -42,7 +42,7 @@ class TourControllerTestIT extends Specification {
 
         where:
         cityId | duration | themeName | tagNames || expectedStatusCode
-
+        1L | 2
 
     }
 }
