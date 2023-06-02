@@ -2,7 +2,6 @@ package mapper;
 
 
 import domain.Theme;
-import dto.ThemeListResponseDTO;
 import dto.ThemeResponseDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;

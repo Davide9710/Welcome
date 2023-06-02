@@ -1,7 +1,7 @@
 package controller;
 
 import domain.Theme;
-import dto.ThemeListResponseDTO;
+import dto.GetAllThemeResponseDTO;
 import dto.ThemeResponseDTO;
 import mapper.ThemeResponseDTOMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +24,8 @@ public class ThemeController {
     }
 
     @GetMapping
-    public List<ThemeResponseDTO> getAll(){
+    public GetAllThemeResponseDTO getAll(){
         List<Theme> themes = themeService.getAll();
-        return ThemeResponseDTOMapper.INSTANCE.convert(themes);
+        return new GetAllThemeResponseDTO(ThemeResponseDTOMapper.INSTANCE.convert(themes));
     }
 }
