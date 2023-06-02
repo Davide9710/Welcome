@@ -48,4 +48,14 @@ class TourControllerTestIT extends Specification {
         null   | null     | "arte culinaria" | null     || 200                | 1
 
     }
+
+    def "delete Tout API"() {
+        given:
+
+        when:
+        testRestTemplate.delete("/tour/" + 1)
+
+        then:
+        1 == 1
+    }
 }

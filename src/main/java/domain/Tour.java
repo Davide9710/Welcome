@@ -2,9 +2,12 @@ package domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.Formula;
+import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -19,6 +22,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToMany;
 import java.time.Instant;
 import java.util.ArrayList;
@@ -29,7 +33,10 @@ import java.util.Set;
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data
-public class Tour {
+//@EqualsAndHashCode(callSuper = true)
+@SQLDelete(sql = "UPDATE tour SET status = 'DELETED' WHERE id = ?")
+@Where(clause = "status <> 'DELETED'")
+public class Tour /*extends SoftDeletable*/{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

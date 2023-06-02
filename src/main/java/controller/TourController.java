@@ -70,9 +70,10 @@ public class TourController {
     }
 
     @DeleteMapping("/{id}")
-    void delete(@PathVariable("id") Long id){
+    public ResponseEntity<?> delete(@PathVariable("id") Long id){
         log.info("delete tour, id {}", id);
         tourService.delete(id);
+        return ResponseEntity.ok().build();
     }
 
     @PostMapping("/search")

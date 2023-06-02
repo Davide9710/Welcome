@@ -8,14 +8,9 @@ import mapper.EditTourRequestDTOMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import repository.ImageRepository;
-import repository.TagRepository;
-import repository.ThemeRepository;
 import repository.TourRepository;
-import repository.TourStopRepository;
 import specification.SearchTourSpecification;
 
 import java.util.List;
@@ -23,18 +18,10 @@ import java.util.List;
 @Service
 public class TourService {
     private final TourRepository tourRepository;
-    private final TagRepository tagRepository;
-    private final ThemeRepository themeRepository;
-    private final TourStopRepository tourStopRepository;
-    private final ImageRepository imageRepository;
 
     @Autowired
-    public TourService(TourRepository tourRepository, TagRepository tagRepository, ThemeRepository themeRepository, TourStopRepository tourStopRepository, ImageRepository imageRepository) {
+    public TourService(TourRepository tourRepository) {
         this.tourRepository = tourRepository;
-        this.tagRepository = tagRepository;
-        this.themeRepository = themeRepository;
-        this.tourStopRepository = tourStopRepository;
-        this.imageRepository = imageRepository;
     }
 
 
@@ -74,16 +61,14 @@ public class TourService {
     }
 
     public void delete(Long id) {
-        Tour byId = tourRepository.findById(id).orElseThrow(TourNotPresentException::new);
-        byId.setStatus(Tour.TourStatus.DELETED);
-        tourRepository.save(byId);
+        tourRepository.deleteById(id);
     }
 
     public List<Tour> search(SearchTourRequestDTO searchTourRequestDTO) {
         SearchTourSpecification specification = new SearchTourSpecification(searchTourRequestDTO);
         //TODO qui il paging come lo gestiamo?
         //TODO ordina i risultati
-        PageRequest of = PageRequest.of(0, 10);
+        PageRequest of = PageRequest.of(0, 10, Sort.by("rating").descending().and(Sort.by("reviews")));
         Page<Tour> tours = tourRepository.findAll(specification, of);
         return tours.getContent();
     }
