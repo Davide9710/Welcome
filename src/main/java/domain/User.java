@@ -16,10 +16,8 @@ public abstract class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
 
-    @Column(unique = true, name = "username")
     protected String username;
 
-    @Column(name = "password")
     protected String password;
 
     public Long getId() {

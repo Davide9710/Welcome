@@ -3,23 +3,29 @@ package domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import java.util.List;
 
-@MappedSuperclass
+@Entity(name="platform_user")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="user_type", discriminatorType = DiscriminatorType.STRING)
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Table(
-        name="PLATFORMUSER",
+        name="platform_user",
         uniqueConstraints=
-        @UniqueConstraint(name = "UniqueFirstNameAndLastName",columnNames={"first_name", "last_name"})
+        @UniqueConstraint(name = "UniqueFirstNameAndLastName", columnNames={"first_name", "last_name"})
 )
 public abstract class PlatformUser extends User{
 

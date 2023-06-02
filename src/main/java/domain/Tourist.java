@@ -1,8 +1,11 @@
 package domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.DiscriminatorFormula;
+import org.hibernate.annotations.DiscriminatorOptions;
 
 import javax.persistence.CascadeType;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -18,6 +21,7 @@ import java.util.List;
 
 @Entity(name = "tourist")
 @JsonIgnoreProperties(ignoreUnknown = true)
+@DiscriminatorValue(value = "tourist")
 public class Tourist{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

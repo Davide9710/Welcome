@@ -2,6 +2,7 @@ package domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -14,6 +15,7 @@ import java.util.List;
 
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
+@DiscriminatorValue(value = "guide")
 public class Guide extends PlatformUser{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
