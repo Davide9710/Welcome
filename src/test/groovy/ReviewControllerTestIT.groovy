@@ -1,6 +1,6 @@
 import application.WelcomeApplication
-import dto.SearchTourRequestDTO
-import dto.SearchTourResponseDTO
+import dto.CreateReviewRequestDTO
+import dto.CreateReviewResponseDTO
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.web.client.TestRestTemplate
@@ -15,47 +15,38 @@ import spock.lang.Specification
 @TestPropertySource(locations = ["classpath:application-test.yml"],
         properties = ["spring.sql.init.data-locations=classpath:data-test.sql"])
 @ActiveProfiles("test")
-@Sql("/data-test.sql")
-class TourControllerTestIT extends Specification {
+@Sql("/review.sql")
+class ReviewControllerTestIT extends Specification {
 
     @Autowired
-    TestRestTemplate testRestTemplate
+    TestRestTemplate testRestTemplate;
 
-    def "search Tour API"() {
+    def "create Review test"() {
         given:
 
         when:
-        SearchTourRequestDTO request = new SearchTourRequestDTO(cityId, duration, themeName, tagNames)
+        CreateReviewRequestDTO request = new CreateReviewRequestDTO(title, stars, content, authorId, tourId)
 
         HttpEntity<String> httpEntity = new HttpEntity<>(request)
 
 
         def response =
                 testRestTemplate.exchange(
-                        "/tour/search",
+                        "/review/create",
                         HttpMethod.POST,
                         httpEntity,
-                        SearchTourResponseDTO)
+                        CreateReviewResponseDTO)
 
         then:
         println response
         response.getStatusCode().value() == expectedStatusCode
-        response.getBody().tours() != null
-        response.getBody().tours().size() == expectedListSize
+        response.getBody().review() != null
+        response.getBody().review().title() == title
+        response.getBody().review().stars() == stars
+        response.getBody().review().content() == content
 
         where:
-        cityId | duration | themeName        | tagNames || expectedStatusCode | expectedListSize
-        null   | null     | "arte culinaria" | null     || 200                | 1
-
-    }
-
-    def "delete Tour API"() {
-        given:
-
-        when:
-        testRestTemplate.delete("/tour/" + 1)
-
-        then:
-        1 == 1
+        title      | stars | content             | authorId | tourId || expectedStatusCode
+        "Orribile" | 1     | "Pessima scelta..." | 1        | 1      || 200
     }
 }

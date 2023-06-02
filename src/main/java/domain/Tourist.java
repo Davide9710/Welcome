@@ -16,9 +16,9 @@ import javax.persistence.Table;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
+@Entity(name = "tourist")
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Tourist {
+public class Tourist{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

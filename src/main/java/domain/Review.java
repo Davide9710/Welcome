@@ -104,6 +104,14 @@ public class Review {
         this.author = author;
     }
 
+    public Tour getTour() {
+        return tour;
+    }
+
+    public void setTour(Tour tour) {
+        this.tour = tour;
+    }
+
     @Override
     public String toString() {
         return "Review{" +

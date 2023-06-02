@@ -2,30 +2,31 @@ package domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import java.util.List;
 
-@Entity
+@MappedSuperclass
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Table(
         name="PLATFORMUSER",
         uniqueConstraints=
-        @UniqueConstraint(name = "UniqueFirstNameAndLastName",columnNames={"firstName", "lastName"})
+        @UniqueConstraint(name = "UniqueFirstNameAndLastName",columnNames={"first_name", "last_name"})
 )
 public abstract class PlatformUser extends User{
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
+    @Column(name = "first_name")
     private String firstName;
 
+    @Column(name = "last_name")
     private String lastName;
 
     @OneToMany(mappedBy = "receiver", fetch = FetchType.LAZY)
@@ -35,7 +36,7 @@ public abstract class PlatformUser extends User{
     private List<Message> messagesSend;
 
     public Long getId() {
-        return id;
+        return super.id;
     }
 
     public void setId(Long id) {

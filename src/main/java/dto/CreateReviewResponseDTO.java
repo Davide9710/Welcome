@@ -1,4 +1,4 @@
 package dto;
 
-public record CreateReviewResponseDTO() {
+public record CreateReviewResponseDTO(ReviewDTO review) {
 }

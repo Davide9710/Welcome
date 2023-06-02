@@ -7,18 +7,20 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 
-@Entity
+@MappedSuperclass
 @JsonIgnoreProperties(ignoreUnknown = true)
 public abstract class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    protected Long id;
 
-    @Column(unique = true)
-    private String username;
+    @Column(unique = true, name = "username")
+    protected String username;
 
-    private String password;
+    @Column(name = "password")
+    protected String password;
 
     public Long getId() {
         return id;
