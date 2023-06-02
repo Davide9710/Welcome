@@ -45,4 +45,12 @@ public class City {
     public void setGuideList(List<Guide> guideList) {
         this.guideList = guideList;
     }
+
+    @Override
+    public String toString() {
+        return "City{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }
