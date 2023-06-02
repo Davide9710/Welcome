@@ -4,6 +4,7 @@ import domain.Tour;
 
 public record TourResponseDTO(String title,
                               Tour.TourStatus status,
-                              CityResponseDTO city) {
+                              CityResponseDTO city,
+                              Double rating) {
 
 }

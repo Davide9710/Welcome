@@ -25,16 +25,18 @@ public class Review {
     private Long id;
 
     @CreationTimestamp
-    @Column(updatable = false, nullable = false)
+    @Column(updatable = false, nullable = false, name = "creation_timestamp")
     private Instant creationTimestamp;
 
+    @Column(name = "title")
     private String title;
 
     @Min(0)
     @Max(5)
     @Column(name = "stars")
-    private Integer stars;
+    private Double stars;
 
+    @Column(name = "content")
     private String content;
 
     @OneToMany(mappedBy = "review", fetch = FetchType.LAZY)
@@ -70,11 +72,11 @@ public class Review {
         this.title = title;
     }
 
-    public Integer getStars() {
+    public Double getStars() {
         return stars;
     }
 
-    public void setStars(Integer stars) {
+    public void setStars(Double stars) {
         this.stars = stars;
     }
 

@@ -13,7 +13,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import static specification.SpecificationUtils.inPredicate;
+import static specification.SpecificationUtils.*;
 
 @AllArgsConstructor
 public class SearchTourSpecification implements Specification<Tour> {
@@ -23,10 +23,10 @@ public class SearchTourSpecification implements Specification<Tour> {
     @Override
     public Predicate toPredicate(Root<Tour> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
         Predicate p = cb.and();
-        p = cb.and(p, cb.equal(root.get(Tour_.city).get(City_.ID), filter.cityId()));
-        p = cb.and(p, cb.lessThan(root.get(Tour_.approxDuration), filter.maxDuration()));
-        p = cb.and(p, cb.equal(root.get(Tour_.theme).get(Theme_.NAME), filter.themeName()));
-        //p = cb.and(p, inPredicate(root, cb, Tour_.TAGS, filter.tagNames()));
+        p = cb.and(equalWithNullControl(p, cb, root.get(Tour_.city).get(City_.ID), filter.cityId()));
+        p = cb.and(lessThanWithNullControl(p, cb, root.get(Tour_.approxDuration), filter.maxDuration()));
+        p = cb.and(equalWithNullControl(p, cb, root.get(Tour_.theme).get(Theme_.NAME), filter.themeName()));
+        p = cb.and(inPredicate(p, root, cb, Tour_.TAGS, filter.tagNames()));
         return p;
     }
 }

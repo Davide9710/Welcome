@@ -9,6 +9,8 @@ import org.hibernate.annotations.UpdateTimestamp;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -42,6 +44,7 @@ public class Tour {
     private Integer approxDuration;
 
     @Column(name = "status")
+    @Enumerated(value = EnumType.STRING)
     private TourStatus status = TourStatus.ACTIVE;
 
     @CreationTimestamp

@@ -3,6 +3,7 @@ package specification;
 import domain.Tour;
 
 import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.Expression;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.util.List;
@@ -10,7 +11,21 @@ import java.util.List;
 import static org.apache.commons.collections4.CollectionUtils.isEmpty;
 
 public class SpecificationUtils {
-    public static <T> Predicate inPredicate(Root<Tour> root, CriteriaBuilder cb, String fieldName, List<T> listOfValues) {
-        return isEmpty(listOfValues) ? cb.conjunction() : root.get(fieldName).in(listOfValues);
+    public static <T> Predicate inPredicate(Predicate p, Root<Tour> root, CriteriaBuilder cb, String fieldName, List<T> listOfValues) {
+        return isEmpty(listOfValues) ? p : root.get(fieldName).in(listOfValues);
+    }
+
+    public static <T> Predicate equalWithNullControl(Predicate p,
+                                                     CriteriaBuilder cb,
+                                                     Expression<?> expression,
+                                                     T value) {
+        return value == null ? p : cb.equal(expression, value);
+    }
+
+    public static <T extends Comparable<? super T>> Predicate lessThanWithNullControl(Predicate p,
+                                                                                      CriteriaBuilder cb,
+                                                                                      Expression<? extends T> expression,
+                                                                                      T value) {
+        return value == null ? p : cb.lessThanOrEqualTo(expression, value);
     }
 }

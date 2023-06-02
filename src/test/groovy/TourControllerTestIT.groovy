@@ -8,13 +8,14 @@ import org.springframework.http.HttpEntity
 import org.springframework.http.HttpMethod
 import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.context.TestPropertySource
+import org.springframework.test.context.jdbc.Sql
 import spock.lang.Specification
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = WelcomeApplication.class)
 @TestPropertySource(locations = ["classpath:application-test.yml"],
         properties = ["spring.sql.init.data-locations=classpath:data-test.sql"])
 @ActiveProfiles("test")
-//@Sql("/data-test.sql")
+@Sql("/data-test.sql")
 class TourControllerTestIT extends Specification {
 
     @Autowired
@@ -37,12 +38,14 @@ class TourControllerTestIT extends Specification {
                         SearchTourResponseDTO)
 
         then:
+        println response
         response.getStatusCode().value() == expectedStatusCode
+        response.getBody().tours() != null
+        response.getBody().tours().size() == expectedListSize
 
         where:
-        cityId | duration | themeName | tagNames    || expectedStatusCode
-//        1L     | 120      | "theme"   | ["tagName"] || 200
-        1L   | null     | null      | null        || 200
+        cityId | duration | themeName        | tagNames || expectedStatusCode | expectedListSize
+        null   | null     | "arte culinaria" | null     || 200                | 1
 
     }
 }
