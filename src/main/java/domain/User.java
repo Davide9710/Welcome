@@ -1,6 +1,7 @@
 package domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Builder;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import jakarta.persistence.GeneratedValue;
@@ -10,6 +11,7 @@ import jakarta.persistence.MappedSuperclass;
 
 @MappedSuperclass
 @JsonIgnoreProperties(ignoreUnknown = true)
+@Builder
 public abstract class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +20,7 @@ public abstract class User implements UserDetails {
     protected String email;
 
     protected String password;
-    //protected Role role;
+    protected Role role;
 
     public Long getId() {
         return id;
