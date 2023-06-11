@@ -2,7 +2,6 @@ package controller;
 
 import domain.Theme;
 import dto.GetAllThemeResponseDTO;
-import dto.ThemeResponseDTO;
 import mapper.ThemeResponseDTOMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;

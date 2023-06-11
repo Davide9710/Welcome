@@ -1,6 +1,6 @@
 package dto;
 
-import javax.validation.constraints.PositiveOrZero;
+import jakarta.validation.constraints.PositiveOrZero;
 import java.util.List;
 
 public record CreateTourRequestDTO(String title,

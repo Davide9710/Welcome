@@ -2,7 +2,7 @@ package domain;
 
 import lombok.Builder;
 
-import javax.persistence.Embeddable;
+import jakarta.persistence.Embeddable;
 
 @Embeddable
 @Builder
