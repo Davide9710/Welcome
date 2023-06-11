@@ -49,7 +49,7 @@ class TourControllerTestIT extends Specification {
 
     }
 
-    def "delete Tour API"() {
+    /*def "delete Tour API"() {
         given:
 
         when:
@@ -57,5 +57,5 @@ class TourControllerTestIT extends Specification {
 
         then:
         1 == 1
-    }
+    }*/
 }

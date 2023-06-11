@@ -1,0 +1,13 @@
+{
+  "properties": [
+    {
+      "name": "expirationtime",
+      "type": "java.lang.Integer",
+      "description": "expirationtime after which the jwt token is expired, in seconds."
+    },
+    {
+      "name": "secretkey",
+      "type": "java.lang.String",
+      "description": "secretkey used for jwt token, only for demonstration purpose."
+    }
+  ] }
