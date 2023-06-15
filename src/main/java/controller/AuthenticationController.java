@@ -16,6 +16,7 @@ import service.AuthenticationService;
 @RequiredArgsConstructor
 public class AuthenticationController {
 
+    /* TODO Remove this comments
     private final AuthenticationService authenticationService;
 
     @PostMapping("/register")
@@ -30,5 +31,5 @@ public class AuthenticationController {
             @RequestBody AuthenticationRequestDTO request
     ){
         return ResponseEntity.ok(authenticationService.authenticate(request));
-    }
+    }*/
 }

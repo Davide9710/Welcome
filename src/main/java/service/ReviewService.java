@@ -4,6 +4,8 @@ import domain.Review;
 import domain.Tour;
 import domain.Tourist;
 import dto.CreateReviewRequestDTO;
+import exception.TourNotFoundException;
+import exception.TouristNotFoundException;
 import mapper.CreateReviewRequestDTOMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,8 +31,9 @@ public class ReviewService {
         Review review = CreateReviewRequestDTOMapper.INSTANCE.convert(createReviewRequestDTO.title(),
                 createReviewRequestDTO.stars(),
                 createReviewRequestDTO.content());
-        Tourist author = touristRepository.getById(createReviewRequestDTO.authorId());
-        Tour tour = tourRepository.getById(createReviewRequestDTO.tourId());
+        Tourist author = touristRepository.findById(createReviewRequestDTO.authorId())
+                .orElseThrow(TouristNotFoundException::new);
+        Tour tour = tourRepository.findById(createReviewRequestDTO.tourId()).orElseThrow(TourNotFoundException::new);
         review.setAuthor(author);
         review.setTour(tour);
         return reviewRepository.save(review);

@@ -17,6 +17,7 @@ import repository.UserRepository;
 @RequiredArgsConstructor
 public class AuthenticationService {
 
+    /*TODO Remove this comments
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
@@ -45,5 +46,5 @@ public class AuthenticationService {
         String jwt = jwtService.generateToken(user);
         return new AuthenticationResponseDTO(jwt);
 
-    }
+    }*/
 }

@@ -1,7 +1,9 @@
 package domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import jakarta.persistence.GeneratedValue;
@@ -11,8 +13,7 @@ import jakarta.persistence.MappedSuperclass;
 
 @MappedSuperclass
 @JsonIgnoreProperties(ignoreUnknown = true)
-@Builder
-public abstract class User implements UserDetails {
+public abstract class User /*implements UserDetails*/ { //TODO Remove this comments
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;

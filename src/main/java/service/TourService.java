@@ -3,7 +3,7 @@ package service;
 import domain.Tour;
 import dto.EditTourRequestDTO;
 import dto.SearchTourRequestDTO;
-import exception.TourNotPresentException;
+import exception.TourNotFoundException;
 import mapper.EditTourRequestDTOMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -27,7 +27,7 @@ public class TourService {
 
     public Tour getTour(Long id) {
         return tourRepository.findById(id)
-                .orElseThrow(TourNotPresentException::new);
+                .orElseThrow(TourNotFoundException::new);
     }
 
     /*public Tour create(Tour tour) {
@@ -54,8 +54,8 @@ public class TourService {
         return tourRepository.save(tour);
     }
 
-    public Tour edit(Long id, EditTourRequestDTO editTourRequestDTO) throws TourNotPresentException {
-        Tour byId = tourRepository.findById(id).orElseThrow(TourNotPresentException::new);
+    public Tour edit(Long id, EditTourRequestDTO editTourRequestDTO) throws TourNotFoundException {
+        Tour byId = tourRepository.findById(id).orElseThrow(TourNotFoundException::new);
         byId = EditTourRequestDTOMapper.INSTANCE.updateTourFromDto(editTourRequestDTO, byId);
         return tourRepository.save(byId);
     }
