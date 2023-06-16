@@ -3,6 +3,7 @@ package controller;
 import domain.Tag;
 import dto.TagListResponseDTO;
 import dto.TagResponseDTO;
+import lombok.RequiredArgsConstructor;
 import mapper.TagResponseDTOMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -15,13 +16,9 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/tag", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequiredArgsConstructor
 public class TagController {
     private final TagService tagService;
-
-    @Autowired
-    public TagController(TagService tagService) {
-        this.tagService = tagService;
-    }
 
     @GetMapping
     public List<TagResponseDTO> getAll(){

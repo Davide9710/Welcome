@@ -2,6 +2,7 @@ package controller;
 
 import domain.Tour;
 import dto.TourDTO;
+import lombok.RequiredArgsConstructor;
 import mapper.TourDTOMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -20,14 +21,10 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/guide", produces = MediaType.APPLICATION_JSON_VALUE)
 @Validated
+@RequiredArgsConstructor
 public class GuideController {
 
     private final GuideService guideService;
-
-    @Autowired
-    public GuideController(GuideService guideService) {
-        this.guideService = guideService;
-    }
 
     @GetMapping("/{guideId}/tours")
     public List<TourDTO> getTourByGuideId(@PathVariable("guideId") Long guideId,

@@ -1,4 +1,4 @@
-package config;
+/*package config;
 
 import org.springframework.context.annotation.Configuration;
 
@@ -6,4 +6,4 @@ import org.springframework.context.annotation.Configuration;
 public class WebConfiguration {
 
 
-}
+}*/

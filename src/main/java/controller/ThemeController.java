@@ -2,6 +2,7 @@ package controller;
 
 import domain.Theme;
 import dto.GetAllThemeResponseDTO;
+import lombok.RequiredArgsConstructor;
 import mapper.ThemeResponseDTOMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -14,13 +15,9 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/theme", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequiredArgsConstructor
 public class ThemeController {
     private final ThemeService themeService;
-
-    @Autowired
-    public ThemeController(ThemeService themeService) {
-        this.themeService = themeService;
-    }
 
     @GetMapping
     public GetAllThemeResponseDTO getAll(){

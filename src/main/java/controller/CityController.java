@@ -3,6 +3,7 @@ package controller;
 import domain.City;
 import dto.CityResponseDTO;
 import dto.GetAllCityResponseDTO;
+import lombok.RequiredArgsConstructor;
 import mapper.CityResponseDTOMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -15,14 +16,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/city", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequiredArgsConstructor
 public class CityController {
+
     private final CityService cityService;
-
-    @Autowired
-    public CityController(CityService cityService) {
-        this.cityService = cityService;
-    }
-
 
     @GetMapping
     public GetAllCityResponseDTO getAll(){

@@ -9,6 +9,7 @@ import dto.EditTourResponseDTO;
 import dto.SearchTourRequestDTO;
 import dto.SearchTourResponseDTO;
 import dto.TourResponseDTO;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import mapper.CreateTourRequestDTOMapper;
 import mapper.CreateTourResponseDTOMapper;
@@ -35,13 +36,9 @@ import java.util.List;
         consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.MULTIPART_FORM_DATA_VALUE},
         produces = MediaType.APPLICATION_JSON_VALUE)
 @Slf4j
+@RequiredArgsConstructor
 public class TourController {
     private final TourService tourService;
-
-    @Autowired
-    public TourController(TourService tourService) {
-        this.tourService = tourService;
-    }
 
     @GetMapping("/{id}")
     public TourResponseDTO get(@PathVariable("id") Long id){

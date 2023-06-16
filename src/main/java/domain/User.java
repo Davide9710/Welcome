@@ -13,7 +13,7 @@ import jakarta.persistence.MappedSuperclass;
 
 @MappedSuperclass
 @JsonIgnoreProperties(ignoreUnknown = true)
-public abstract class User /*implements UserDetails*/ { //TODO Remove this comments
+public abstract class User implements UserDetails { //TODO Remove this comments
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;

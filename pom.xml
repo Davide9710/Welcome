@@ -23,9 +23,9 @@
         <guava.version>31.1-jre</guava.version>
         <commons-lang3.version>3.8.1</commons-lang3.version>
         <asserj.version>3.22.0</asserj.version>
-        <sld-groovy.version>4.0.10</sld-groovy.version>
-        <spock-spring.version>2.3-groovy-4.0</spock-spring.version>
-        <spock-core.version>2.3-groovy-4.0</spock-core.version>
+        <sld-groovy.version>4.0.12</sld-groovy.version>
+        <spock-spring.version>2.4-M1-groovy-4.0</spock-spring.version>
+        <spock-core.version>2.4-M1-groovy-4.0</spock-core.version>
         <gmavenplus-plugin.version>1.13.1</gmavenplus-plugin.version>
         <org.mapstruct.version>1.5.3.Final</org.mapstruct.version>
         <sld-feign-okhttp.version>11.8</sld-feign-okhttp.version>
@@ -40,11 +40,6 @@
         <failsafe.version>3.0.0-M6</failsafe.version>
         <jacoco.version>0.8.8</jacoco.version>
         <surefire.skip>false</surefire.skip>
-        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-        <sonar.projectKey>soldotech_${project.artifactId}</sonar.projectKey>
-        <sonar.organization>soldotech</sonar.organization>
-        <sonar.coverage.jacoco.xmlReportPaths>target/coverage-reports/jacoco-ut/jacoco.xml
-        </sonar.coverage.jacoco.xmlReportPaths>
         <org.jpamodelgen.version>6.2.4.Final</org.jpamodelgen.version>
         <org.projectlombok.version>1.18.26</org.projectlombok.version>
     </properties>
