@@ -1,4 +1,6 @@
 package dto;
 
-public record CityDTO(String name) {
+import jakarta.validation.constraints.NotBlank;
+
+public record CityDTO(@NotBlank String name) {
 }

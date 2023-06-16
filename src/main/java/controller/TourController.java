@@ -9,6 +9,7 @@ import dto.EditTourResponseDTO;
 import dto.SearchTourRequestDTO;
 import dto.SearchTourResponseDTO;
 import dto.TourResponseDTO;
+import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import mapper.CreateTourRequestDTOMapper;
@@ -41,7 +42,7 @@ public class TourController {
     private final TourService tourService;
 
     @GetMapping("/{id}")
-    public TourResponseDTO get(@PathVariable("id") Long id){
+    public TourResponseDTO get(@PathVariable("id") @NotNull Long id){
         log.info("get tour, id {}", id);
         Tour tour = tourService.getTour(id);
         log.info("tour retreived {}", tour);
@@ -59,7 +60,8 @@ public class TourController {
     }
 
     @PatchMapping("/{id}")
-    public EditTourResponseDTO edit(@PathVariable("id") Long id, @RequestBody EditTourRequestDTO editTourRequestDTO){
+    public EditTourResponseDTO edit(@PathVariable("id") @NotNull Long id,
+                                    @RequestBody @Valid EditTourRequestDTO editTourRequestDTO){
         log.info("edit tour, id {}, edit request {}", id, editTourRequestDTO);
         Tour editedTour = tourService.edit(id, editTourRequestDTO);
         log.info("edited tour {}", editedTour);
@@ -67,7 +69,7 @@ public class TourController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> delete(@PathVariable("id") Long id){
+    public ResponseEntity<?> delete(@PathVariable("id") @NotNull Long id){
         log.info("delete tour, id {}", id);
         tourService.delete(id);
         return ResponseEntity.ok().build();

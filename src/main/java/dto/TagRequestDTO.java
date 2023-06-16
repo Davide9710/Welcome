@@ -1,7 +1,8 @@
 package dto;
 
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-public record TagRequestDTO(Long id,
-                            @NotNull String name) {
+public record TagRequestDTO(@NotNull Long id,
+                            @NotBlank String name) {
 }

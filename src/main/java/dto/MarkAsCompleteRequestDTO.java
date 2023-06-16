@@ -1,4 +1,6 @@
 package dto;
 
-public record MarkAsCompleteRequestDTO(Long touristId, Long tourId) {
+import jakarta.validation.constraints.NotNull;
+
+public record MarkAsCompleteRequestDTO(@NotNull Long touristId, @NotNull Long tourId) {
 }

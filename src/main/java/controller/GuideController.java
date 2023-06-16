@@ -2,9 +2,9 @@ package controller;
 
 import domain.Tour;
 import dto.TourDTO;
+import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
 import mapper.TourDTOMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,7 +27,7 @@ public class GuideController {
     private final GuideService guideService;
 
     @GetMapping("/{guideId}/tours")
-    public List<TourDTO> getTourByGuideId(@PathVariable("guideId") Long guideId,
+    public List<TourDTO> getTourByGuideId(@NotNull @PathVariable("guideId")  Long guideId,
                                           @PositiveOrZero @RequestParam("page") Integer page,
                                           @Positive @RequestParam("size") Integer size){
         List<Tour> tourList = guideService.getToursByGuideId(guideId, page, size);

@@ -1,4 +1,6 @@
 package dto;
 
-public record ThemeDTO(String name) {
+import jakarta.validation.constraints.NotBlank;
+
+public record ThemeDTO(@NotBlank String name) {
 }

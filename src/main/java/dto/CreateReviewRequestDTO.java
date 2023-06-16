@@ -1,8 +1,10 @@
 package dto;
 
+import jakarta.validation.constraints.NotNull;
+
 public record CreateReviewRequestDTO(String title,
-                                     Double stars,
+                                     @NotNull Double stars,
                                      String content,
-                                     Long authorId,
-                                     Long tourId) {
+                                     @NotNull Long authorId,
+                                     @NotNull Long tourId) {
 }

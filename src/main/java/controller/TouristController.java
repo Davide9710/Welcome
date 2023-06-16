@@ -1,6 +1,7 @@
 package controller;
 
 import dto.MarkAsCompleteRequestDTO;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +18,7 @@ public class TouristController {
     private final TouristService touristService;
 
     @PostMapping("/mark-as-complete")
-    public ResponseEntity<?> markAsComplete(@RequestBody MarkAsCompleteRequestDTO request){
+    public ResponseEntity<?> markAsComplete(@RequestBody @Valid MarkAsCompleteRequestDTO request){
         touristService.markAsComplete(request.touristId(), request.tourId());
         return ResponseEntity.ok().build();
     }
