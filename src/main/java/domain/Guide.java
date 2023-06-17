@@ -20,9 +20,6 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @DiscriminatorValue(value = "guide")
 public class Guide extends PlatformUser{
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
     private String organizationName;
 

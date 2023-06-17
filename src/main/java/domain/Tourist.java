@@ -22,9 +22,6 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @DiscriminatorValue(value = "tourist")
 public class Tourist extends PlatformUser{
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "tourist_tour",

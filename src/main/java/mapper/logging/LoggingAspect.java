@@ -1,4 +1,4 @@
-package aspects.logging;
+package mapper.logging;
 
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
@@ -13,7 +13,7 @@ import java.util.Arrays;
 @Aspect
 @Slf4j
 public class LoggingAspect {
-    @Pointcut("@annotation(Log)")
+    @Pointcut("@annotation(mapper.logging.Log)")
     public void logAnnotation() {
     }
 

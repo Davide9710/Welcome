@@ -2,9 +2,11 @@ package service;
 
 import domain.Tour;
 import domain.Tourist;
+import dto.EditTouristRequestDTO;
 import exception.TourNotFoundException;
 import exception.TouristNotFoundException;
 import lombok.RequiredArgsConstructor;
+import mapper.EditTouristRequestDTOMapper;
 import org.springframework.stereotype.Service;
 import repository.TourRepository;
 import repository.TouristRepository;
@@ -23,5 +25,12 @@ public class TouristService {
         tourist.addTour(tour);
         touristRepository.save(tourist);
         tourRepository.save(tour);
+    }
+
+    public Tourist edit(Long touristId, EditTouristRequestDTO requestDTO) {
+        Tourist tourist = touristRepository.findById(touristId)
+                .orElseThrow(() -> new TouristNotFoundException(touristId));
+        tourist = EditTouristRequestDTOMapper.INSTANCE.updateTouristFromDto(requestDTO, tourist);
+        return tourist;
     }
 }

@@ -62,9 +62,9 @@ public class TourService {
 
     public List<Tour> search(SearchTourRequestDTO searchTourRequestDTO) {
         SearchTourSpecification specification = new SearchTourSpecification(searchTourRequestDTO);
-        //TODO qui il paging come lo gestiamo?
-        //TODO ordina i risultati
-        PageRequest of = PageRequest.of(0, 10, Sort.by("rating").descending().and(Sort.by("reviews")));
+        PageRequest of = PageRequest.of(searchTourRequestDTO.pageNumber(),
+                searchTourRequestDTO.pageSize(),
+                Sort.by("rating").descending().and(Sort.by("numberOfReviews")));
         Page<Tour> tours = tourRepository.findAll(specification, of);
         return tours.getContent();
     }

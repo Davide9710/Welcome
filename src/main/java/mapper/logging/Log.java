@@ -1,4 +1,4 @@
-package aspects.logging;
+package mapper.logging;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

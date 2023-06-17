@@ -30,6 +30,7 @@ import org.springframework.web.bind.annotation.RestController;
 import service.TourService;
 
 import jakarta.validation.Valid;
+
 import java.util.List;
 
 @RestController
@@ -42,15 +43,15 @@ public class TourController {
     private final TourService tourService;
 
     @GetMapping("/{id}")
-    public TourResponseDTO get(@PathVariable("id") @NotNull Long id){
+    public TourResponseDTO get(@PathVariable("id") @NotNull Long id) {
         log.info("get tour, id {}", id);
         Tour tour = tourService.getTour(id);
-        log.info("tour retreived {}", tour);
+        log.info("tour retrieved {}", tour);
         return TourResponseDTOMapper.INSTANCE.convert(tour);
     }
 
     @PostMapping("/create")
-    public ResponseEntity<CreateTourResponseDTO> create(@RequestBody @Valid CreateTourRequestDTO createTourRequestDTO){
+    public ResponseEntity<CreateTourResponseDTO> create(@RequestBody @Valid CreateTourRequestDTO createTourRequestDTO) {
         log.info("create tour, request {}", createTourRequestDTO);
         Tour tour = CreateTourRequestDTOMapper.INSTANCE.convert(createTourRequestDTO);
         log.info("request converted into tour {}", tour);
@@ -59,24 +60,24 @@ public class TourController {
         return ResponseEntity.ok(CreateTourResponseDTOMapper.INSTANCE.convert(savedTour));
     }
 
-    @PatchMapping("/{id}")
-    public EditTourResponseDTO edit(@PathVariable("id") @NotNull Long id,
-                                    @RequestBody @Valid EditTourRequestDTO editTourRequestDTO){
-        log.info("edit tour, id {}, edit request {}", id, editTourRequestDTO);
-        Tour editedTour = tourService.edit(id, editTourRequestDTO);
+    @PatchMapping("/{tourId}")
+    public ResponseEntity<EditTourResponseDTO> edit(@PathVariable("tourId") @NotNull Long tourId,
+                                                    @RequestBody @Valid EditTourRequestDTO editTourRequestDTO) {
+        log.info("edit tour, tourId {}, edit request {}", tourId, editTourRequestDTO);
+        Tour editedTour = tourService.edit(tourId, editTourRequestDTO);
         log.info("edited tour {}", editedTour);
-        return EditTourResponseDTOMapper.INSTANCE.convert(editedTour);
+        return ResponseEntity.ok(EditTourResponseDTOMapper.INSTANCE.convert(editedTour));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> delete(@PathVariable("id") @NotNull Long id){
+    public ResponseEntity<?> delete(@PathVariable("id") @NotNull Long id) {
         log.info("delete tour, id {}", id);
         tourService.delete(id);
         return ResponseEntity.ok().build();
     }
 
     @PostMapping("/search")
-    public SearchTourResponseDTO search(@RequestBody SearchTourRequestDTO searchTourRequestDTO){
+    public SearchTourResponseDTO search(@RequestBody SearchTourRequestDTO searchTourRequestDTO) {
         log.info("search tour, request {}", searchTourRequestDTO);
         List<Tour> tours = tourService.search(searchTourRequestDTO);
         log.info("found tours {}", tours);
