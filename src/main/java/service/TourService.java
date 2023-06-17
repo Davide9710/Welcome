@@ -4,6 +4,7 @@ import domain.Tour;
 import dto.EditTourRequestDTO;
 import dto.SearchTourRequestDTO;
 import exception.TourNotFoundException;
+import lombok.RequiredArgsConstructor;
 import mapper.EditTourRequestDTOMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -16,14 +17,9 @@ import specification.SearchTourSpecification;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class TourService {
     private final TourRepository tourRepository;
-
-    @Autowired
-    public TourService(TourRepository tourRepository) {
-        this.tourRepository = tourRepository;
-    }
-
 
     public Tour getTour(Long id) {
         return tourRepository.findById(id)

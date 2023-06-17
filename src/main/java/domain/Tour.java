@@ -96,8 +96,12 @@ public class Tour /*extends SoftDeletable*/{
     @Formula("SELECT AVG(r.stars) FROM Review r WHERE r.tour_id = id")
     private Double rating;
 
-    @Formula("SELECT COUNT(r) FROM Review r WHERE r.tour_id = id")
+    @Column(name = "number_of_reviews")
     private Long numberOfReviews;
+
+    public void incrementNumberOfReviews() {
+        this.numberOfReviews++;
+    }
 
     public enum TourStatus{
         ACTIVE,
