@@ -27,7 +27,7 @@ public class TourService {
 
     public Tour getTour(Long id) {
         return tourRepository.findById(id)
-                .orElseThrow(TourNotFoundException::new);
+                .orElseThrow(() -> new TourNotFoundException(id));
     }
 
     /*public Tour create(Tour tour) {
@@ -55,7 +55,7 @@ public class TourService {
     }
 
     public Tour edit(Long id, EditTourRequestDTO editTourRequestDTO) throws TourNotFoundException {
-        Tour byId = tourRepository.findById(id).orElseThrow(TourNotFoundException::new);
+        Tour byId = tourRepository.findById(id).orElseThrow(() -> new TourNotFoundException(id));
         byId = EditTourRequestDTOMapper.INSTANCE.updateTourFromDto(editTourRequestDTO, byId);
         return tourRepository.save(byId);
     }
