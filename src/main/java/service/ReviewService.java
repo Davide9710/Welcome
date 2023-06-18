@@ -8,7 +8,6 @@ import exception.TourNotFoundException;
 import exception.TouristNotFoundException;
 import lombok.RequiredArgsConstructor;
 import mapper.CreateReviewRequestDTOMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import repository.ReviewRepository;
 import repository.TourRepository;

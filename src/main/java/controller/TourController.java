@@ -16,7 +16,6 @@ import mapper.CreateTourRequestDTOMapper;
 import mapper.CreateTourResponseDTOMapper;
 import mapper.EditTourResponseDTOMapper;
 import mapper.TourResponseDTOMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;

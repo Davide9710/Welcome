@@ -1,11 +1,9 @@
 package controller;
 
 import domain.City;
-import dto.CityResponseDTO;
 import dto.GetAllCityResponseDTO;
 import lombok.RequiredArgsConstructor;
 import mapper.CityResponseDTOMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
