@@ -3,7 +3,7 @@ package service;
 import domain.Guide;
 import domain.Tour;
 import dto.EditGuideRequestDTO;
-import exception.GuideNotFoundException;
+import exception.notfound.GuideNotFoundException;
 import lombok.RequiredArgsConstructor;
 import mapper.EditGuideRequestDTOMapper;
 import org.springframework.data.domain.PageRequest;

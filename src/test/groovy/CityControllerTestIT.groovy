@@ -1,5 +1,4 @@
 import application.WelcomeApplication
-import dto.CityResponseDTO
 import dto.GetAllCityResponseDTO
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest

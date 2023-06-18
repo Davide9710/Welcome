@@ -3,7 +3,6 @@ package mapper;
 import domain.Image;
 import domain.Tour;
 import dto.CreateTourRequestDTO;
-import dto.ImageDTO;
 import org.apache.commons.lang3.ArrayUtils;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;

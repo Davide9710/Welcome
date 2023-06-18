@@ -1,18 +1,17 @@
 package domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
-import org.springframework.security.core.userdetails.UserDetails;
-
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
+import lombok.Builder;
+import org.springframework.security.core.userdetails.UserDetails;
+import value.Role;
 
 @MappedSuperclass
 @JsonIgnoreProperties(ignoreUnknown = true)
+@Builder
 public abstract class User implements UserDetails { //TODO Remove this comments
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,4 +1,4 @@
-package domain;
+package value;
 
 public enum Role {
     TOURIST,

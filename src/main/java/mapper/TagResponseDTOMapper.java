@@ -1,7 +1,6 @@
 package mapper;
 
 import domain.Tag;
-import dto.TagListResponseDTO;
 import dto.TagResponseDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;

@@ -1,19 +1,28 @@
 package service;
 
+import domain.User;
+import dto.AuthenticationRequestDTO;
+import dto.AuthenticationResponseDTO;
+import dto.RegisterRequestDTO;
+import exception.notfound.UsernameNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import repository.UserRepository;
+import value.Role;
 
 @Service
 @RequiredArgsConstructor
 public class AuthenticationService {
 
-    /*TODO Remove this comments
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
 
-    public AuthenticationResponseDTO register(RegisterRequestDTO request){
+    public AuthenticationResponseDTO register(RegisterRequestDTO request) {
         User user = User.builder()
                 .email(request.username())
                 .password(passwordEncoder.encode(request.password()))
@@ -24,7 +33,7 @@ public class AuthenticationService {
         return new AuthenticationResponseDTO(jwt);
     }
 
-    public AuthenticationResponseDTO authenticate(AuthenticationRequestDTO request){
+    public AuthenticationResponseDTO authenticate(AuthenticationRequestDTO request) {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         request.username(),
@@ -36,5 +45,5 @@ public class AuthenticationService {
         String jwt = jwtService.generateToken(user);
         return new AuthenticationResponseDTO(jwt);
 
-    }*/
+    }
 }

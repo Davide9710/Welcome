@@ -1,4 +1,4 @@
-package exception;
+package exception.notfound;
 
 public class TouristNotFoundException extends ResourceNotFoundException {
     public TouristNotFoundException(Long id){

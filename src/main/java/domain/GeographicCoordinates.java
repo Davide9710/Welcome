@@ -1,8 +1,7 @@
 package domain;
 
-import lombok.Builder;
-
 import jakarta.persistence.Embeddable;
+import lombok.Builder;
 
 @Embeddable
 @Builder

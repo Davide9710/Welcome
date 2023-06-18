@@ -5,15 +5,16 @@ import domain.Theme_;
 import domain.Tour;
 import domain.Tour_;
 import dto.SearchTourRequestDTO;
-import lombok.AllArgsConstructor;
-import org.springframework.data.jpa.domain.Specification;
-
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
+import lombok.AllArgsConstructor;
+import org.springframework.data.jpa.domain.Specification;
 
-import static specification.SpecificationUtils.*;
+import static specification.SpecificationUtils.equalWithNullControl;
+import static specification.SpecificationUtils.inPredicate;
+import static specification.SpecificationUtils.lessThanWithNullControl;
 
 @AllArgsConstructor
 public class SearchTourSpecification implements Specification<Tour> {

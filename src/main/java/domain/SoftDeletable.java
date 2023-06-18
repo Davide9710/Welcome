@@ -1,10 +1,9 @@
 package domain;
 
+import jakarta.persistence.MappedSuperclass;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 import value.Status;
-
-import jakarta.persistence.MappedSuperclass;
 
 @MappedSuperclass
 @SQLDelete(sql = "UPDATE #{#entityName} SET status = 'DELETED' WHERE id = ?")
