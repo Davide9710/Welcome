@@ -43,7 +43,7 @@ public class AuthenticationService {
                         request.password()
                 )
         );
-        User user = userRepository.findByEmail(request.username())
+        User user = userRepository.findByEmail(request.username()) //TODO: e mica posso usare User ehhhhh
                 .orElseThrow(() -> new UsernameNotFoundException("user not found, username " + request.username()));
         String jwt = jwtService.generateToken(authenticate);
         return new AuthenticationResponseJwtDTO(jwt, user);
