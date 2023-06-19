@@ -6,6 +6,7 @@ import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
@@ -30,17 +31,17 @@ public class JwtService {
 
     public String generateToken(
             Map<String, Object> extraClaims,
-            UserDetails userDetails
+            Authentication authentication
     ) {
         return Jwts.builder()
                 .setClaims(extraClaims)
-                .setSubject(userDetails.getUsername())
+                .setSubject(authentication.getName())
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME_IN_SECONDS * 1000)).compact();
     }
 
-    public String generateToken(UserDetails userDetails){
-        return generateToken(new HashMap<>(), userDetails);
+    public String generateToken(Authentication authentication){
+        return generateToken(new HashMap<>(), authentication);
     }
 
     public boolean isTokenValid(String jwt, UserDetails userDetails){

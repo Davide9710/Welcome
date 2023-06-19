@@ -1,4 +1,6 @@
 package dto;
 
-public record RegisterRequestDTO(String username, String password) {
+import value.Role;
+
+public record RegisterRequestDTO(String username, String password, Role role) {
 }
