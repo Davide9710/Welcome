@@ -1,5 +1,6 @@
 package service;
 
+import domain.SecurityUser;
 import domain.User;
 import dto.AuthenticationRequestDTO;
 import dto.AuthenticationResponseJwtDTO;
@@ -27,12 +28,12 @@ public class AuthenticationService {
     private final AuthenticationManager authenticationManager;
 
     public AuthenticationResponseJwtDTO register(RegisterRequestDTO request) {
-        User user = User.builder()
+        SecurityUser securityUser = SecurityUser.builder()
                 .email(request.username())
                 .password(passwordEncoder.encode(request.password()))
                 .role(request.role())
                 .build();
-        userRepository.save(user);
+        userRepository.save(securityUser);
         return authenticate(new AuthenticationRequestDTO(request.username(), request.password()));
     }
 

@@ -27,16 +27,16 @@ import java.util.List;
 public class PlatformUser extends User{
 
     @Column(name = "first_name")
-    private String firstName;
+    protected String firstName;
 
     @Column(name = "last_name")
-    private String lastName;
+    protected String lastName;
 
     @OneToMany(mappedBy = "receiver", fetch = FetchType.LAZY)
-    private List<Message> messagesReceived;
+    protected List<Message> messagesReceived;
 
     @OneToMany(mappedBy = "sender", fetch = FetchType.LAZY)
-    private List<Message> messagesSend;
+    protected List<Message> messagesSend;
 
     PlatformUser(Long id, String email, String password, Role role) {
         super(id, email, password, role);

@@ -5,7 +5,7 @@ import lombok.Builder;
 
 @Embeddable
 @Builder
-public class GeographicCoordinates {
+public class GeographicCoordinates extends TourStop {
     private Double latitude;
     private Double longitude;
 
