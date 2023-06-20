@@ -5,7 +5,7 @@
   <nodes>
     <node x="347.99999999999994" y="124.5">domain.Administrator</node>
     <node x="95.99999999999997" y="79.0">domain.PlatformUser</node>
-    <node x="253.99999999999997" y="0.0">org.springframework.security.core.userdetails.UserDetails</node>
+    <node x="249.0" y="0.0">org.springframework.security.core.userdetails.UserDetails</node>
     <node x="227.99999999999994" y="260.0">domain.Guide</node>
     <node x="0.0" y="249.0">domain.Tourist</node>
   </nodes>
@@ -20,7 +20,7 @@
     <edge source="domain.Administrator" target="org.springframework.security.core.userdetails.UserDetails" relationship="REALIZATION">
       <point x="0.0" y="-14.5" />
       <point x="416.99999999999994" y="54.0" />
-      <point x="314.49999999999994" y="54.0" />
+      <point x="309.5" y="54.0" />
       <point x="0.0" y="14.5" />
     </edge>
     <edge source="domain.Tourist" target="domain.PlatformUser" relationship="GENERALIZATION">
@@ -32,14 +32,12 @@
     <edge source="domain.PlatformUser" target="org.springframework.security.core.userdetails.UserDetails" relationship="REALIZATION">
       <point x="0.0" y="-60.0" />
       <point x="211.99999999999997" y="54.0" />
-      <point x="314.49999999999994" y="54.0" />
+      <point x="309.5" y="54.0" />
       <point x="0.0" y="14.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic" zoom="1.0" showDependencies="false" x="243.0" y="184.5" />
-  <SelectedNodes>
-    <node>org.springframework.security.core.userdetails.UserDetails</node>
-  </SelectedNodes>
+  <settings layout="Hierarchic" zoom="1.0" showDependencies="false" x="237.0" y="270.0" />
+  <SelectedNodes />
   <Categories>
     <Category>Fields</Category>
   </Categories>

@@ -13,10 +13,6 @@ spring:
         format_sql: true
         dialect: org.hibernate.dialect.H2Dialect
     database: h2
-  sql:
-    init:
-      platform: h2
-      data-locations: data-test.sql
 
 expirationtime: 60
 

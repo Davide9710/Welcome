@@ -20,10 +20,10 @@ import java.util.function.Function;
 @PropertySource("classpath:application.yml")
 public class JwtService {
     @Value("${secretkey:null}")
-    private static String SECRET_KEY;
+    private String SECRET_KEY;
 
-    @Value("${expirationtime:null}")
-    private static Integer EXPIRATION_TIME_IN_SECONDS;
+    @Value("${expirationtime:60}")
+    private Integer EXPIRATION_TIME_IN_SECONDS;
 
     public String extractUsername(String jwt) {
         return extractClaim(jwt, Claims::getSubject);
@@ -31,17 +31,17 @@ public class JwtService {
 
     public String generateToken(
             Map<String, Object> extraClaims,
-            Authentication authentication
+            UserDetails userDetails
     ) {
         return Jwts.builder()
                 .setClaims(extraClaims)
-                .setSubject(authentication.getName())
+                .setSubject(userDetails.getUsername())
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME_IN_SECONDS * 1000)).compact();
     }
 
-    public String generateToken(Authentication authentication){
-        return generateToken(new HashMap<>(), authentication);
+    public String generateToken(UserDetails userDetails){
+        return generateToken(new HashMap<>(), userDetails);
     }
 
     public boolean isTokenValid(String jwt, UserDetails userDetails){

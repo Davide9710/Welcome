@@ -9,15 +9,21 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import static value.Role.TOURIST;
+
 @Entity(name = "tourist")
 @JsonIgnoreProperties(ignoreUnknown = true)
 @DiscriminatorValue(value = "tourist")
+@NoArgsConstructor
 public class Tourist extends PlatformUser{
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -35,6 +41,10 @@ public class Tourist extends PlatformUser{
 
     @OneToMany(mappedBy = "author", fetch = FetchType.LAZY)
     private List<Suggestion> suggestions = new ArrayList<>();
+
+    public Tourist(String email, String password) {
+        super(email, password, TOURIST);
+    }
 
     public Long getId() {
         return id;

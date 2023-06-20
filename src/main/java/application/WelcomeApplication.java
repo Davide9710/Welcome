@@ -1,6 +1,7 @@
 package application;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
@@ -13,10 +14,14 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @SpringBootApplication(scanBasePackages = {
         "controller",
         "service",
-        "domain",
         "mapper",
         "exception",
-        "dto"
+        "dto",
+        "config",
+        "specification",
+        "exception",
+        "aspects.logging",
+        "application"
 })
 @EnableWebMvc
 @EnableJpaRepositories(basePackages = {

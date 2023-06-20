@@ -40,8 +40,8 @@ public class LoggingAspect {
         Object[] obj = joinPoint.getArgs();
         StringBuilder requestValue = new StringBuilder();
         Arrays.stream(obj).forEach(x -> {
-            requestValue.append("\r\n");
             requestValue.append(x.toString());
+            requestValue.append("\r\n");
         });
         requestValue.append("\r\n============= =======" + "====== =============");
         return requestValue.toString();

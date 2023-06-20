@@ -11,6 +11,7 @@ import jakarta.persistence.InheritanceType;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
+import lombok.NoArgsConstructor;
 import value.Role;
 
 import java.util.List;
@@ -24,6 +25,7 @@ import java.util.List;
         uniqueConstraints=
         @UniqueConstraint(name = "UniqueFirstNameAndLastName", columnNames={"first_name", "last_name"})
 )
+@NoArgsConstructor
 public class PlatformUser extends User{
 
     @Column(name = "first_name")
@@ -38,12 +40,8 @@ public class PlatformUser extends User{
     @OneToMany(mappedBy = "sender", fetch = FetchType.LAZY)
     protected List<Message> messagesSend;
 
-    PlatformUser(Long id, String email, String password, Role role) {
-        super(id, email, password, role);
-    }
-
-    public PlatformUser() {
-        super();
+    public PlatformUser(String username, String password, Role role) {
+        super(username, password, role);
     }
 
     public Long getId() {

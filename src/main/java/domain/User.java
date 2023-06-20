@@ -1,28 +1,48 @@
 package domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.MappedSuperclass;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
+
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import value.Role;
 
 import java.util.Collection;
+import java.util.Collections;
 
-@MappedSuperclass
-@JsonIgnoreProperties(ignoreUnknown = true)
-@Builder
-@AllArgsConstructor
+@Entity(name = "_user") //"user" is a reserved name
+@Inheritance(strategy = InheritanceType.JOINED)
 @NoArgsConstructor
-public class User extends SecurityUser /*implements UserDetails*/ { //TODO Remove this comments
+public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
+
+    protected String email;
+
+    protected String password;
+
+    @Enumerated(EnumType.STRING)
+    protected Role role;
+
+    public User(String username, String password) {
+        this.email = username;
+        this.password = password;
+    }
+
+    public User(String username, String password, Role role) {
+        this.email = username;
+        this.password = password;
+        this.role = role;
+    }
 
     public Long getId() {
         return id;
@@ -30,5 +50,44 @@ public class User extends SecurityUser /*implements UserDetails*/ { //TODO Remov
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    private Role getRole() {
+        return role;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return Collections.singleton(new SimpleGrantedAuthority(role.name()));
+    }
+
+    @Override
+    public String getPassword() {
+        return this.password;
+    }
+
+    @Override
+    public String getUsername() {
+        return this.email;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 }
