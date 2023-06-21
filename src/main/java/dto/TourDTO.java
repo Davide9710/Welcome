@@ -1,4 +1,4 @@
 package dto;
 
-public record TourDTO() {
+public record TourDTO(String name) {
 }

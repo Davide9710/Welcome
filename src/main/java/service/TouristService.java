@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 import repository.TourRepository;
 import repository.TouristRepository;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class TouristService {
@@ -31,6 +33,12 @@ public class TouristService {
         Tourist tourist = touristRepository.findById(touristId)
                 .orElseThrow(() -> new TouristNotFoundException(touristId));
         tourist = EditTouristRequestDTOMapper.INSTANCE.updateTouristFromDto(requestDTO, tourist);
+        touristRepository.save(tourist);
         return tourist;
+    }
+
+    public List<Tour> getAllMarkedTour(Long touristId) {
+        return touristRepository.findById(touristId).orElseThrow(() -> new TouristNotFoundException(touristId))
+                .getTours();
     }
 }

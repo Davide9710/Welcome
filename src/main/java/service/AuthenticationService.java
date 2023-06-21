@@ -14,7 +14,6 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import repository.TouristRepository;
 import repository.UserRepository;
 
 import static value.Constants.JWT;
@@ -27,16 +26,7 @@ public class AuthenticationService {
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
-    private final TouristRepository touristRepository;
     private final UserStrategyFactory userStrategyFactory;
-
-    /*public AuthenticationResponseJwtDTO register(RegisterRequestDTO request) {
-        Tourist tourist = new Tourist(request.username(), passwordEncoder.encode(request.password()));
-        tourist = touristRepository.save(tourist);
-        String jwt = jwtService.generateToken(tourist);
-        return AuthenticationResponseJwtDTOMapper.INSTANCE.convert(jwt, tourist);
-        //Tourist viene passato a convert(.., User) che quindi prende solo l'intersezione tra Tourist e
-    }*/
 
     public AuthenticationResponseJwtDTO register(RegisterRequestDTO request) {
         String encodedPsw = passwordEncoder.encode(request.password());

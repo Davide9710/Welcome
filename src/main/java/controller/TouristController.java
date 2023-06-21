@@ -1,15 +1,19 @@
 package controller;
 
+import domain.Tour;
 import domain.Tourist;
 import dto.EditTouristRequestDTO;
 import dto.EditTouristResponseDTO;
 import dto.MarkAsCompleteRequestDTO;
+import dto.MarkedToursResponseDTO;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
 import mapper.EditTouristResponseDTOMapper;
+import mapper.TourDTOMapper;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,16 +22,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import service.TouristService;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(value = "/tourist", produces = MediaType.APPLICATION_JSON_VALUE)
 @RequiredArgsConstructor
 public class TouristController {
     private final TouristService touristService;
 
-    @PostMapping("/mark-as-complete")
+    @PostMapping("/mark-tour-as-complete")
     public ResponseEntity<?> markAsComplete(@RequestBody @Valid MarkAsCompleteRequestDTO request) {
         touristService.markAsComplete(request.touristId(), request.tourId());
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/{touristId}/marked-tours")
+    public ResponseEntity<MarkedToursResponseDTO> getAllMarkedTour(@PathVariable("touristId") @NotNull Long touristId) {
+        List<Tour> allMarkedTour = touristService.getAllMarkedTour(touristId);
+        return ResponseEntity.ok(new MarkedToursResponseDTO(TourDTOMapper.INSTANCE.convert(allMarkedTour)));
     }
 
     @PatchMapping("/{touristId}")
