@@ -8,7 +8,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
-
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -18,7 +17,7 @@ import value.Role;
 import java.util.Collection;
 import java.util.Collections;
 
-@Entity(name = "_user") //"user" is a reserved name
+@Entity(name = "_user") //"user" is a reserved name for H2
 @Inheritance(strategy = InheritanceType.JOINED)
 @NoArgsConstructor
 public class User implements UserDetails {

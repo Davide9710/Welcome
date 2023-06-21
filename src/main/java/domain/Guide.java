@@ -12,6 +12,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import static value.Role.GUIDE;
+import static value.Role.TOURIST;
+
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
 @DiscriminatorValue(value = "guide")
@@ -24,6 +27,10 @@ public class Guide extends PlatformUser{
 
     @ManyToOne(fetch = FetchType.LAZY)
     private City city;
+
+    public Guide(String email, String password) {
+        super(email, password, GUIDE);
+    }
 
     public Long getId() {
         return id;
@@ -55,35 +62,5 @@ public class Guide extends PlatformUser{
 
     public void setCity(City city) {
         this.city = city;
-    }
-
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
-    }
-
-    @Override
-    public String getUsername() {
-        return null;
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return false;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return false;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return false;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return false;
     }
 }

@@ -25,6 +25,7 @@ public class AuthenticationController {
     public ResponseEntity<AuthenticationResponseDTO> register(
             @RequestBody RegisterRequestDTO request
     ) {
+
         AuthenticationResponseJwtDTO authenticate = authenticationService.register(request);
         return ResponseEntity.ok()
                 .headers(authenticationService.putJwtInHttpHeaders(authenticate.jwt()))
