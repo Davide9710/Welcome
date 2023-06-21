@@ -6,6 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 
 import java.util.ArrayList;
@@ -18,6 +19,7 @@ import static value.Role.TOURIST;
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
 @DiscriminatorValue(value = "guide")
+@NoArgsConstructor
 public class Guide extends PlatformUser{
 
     private String organizationName;
