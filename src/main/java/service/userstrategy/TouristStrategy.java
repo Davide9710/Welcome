@@ -3,6 +3,7 @@ package service.userstrategy;
 import domain.Tourist;
 import domain.User;
 import dto.RegisterRequestDTO;
+import dto.bo.CreateUserRequestDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import repository.TouristRepository;
@@ -26,5 +27,10 @@ public class TouristStrategy implements UserStrategy{
         Tourist tourist = new Tourist(request.username(), encodedPsw);
         tourist = touristRepository.save(tourist);
         return tourist;
+    }
+
+    @Override
+    public void create(CreateUserRequestDTO request, String encodedPsw) {
+        register(new RegisterRequestDTO(request.username(), request.password(), getRole()), encodedPsw);
     }
 }

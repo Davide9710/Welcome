@@ -4,6 +4,7 @@ import domain.Guide;
 import domain.Tourist;
 import domain.User;
 import dto.RegisterRequestDTO;
+import dto.bo.CreateUserRequestDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import repository.GuideRepository;
@@ -27,5 +28,10 @@ public class GuideStrategy implements UserStrategy{
         Guide guide = new Guide(request.username(), encodedPsw);
         guide = guideRepository.save(guide);
         return guide;
+    }
+
+    @Override
+    public void create(CreateUserRequestDTO request, String encodedPsw) {
+        register(new RegisterRequestDTO(request.username(), request.password(), getRole()), encodedPsw);
     }
 }

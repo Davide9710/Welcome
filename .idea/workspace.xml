@@ -5,14 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ae4ab8eb-788c-4ce3-9c02-59964e1fe0b9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dto/SearchTourRequestDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dto/SearchTourResponseDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/specification/SearchTourSpecification.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/specification/SpecificationUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/bo/UserControllerBO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dto/bo/CreateUserRequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/repository/PlatformUserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/service/bo/UserServiceBO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/TourController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/TourController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repository/TourRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/TourRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/TourService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/TourService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/WelcomeDB.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/WelcomeDB.mv.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/WelcomeDB.trace.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/WelcomeDB.trace.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/Administrator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/Administrator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/JwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/JwtService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/userstrategy/GuideStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/userstrategy/GuideStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/userstrategy/TouristStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/userstrategy/TouristStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/userstrategy/UserStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/userstrategy/UserStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/import.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/import.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +29,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="AnnotationType" />
+        <option value="Enum" />
         <option value="Interface" />
         <option value="Record" />
         <option value="Class" />
@@ -44,6 +53,10 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/5.6.2/spring-security-web-5.6.2.jar!/org/springframework/security/web/util/matcher/RequestMatcher.class" root0="FORCE_HIGHLIGHTING" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-config/5.6.2/spring-security-config-5.6.2-sources.jar!/org/springframework/security/config/annotation/web/AbstractRequestMatcherRegistry.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -65,43 +78,99 @@
     <property name="DatabaseDriversLRU" value="h2" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelOrder2" value="2" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RequestMappingsPanelWidth2" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../sld-contact-list-system" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/controller" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/diagrams" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Cucumber" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.47410008" />
+    <property name="settings.editor.selected.configurable" value="spring.boot" />
   </component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
+  <component name="ReaderModeSettings">
+    <option name="enabled" value="false" />
+  </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
-      <recent name="dto" />
-      <recent name="service" />
+      <recent name="service.bo" />
+      <recent name="dto.bo" />
+      <recent name="repository" />
+      <recent name="domain.userstrategy" />
+      <recent name="mapper" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\david\IdeaProjects\Welcome\src\main\java\test" />
+      <recent name="C:\Users\david\IdeaProjects\Welcome\src\test\resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\david\IdeaProjects\Welcome\src\test" />
+      <recent name="C:\Users\david\IdeaProjects\Welcome\src\test\groovy\resources" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.WelcomeApplication">
-    <configuration name="lombok-1.18.26.jar" type="JarApplication" temporary="true">
-      <option name="JAR_PATH" value="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.26/lombok-1.18.26.jar!/" />
-      <method v="2" />
-    </configuration>
-    <configuration name="WelcomeApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+    <configuration name="ReviewControllerTestIT.create Review test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Welcome" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="application.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ReviewControllerTestIT" />
+      <option name="METHOD_NAME" value="create Review test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TourControllerTestIT.delete Tour API" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Welcome" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TourControllerTestIT" />
+      <option name="METHOD_NAME" value="delete Tour API" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TourControllerTestIT.search Tour API" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Welcome" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TourControllerTestIT" />
+      <option name="METHOD_NAME" value="search Tour API" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TouristControllerTestIT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Welcome" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TouristControllerTestIT" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TouristControllerTestIT.mark tour as completed by a tourist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Welcome" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TouristControllerTestIT" />
+      <option name="METHOD_NAME" value="mark tour as completed by a tourist" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WelcomeApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="Welcome" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="application.WelcomeApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -109,8 +178,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.WelcomeApplication" />
-        <item itemvalue="JAR Application.lombok-1.18.26.jar" />
+        <item itemvalue="JUnit.TouristControllerTestIT.mark tour as completed by a tourist" />
+        <item itemvalue="JUnit.TouristControllerTestIT" />
+        <item itemvalue="JUnit.TourControllerTestIT.search Tour API" />
+        <item itemvalue="JUnit.TourControllerTestIT.delete Tour API" />
+        <item itemvalue="JUnit.ReviewControllerTestIT.create Review test" />
       </list>
     </recent_temporary>
   </component>
@@ -141,7 +213,25 @@
       <workItem from="1682087020990" duration="3200000" />
       <workItem from="1682156770852" duration="3428000" />
       <workItem from="1682405496350" duration="3523000" />
-      <workItem from="1682540240682" duration="3641000" />
+      <workItem from="1682540240682" duration="3929000" />
+      <workItem from="1682625841610" duration="2146000" />
+      <workItem from="1685451802579" duration="13033000" />
+      <workItem from="1685696531062" duration="16039000" />
+      <workItem from="1685742962546" duration="2429000" />
+      <workItem from="1686314831407" duration="635000" />
+      <workItem from="1686391085718" duration="3163000" />
+      <workItem from="1686474324124" duration="3612000" />
+      <workItem from="1686478125333" duration="6356000" />
+      <workItem from="1686833547515" duration="7546000" />
+      <workItem from="1686926696375" duration="6118000" />
+      <workItem from="1686944510672" duration="2954000" />
+      <workItem from="1686993397181" duration="5983000" />
+      <workItem from="1687076653926" duration="9552000" />
+      <workItem from="1687181041731" duration="3541000" />
+      <workItem from="1687244426144" duration="9517000" />
+      <workItem from="1687292483802" duration="7212000" />
+      <workItem from="1687353487824" duration="6722000" />
+      <workItem from="1687376792359" duration="961000" />
     </task>
     <servers />
   </component>
@@ -183,19 +273,64 @@
           <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/controller/TourController.java</url>
-          <line>58</line>
-          <option name="timeStamp" value="30" />
+          <url>file://$PROJECT_DIR$/src/main/java/service/JwtService.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="45" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/controller/TourController.java</url>
+          <url>file://$PROJECT_DIR$/target/generated-sources/annotations/mapper/AuthenticationResponseJwtDTOMapperImpl.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/target/generated-sources/annotations/mapper/AuthenticationResponseJwtDTOMapperImpl.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="51" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/service/AuthenticationService.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="56" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/service/AuthenticationService.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="57" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/service/AuthenticationService.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="58" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/service/AuthenticationService.java</url>
           <line>56</line>
-          <option name="timeStamp" value="31" />
+          <option name="timeStamp" value="59" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/controller/TourController.java</url>
-          <line>59</line>
-          <option name="timeStamp" value="37" />
+          <url>file://$PROJECT_DIR$/src/main/java/controller/bo/UserControllerBO.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="60" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/config/JwtAuthenticationFilter.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="63" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/service/JwtService.java</url>
+          <line>72</line>
+          <option name="timeStamp" value="64" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/service/JwtService.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="65" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/service/bo/UserServiceBO.java</url>
+          <line>17</line>
+          <option name="timeStamp" value="67" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -204,5 +339,9 @@
         <watch expression="((Logger)((Logger)log).parent).effectiveLevelInt" custom="ch.qos.logback.classic.Logger" />
       </configuration>
     </watches-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
