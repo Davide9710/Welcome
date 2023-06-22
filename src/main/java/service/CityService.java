@@ -2,6 +2,7 @@ package service;
 
 import domain.City;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import repository.CityRepository;
 
@@ -12,7 +13,8 @@ import java.util.List;
 public class CityService {
     private final CityRepository cityRepository;
 
-    public List<City> getAll(){
+    @Cacheable(cacheNames = "allCities")
+    public List<City> getAll() {
         return cityRepository.findAll();
     }
 

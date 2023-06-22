@@ -20,7 +20,7 @@ public class CityController {
     private final CityService cityService;
 
     @GetMapping
-    public GetAllCityResponseDTO getAll(){
+    public GetAllCityResponseDTO getAll() {
         List<City> cities = cityService.getAll();
         return new GetAllCityResponseDTO(CityResponseDTOMapper.INSTANCE.convert(cities));
     }

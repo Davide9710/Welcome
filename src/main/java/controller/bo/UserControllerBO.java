@@ -3,6 +3,7 @@ package controller.bo;
 import aspects.logging.Log;
 import domain.User;
 import dto.bo.CreateUserRequestDTO;
+import dto.bo.GetAllUserResponseDTO;
 import lombok.RequiredArgsConstructor;
 import mapper.UserDTOMapper;
 import org.springframework.http.MediaType;

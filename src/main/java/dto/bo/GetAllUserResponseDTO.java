@@ -1,4 +1,4 @@
-package controller.bo;
+package dto.bo;
 
 import dto.UserDTO;
 
