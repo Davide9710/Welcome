@@ -1,9 +1,9 @@
 package dto;
 
-import value.TourStatus;
+import value.Status;
 
 public record TourResponseDTO(String title,
-                              TourStatus status,
+                              Status status,
                               CityResponseDTO city,
                               Double rating) {
 

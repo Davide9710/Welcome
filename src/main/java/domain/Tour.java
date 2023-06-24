@@ -1,10 +1,10 @@
 package domain;
 
+import domain.softdeletable.ISoftDeletable;
+import domain.softdeletable.SoftDeletable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,13 +14,12 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import lombok.Data;
+import jakarta.persistence.OneToOne;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.Formula;
-import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.hibernate.annotations.Where;
-import value.TourStatus;
 
 import java.time.Instant;
 import java.util.ArrayList;
@@ -29,10 +28,9 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@Data
-@SQLDelete(sql = "UPDATE tour SET status = 'DELETED' WHERE id = ?")
-@Where(clause = "status <> 'DELETED'")
-public class Tour /*extends SoftDeletable*/{
+@Getter
+@Setter
+public class Tour implements ISoftDeletable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -46,9 +44,12 @@ public class Tour /*extends SoftDeletable*/{
     @Column(name = "approx_duration")
     private Integer approxDuration;
 
-    @Column(name = "status")
-    @Enumerated(value = EnumType.STRING)
-    private TourStatus status = TourStatus.ACTIVE;
+//    @Column(name = "status")
+//    @Enumerated(value = EnumType.STRING)
+//    private TourStatus status = TourStatus.ACTIVE;
+
+    @OneToOne(fetch = FetchType.EAGER, optional = false)
+    private SoftDeletable softDeletable;
 
     @CreationTimestamp
     @Column(updatable = false, nullable = false)
@@ -106,7 +107,6 @@ public class Tour /*extends SoftDeletable*/{
                 ", title='" + title + '\'' +
                 ", approxCost=" + approxCost +
                 ", approxDuration=" + approxDuration +
-                ", tourStatus=" + status +
                 ", creationTime=" + creationTime +
                 ", lastUpdate=" + lastUpdate +
                 '}';

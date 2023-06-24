@@ -1,6 +1,6 @@
 package dto;
 
-import value.TourStatus;
+import value.Status;
 
 import java.time.Instant;
 import java.util.List;
@@ -8,7 +8,7 @@ import java.util.List;
 public record CreateTourResponseDTO(String title,
                                     Double approxCost,
                                     String approxDuration,
-                                    TourStatus status,
+                                    Status status,
                                     Instant creationTime,
                                     Instant lastUpdate,
                                     CityDTO city,
