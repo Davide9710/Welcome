@@ -38,13 +38,13 @@ public class Tour {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "title")
+    @Column(name = "title", nullable = false)
     private String title;
 
-    @Column(name = "approx_cost")
+    @Column(name = "approx_cost", nullable = false)
     private Double approxCost;
 
-    @Column(name = "approx_duration")
+    @Column(name = "approx_duration", nullable = false)
     private Integer approxDuration;
 
     @OneToOne(fetch = FetchType.EAGER, optional = false)
@@ -58,7 +58,7 @@ public class Tour {
     @Column(nullable = false)
     private Instant lastUpdate;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     private Guide guide;
 
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "tours")
@@ -76,7 +76,7 @@ public class Tour {
     @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, mappedBy = "tour")
     private List<TourStop> TourStops = new ArrayList<>();
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     private City city;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
