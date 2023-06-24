@@ -26,6 +26,11 @@ public class UserControllerBO {
 
     private final UserServiceBO userServiceBO;
 
+    /**
+     * Post Endpoint that creates a new city
+     * @param request user data
+     * @return Response Entity indicating the operation result
+     */
     @PostMapping("/create")
     @Log
     public ResponseEntity<?> create(@RequestBody CreateUserRequestDTO request){
@@ -33,6 +38,10 @@ public class UserControllerBO {
         return ResponseEntity.ok().build();
     }
 
+    /**
+     * Get Endpoint that get all the users
+     * @return a DTO projection of all the users
+     */
     @GetMapping
     @Log
     public ResponseEntity<GetAllUserResponseDTO> getAll(){

@@ -9,6 +9,10 @@ import org.mapstruct.factory.Mappers;
 
 import java.util.Base64;
 
+/**
+ * Mapstruct mapper used as a singleton pattern, specifically "Initialization-on-demand holder idiom" design pattern
+ * that allows lazy loaded singleton instance
+ */
 @Mapper
 public interface CreateTourRequestDTOMapper {
     CreateTourRequestDTOMapper INSTANCE = Mappers.getMapper(CreateTourRequestDTOMapper.class);

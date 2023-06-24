@@ -7,13 +7,22 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
+/**
+ * Mailing service used to send email
+ */
 @Service
 @RequiredArgsConstructor
 public class EmailService {
 
+    /**
+     * email address, taken from the property file
+     */
     @Value("${spring.mail.username:null}")
     private String fromEmail;
 
+    /**
+     * Mail sender injected from Spring
+     */
     private final JavaMailSender mailSender;
 
     /**

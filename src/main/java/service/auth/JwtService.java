@@ -16,15 +16,29 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
+/**
+ * Service that is responsible for JWT token
+ */
 @Service
 @PropertySource("classpath:application.yml")
 public class JwtService {
+    /**
+     * static secret key used for the jwt generation
+     */
     @Value("${secretkey:null}")
     private String SECRET_KEY;
 
+    /**
+     * seconds after which the token is exprired
+     */
     @Value("${expirationtime:60}")
     private Integer EXPIRATION_TIME_IN_SECONDS;
 
+    /**
+     * Method that extract the email from the JWT
+     * @param jwt
+     * @return
+     */
     public String extractEmail(String jwt) {
         return extractClaim(jwt, Claims::getSubject);
     }
@@ -60,11 +74,19 @@ public class JwtService {
         return extractClaim(jwt, Claims::getExpiration);
     }
 
+    /**
+     * Generic method that extract a claim from the jwt, using a Function claimsResolver
+     */
     public <T> T extractClaim(String jwt, Function<Claims, T> claimsResolver) {
         final Claims claims = extractAllClaims(jwt);
         return claimsResolver.apply(claims);
     }
 
+    /**
+     * Method that extract all claims from the jwt
+     * @param jwt token
+     * @return registered claims
+     */
     private Claims extractAllClaims(String jwt) {
         return Jwts
                 .parserBuilder()
@@ -74,6 +96,10 @@ public class JwtService {
                 .getBody();
     }
 
+    /**
+     * Method that create the signing key from the SECRET_KEY base64 string
+     * @return Key object used for jwt
+     */
     private Key getSigningKey() {
         byte[] keyBytes = Decoders.BASE64.decode(SECRET_KEY);
         return Keys.hmacShaKeyFor(keyBytes);

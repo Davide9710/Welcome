@@ -21,6 +21,11 @@ public class ReviewService {
     private final TouristRepository touristRepository;
     private final TourRepository tourRepository;
 
+    /**
+     * Method that create a new review from the given data
+     * @param createReviewRequestDTO it contains the data from the review, the reviewed tour and the reviewer's id
+     * @return the created Review
+     */
     public Review createReview(CreateReviewRequestDTO createReviewRequestDTO){
         Review review = CreateReviewRequestDTOMapper.INSTANCE.convert(createReviewRequestDTO.title(),
                 createReviewRequestDTO.stars(),

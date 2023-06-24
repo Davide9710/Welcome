@@ -1,6 +1,5 @@
 package domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
@@ -9,17 +8,23 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static value.Role.TOURIST;
 
+/**
+ * entity that contains tourist specific field
+ */
 @Entity(name = "tourist")
-@JsonIgnoreProperties(ignoreUnknown = true)
 @DiscriminatorValue(value = "tourist")
 @NoArgsConstructor
+@Setter
+@Getter
 public class Tourist extends PlatformUser{
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -42,45 +47,6 @@ public class Tourist extends PlatformUser{
         super(email, password, TOURIST);
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public List<Tour> getTours() {
-        return tours;
-    }
-
-    public void setTours(List<Tour> tours) {
-        this.tours = tours;
-    }
-
-    public List<Review> getReviews() {
-        return reviews;
-    }
-
-    public void setReviews(List<Review> reviews) {
-        this.reviews = reviews;
-    }
-
-    public List<Report> getReports() {
-        return reports;
-    }
-
-    public void setReports(List<Report> reports) {
-        this.reports = reports;
-    }
-
-    public List<Suggestion> getSuggestions() {
-        return suggestions;
-    }
-
-    public void setSuggestions(List<Suggestion> suggestions) {
-        this.suggestions = suggestions;
-    }
 
     public void addTour(Tour tour){
         this.tours.add(tour);

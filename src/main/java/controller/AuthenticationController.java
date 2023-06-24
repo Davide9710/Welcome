@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import service.auth.AuthenticationService;
 
+/**
+ * Controller that defined authentication's endpoint, reachable without auth
+ */
 @RestController
 @RequestMapping("/auth")
 @RequiredArgsConstructor
@@ -22,6 +25,11 @@ public class AuthenticationController {
 
     private final AuthenticationService authenticationService;
 
+    /**
+     * Post Endpoint to register a new user
+     * @param request the username, password and Role
+     * @return Response Entity with the jwt token and the user's email
+     */
     @PostMapping("/register")
     public ResponseEntity<AuthenticationResponseDTO> register(
             @RequestBody @Valid RegisterRequestDTO request
@@ -33,6 +41,11 @@ public class AuthenticationController {
                 .body(new AuthenticationResponseDTO(authenticate.user()));
     }
 
+    /**
+     * Post Endpoint that authenticate the user with the given credentials
+     * @param request credentials
+     * @return Response Entity indicating the auth result
+     */
     @PostMapping("/authenticate")
     public ResponseEntity<AuthenticationResponseDTO> authenticate(
             @RequestBody @Valid AuthenticationRequestDTO request
@@ -43,6 +56,11 @@ public class AuthenticationController {
                 .body(new AuthenticationResponseDTO(authenticate.user()));
     }
 
+    /**
+     * Get Endpoint that reset the password
+     * @param request user's email
+     * @return Response Entity indicating the reset password result
+     */
     @GetMapping("/reset-psw")
     public ResponseEntity<?> resetPassword(
             @RequestBody @Valid ResetPasswordRequestDTO request

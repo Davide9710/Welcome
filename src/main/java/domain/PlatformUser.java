@@ -18,6 +18,9 @@ import value.Role;
 
 import java.util.List;
 
+/**
+ * entity that contains platform user common data, like the first and last name
+ */
 @Entity(name = "platform_user")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "user_type", discriminatorType = DiscriminatorType.STRING)

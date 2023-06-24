@@ -8,6 +8,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * This factory method design pattern help the client to create the desired strategy using a map
+ */
 @Component
 public class UserStrategyFactory {
     private Map<Role, UserStrategy> strategies;

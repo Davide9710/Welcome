@@ -1,6 +1,5 @@
 package domain;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -11,6 +10,9 @@ import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
 import lombok.Data;
 
+/**
+ * entity that contains image data, as Byte array
+ */
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data
@@ -27,20 +29,4 @@ public class Image {
 
     @Lob
     private Byte[] image;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Byte[] getImage() {
-        return image;
-    }
-
-    public void setImage(Byte[] image) {
-        this.image = image;
-    }
 }

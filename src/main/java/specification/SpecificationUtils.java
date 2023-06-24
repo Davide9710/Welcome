@@ -10,11 +10,32 @@ import java.util.List;
 
 import static org.apache.commons.collections4.CollectionUtils.isEmpty;
 
+/**
+ * an utils generic methods to help the creation of Java Specification
+ */
 public class SpecificationUtils {
-    public static <T> Predicate inPredicate(Predicate p, Root<Tour> root, CriteriaBuilder cb, String fieldName, List<T> listOfValues) {
+    /**
+     *
+     * @param p predicate to be updated
+     * @param root query root
+     * @param fieldName the name of the fields to be selected
+     * @param listOfValues the list of values to run against the "IN" query
+     * @param <T> generic value
+     * @return the predicate with the "IN" query if the listOfValues is not empty, else it returns the given predicate
+     */
+    public static <T> Predicate inPredicate(Predicate p, Root<Tour> root, String fieldName, List<T> listOfValues) {
         return isEmpty(listOfValues) ? p : root.get(fieldName).in(listOfValues);
     }
 
+    /**
+     * Method used for the equal criteria query, with null check
+     * @param p predicate to be updated
+     * @param cb criteria builder
+     * @param expression expression to be equal
+     * @param value value to be equal
+     * @param <T> generic
+     * @return updated predicate, if value is not null
+     */
     public static <T> Predicate equalWithNullControl(Predicate p,
                                                      CriteriaBuilder cb,
                                                      Expression<?> expression,
@@ -22,6 +43,15 @@ public class SpecificationUtils {
         return value == null ? p : cb.equal(expression, value);
     }
 
+    /**
+     * Method used for the "less than" criteria query, with null check
+     * @param p predicate to be updated
+     * @param cb criteria builder
+     * @param expression expression to be equal
+     * @param value value to be equal
+     * @param <T> generic
+     * @return updated predicate, if value is not null
+     */
     public static <T extends Comparable<? super T>> Predicate lessThanWithNullControl(Predicate p,
                                                                                       CriteriaBuilder cb,
                                                                                       Expression<? extends T> expression,

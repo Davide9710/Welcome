@@ -10,12 +10,19 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * entity that contains tour stop data
+ */
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
+@Getter
+@Setter
 public class TourStop {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,86 +48,6 @@ public class TourStop {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Tour tour;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public GeographicCoordinates getGeographicCoordinates() {
-        return coordinates;
-    }
-
-    public void setGeographicCoordinates(GeographicCoordinates geographicCoordinates) {
-        this.coordinates = geographicCoordinates;
-    }
-
-    public Integer getIndex() {
-        return index;
-    }
-
-    public void setIndex(Integer index) {
-        this.index = index;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Double getCost() {
-        return cost;
-    }
-
-    public void setCost(Double cost) {
-        this.cost = cost;
-    }
-
-    public String getDuration() {
-        return duration;
-    }
-
-    public void setDuration(String duration) {
-        this.duration = duration;
-    }
-
-    public Transport getTransport() {
-        return transport;
-    }
-
-    public void setTransport(Transport transport) {
-        this.transport = transport;
-    }
-
-    public List<Image> getImages() {
-        return images;
-    }
-
-    public void setImages(List<Image> images) {
-        this.images = images;
-    }
-
-    public List<Suggestion> getSuggestions() {
-        return suggestions;
-    }
-
-    public void setSuggestions(List<Suggestion> suggestions) {
-        this.suggestions = suggestions;
-    }
 
     @Override
     public String toString() {

@@ -9,6 +9,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 
+/**
+ * Logging aspect, it logs every controller requests and methods annotated with @Log
+ */
 @Component
 @Aspect
 @Slf4j
@@ -33,6 +36,11 @@ public class LoggingAspect {
         log.info(createJoinPointForLogs(joinPoint));
     }
 
+    /**
+     * Method that extracts methods params and logs them
+     * @param joinPoint where the log has been called
+     * @return message to be logged
+     */
     private String createJoinPointForLogs(JoinPoint joinPoint) {
         if (joinPoint.getArgs().length < 1) {
             return joinPoint.getSignature().getName().concat(" method don`t have parameters");

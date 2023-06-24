@@ -19,6 +19,11 @@ public class TouristService {
     private final TouristRepository touristRepository;
     private final TourRepository tourRepository;
 
+    /**
+     * Method that a user call to mark a tour as completed and to add it to his profile
+     * @param touristId the id of the logged tourist
+     * @param tourId the id of the tour to be marked
+     */
     public void markAsComplete(Long touristId, Long tourId) {
         Tourist tourist = touristRepository.findById(touristId)
                 .orElseThrow(() -> new TouristNotFoundException(touristId));
@@ -29,6 +34,12 @@ public class TouristService {
         tourRepository.save(tour);
     }
 
+    /**
+     * method that allow the tourist to update his personal information: firstName and lastName
+     * @param touristId the id of the logged user
+     * @param requestDTO the firstName and lastName
+     * @return the updated tourist
+     */
     public Tourist edit(Long touristId, EditTouristRequestDTO requestDTO) {
         Tourist tourist = touristRepository.findById(touristId)
                 .orElseThrow(() -> new TouristNotFoundException(touristId));
@@ -37,6 +48,11 @@ public class TouristService {
         return tourist;
     }
 
+    /**
+     * method that return all the tour marked by the tourist as completed, to show in the personal profile
+     * @param touristId the id of the logged tourist
+     * @return the list of tour
+     */
     public List<Tour> getAllMarkedTour(Long touristId) {
         return touristRepository.findById(touristId).orElseThrow(() -> new TouristNotFoundException(touristId))
                 .getTours();

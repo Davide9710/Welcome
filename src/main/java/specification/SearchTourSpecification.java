@@ -21,13 +21,20 @@ public class SearchTourSpecification implements Specification<Tour> {
 
     private final SearchTourRequestDTO filter;
 
+    /**
+     * a utils methods that
+     * @param root
+     * @param query
+     * @param cb
+     * @return
+     */
     @Override
     public Predicate toPredicate(Root<Tour> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
         Predicate p = cb.and();
         p = cb.and(equalWithNullControl(p, cb, root.get(Tour_.city).get(City_.ID), filter.cityId()));
         p = cb.and(lessThanWithNullControl(p, cb, root.get(Tour_.approxDuration), filter.maxDuration()));
         p = cb.and(equalWithNullControl(p, cb, root.get(Tour_.theme).get(Theme_.NAME), filter.themeName()));
-        p = cb.and(inPredicate(p, root, cb, Tour_.TAGS, filter.tagNames()));
+        p = cb.and(inPredicate(p, root, Tour_.TAGS, filter.tagNames()));
         return p;
     }
 }

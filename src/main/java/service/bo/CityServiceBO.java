@@ -12,6 +12,10 @@ import repository.CityRepository;
 public class CityServiceBO {
     private final CityRepository cityRepository;
 
+    /**
+     * a Back Office method that allows the developers to add new cities, cleaning up the city cache
+     * @param request name of the city to be created
+     */
     @CacheEvict(cacheNames = "allCities", allEntries = true)
     public void create(CreateCityRequestBO request){
         City city = City.builder().name(request.name()).build();

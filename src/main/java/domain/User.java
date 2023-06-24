@@ -19,6 +19,9 @@ import value.Role;
 import java.util.Collection;
 import java.util.Collections;
 
+/**
+ * Basic entity from which every user inherit, it contains security credentials
+ */
 @Entity(name = "_user") //"user" is a reserved name for H2
 @Inheritance(strategy = InheritanceType.JOINED)
 @NoArgsConstructor

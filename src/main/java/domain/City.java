@@ -9,15 +9,22 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * entity that contains city data
+ */
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Setter
+@Getter
 public class City {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,30 +35,6 @@ public class City {
 
     @OneToMany(mappedBy = "city", fetch = FetchType.LAZY)
     private List<Guide> guideList = new ArrayList<>();
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public List<Guide> getGuideList() {
-        return guideList;
-    }
-
-    public void setGuideList(List<Guide> guideList) {
-        this.guideList = guideList;
-    }
 
     @Override
     public String toString() {

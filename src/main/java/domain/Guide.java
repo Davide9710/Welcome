@@ -13,6 +13,9 @@ import java.util.List;
 
 import static value.Role.GUIDE;
 
+/**
+ * entity that contains guide specific field
+ */
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
 @DiscriminatorValue(value = "guide")
@@ -29,37 +32,5 @@ public class Guide extends PlatformUser{
 
     public Guide(String email, String password) {
         super(email, password, GUIDE);
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getOrganizationName() {
-        return organizationName;
-    }
-
-    public void setOrganizationName(String organizationName) {
-        this.organizationName = organizationName;
-    }
-
-    public List<Tour> getTours() {
-        return tours;
-    }
-
-    public void setTours(List<Tour> tours) {
-        this.tours = tours;
-    }
-
-    public City getCity() {
-        return city;
-    }
-
-    public void setCity(City city) {
-        this.city = city;
     }
 }

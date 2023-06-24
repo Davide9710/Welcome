@@ -3,7 +3,6 @@ package service.unittest;
 import domain.Tour;
 import domain.Tourist;
 import dto.EditTouristRequestDTO;
-import jakarta.validation.constraints.NotBlank;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -17,6 +17,9 @@ import service.auth.JwtService;
 
 import java.io.IOException;
 
+/**
+ * Component that filter request once, to check for authentication
+ */
 @Component
 @RequiredArgsConstructor
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
@@ -24,6 +27,14 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private final JwtService jwtService;
     private final UserDetailsService userDetailsService;
 
+    /**
+     * it filter requests, checking for jwt token, extracting it and validating it
+     * @param request http request
+     * @param response http response
+     * @param filterChain filter
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doFilterInternal(@NonNull HttpServletRequest request,
                                     @NonNull HttpServletResponse response,

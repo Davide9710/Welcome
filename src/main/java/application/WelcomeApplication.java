@@ -37,6 +37,10 @@ public class WelcomeApplication {
         SpringApplication.run(WelcomeApplication.class, args);
     }
 
+    /**
+     * CORS configuration
+     * @return configured WebMvc
+     */
     @Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {

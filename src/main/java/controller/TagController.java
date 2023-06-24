@@ -19,6 +19,10 @@ import java.util.List;
 public class TagController {
     private final TagService tagService;
 
+    /**
+     * Get endpoint that return all the tags in the db
+     * @return the tags in the db
+     */
     @GetMapping
     public ResponseEntity<GetAllTagDTO> getAll(){
         List<Tag> tagList = tagService.getAll();

@@ -1,15 +1,20 @@
 package domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import lombok.Getter;
+import lombok.Setter;
 
+/**
+ * entity that contains suggestion data
+ */
 @Entity
-@JsonIgnoreProperties(ignoreUnknown = true)
+@Getter
+@Setter
 public class Suggestion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,30 +30,6 @@ public class Suggestion {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Tour tour;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Tourist getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(Tourist author) {
-        this.author = author;
-    }
 
     @Override
     public String toString() {

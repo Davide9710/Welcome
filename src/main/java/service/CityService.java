@@ -13,6 +13,11 @@ import java.util.List;
 public class CityService {
     private final CityRepository cityRepository;
 
+    /**
+     * Method that return all the cities in the db; it leverages the facts that the city list rarely changes and
+     * it can be cached, both at the db-level (from Hibernate) and in-memory level (spring cache)
+     * @return a list of cities
+     */
     @Cacheable(cacheNames = "allCities")
     public List<City> getAll() {
         return cityRepository.findAll();

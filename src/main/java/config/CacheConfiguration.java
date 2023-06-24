@@ -5,6 +5,9 @@ import org.springframework.cache.concurrent.ConcurrentMapCacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * Configuration component for the im-memory cache
+ */
 @Configuration
 public class CacheConfiguration {
 

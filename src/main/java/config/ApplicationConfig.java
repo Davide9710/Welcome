@@ -14,6 +14,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import repository.UserRepository;
 
+/**
+ * Spring security configuration
+ */
 @Configuration
 @RequiredArgsConstructor
 @EnableWebSecurity

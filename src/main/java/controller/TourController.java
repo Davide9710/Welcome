@@ -1,6 +1,5 @@
 package controller;
 
-
 import domain.Tour;
 import dto.CreateTourRequestDTO;
 import dto.CreateTourResponseDTO;
@@ -9,6 +8,7 @@ import dto.EditTourResponseDTO;
 import dto.SearchTourRequestDTO;
 import dto.SearchTourResponseDTO;
 import dto.TourResponseDTO;
+import exception.notfound.TourNotFoundException;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
@@ -31,6 +31,9 @@ import service.TourService;
 
 import java.util.List;
 
+/**
+ * Tour Controller that contains tour related endpoints
+ */
 @RestController
 @RequestMapping(value = "/tour",
         consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.MULTIPART_FORM_DATA_VALUE},
@@ -40,6 +43,11 @@ import java.util.List;
 public class TourController {
     private final TourService tourService;
 
+    /**
+     * Get endpoint that return a tour by its id
+     * @param id the tour id
+     * @return the Tour object from the db
+     */
     @GetMapping("/{id}")
     public ResponseEntity<TourResponseDTO> get(@PathVariable("id") @NotNull Long id) {
         Tour tour = tourService.getTour(id);
@@ -47,6 +55,11 @@ public class TourController {
         return ResponseEntity.ok(TourResponseDTOMapper.INSTANCE.convert(tour));
     }
 
+    /**
+     * Post Endpoint that save the tour object to the db
+     * @param createTourRequestDTO tour projection object
+     * @return a prohection of the saved tour
+     */
     @PostMapping("/create")
     public ResponseEntity<CreateTourResponseDTO> create(@RequestBody @Valid CreateTourRequestDTO createTourRequestDTO) {
         Tour tour = CreateTourRequestDTOMapper.INSTANCE.convert(createTourRequestDTO);
@@ -56,6 +69,12 @@ public class TourController {
         return ResponseEntity.ok(CreateTourResponseDTOMapper.INSTANCE.convert(savedTour));
     }
 
+    /**
+     * Patch Endpoint that allows the guide to partially edit a tour
+     * @param tourId the is of the tour to be changed
+     * @param editTourRequestDTO data to be updated
+     * @return a projection of the updated tour
+     */
     @PatchMapping("/{tourId}")
     public ResponseEntity<EditTourResponseDTO> edit(@PathVariable("tourId") @NotNull Long tourId,
                                                     @RequestBody @Valid EditTourRequestDTO editTourRequestDTO) {
@@ -64,6 +83,11 @@ public class TourController {
         return ResponseEntity.ok(EditTourResponseDTOMapper.INSTANCE.convert(editedTour));
     }
 
+    /**
+     * Delete endpoint that deletes a Tour
+     * @param id id of the tour to be deleted
+     * @return Response Entity indicating the operation result
+     */
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") @NotNull Long id) {
         tourService.delete(id);

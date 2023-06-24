@@ -1,7 +1,6 @@
 package service.unittest;
 
 import domain.Tour;
-import domain.softdeletable.SoftDeletable;
 import domain.softdeletable.SoftDelete;
 import dto.CityDTO;
 import dto.EditTourRequestDTO;

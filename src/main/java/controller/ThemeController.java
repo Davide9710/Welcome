@@ -19,6 +19,10 @@ import java.util.List;
 public class ThemeController {
     private final ThemeService themeService;
 
+    /**
+     * Get Endpoint that return all the themes in the db
+     * @return the themes in the db
+     */
     @GetMapping
     public ResponseEntity<GetAllThemeResponseDTO> getAll(){
         List<Theme> themes = themeService.getAll();

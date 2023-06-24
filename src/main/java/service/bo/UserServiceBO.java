@@ -18,11 +18,19 @@ public class UserServiceBO {
     private final UserStrategyFactory userStrategyFactory;
     private final PasswordEncoder passwordEncoder;
 
+    /**
+     * method that create a new user using the userStrategyFactory
+     * @param request the data to be inserted in the user table
+     */
     public void create(CreateUserRequestDTO request){
         UserStrategy strategy = userStrategyFactory.findStrategy(request.role());
         strategy.create(request, passwordEncoder.encode(request.password()));
     }
 
+    /**
+     * method that returns all the users
+     * @return a list of users
+     */
     public List<User> getAll() {
         return userRepository.findAll();
     }

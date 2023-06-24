@@ -13,6 +13,9 @@ import service.CityService;
 
 import java.util.List;
 
+/**
+ * Controller that defined city's endpoint, reachable by platform users
+ */
 @RestController
 @RequestMapping(value = "/city", produces = MediaType.APPLICATION_JSON_VALUE)
 @RequiredArgsConstructor
@@ -20,6 +23,10 @@ public class CityController {
 
     private final CityService cityService;
 
+    /**
+     * Get Endpoint that return all the cities in the db
+     * @return a list of cities
+     */
     @GetMapping
     public ResponseEntity<GetAllCityResponseDTO> getAll() {
         List<City> cities = cityService.getAll();

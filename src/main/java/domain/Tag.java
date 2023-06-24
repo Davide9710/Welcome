@@ -1,6 +1,5 @@
 package domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -13,6 +12,9 @@ import lombok.Getter;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * entity that contains tag data
+ */
 @Entity
 @Getter
 public class Tag {
@@ -25,20 +27,6 @@ public class Tag {
 
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "tags")
     private Set<Tour> tours = new HashSet<>();
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Set<Tour> getTours() {
-        return tours;
-    }
-
-
 
     @Override
     public String toString() {
