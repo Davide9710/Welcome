@@ -1,25 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ae4ab8eb-788c-4ce3-9c02-59964e1fe0b9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/bo/UserControllerBO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dto/bo/CreateUserRequestDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/repository/PlatformUserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/service/bo/UserServiceBO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/WelcomeDB.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/WelcomeDB.mv.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/WelcomeDB.trace.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/WelcomeDB.trace.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/Administrator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/Administrator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/JwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/JwtService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/userstrategy/GuideStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/userstrategy/GuideStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/userstrategy/TouristStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/userstrategy/TouristStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/userstrategy/UserStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/userstrategy/UserStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/import.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/import.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +76,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/controller" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/diagrams" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../MyGym" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
@@ -104,66 +94,100 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="service.auth" />
       <recent name="service.bo" />
-      <recent name="dto.bo" />
       <recent name="repository" />
-      <recent name="domain.userstrategy" />
-      <recent name="mapper" />
+      <recent name="controller.bo" />
+      <recent name="dto.bo" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\david\IdeaProjects\Welcome\src\main\java\test" />
       <recent name="C:\Users\david\IdeaProjects\Welcome\src\test\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\david\IdeaProjects\Welcome\src\test\java\service\" />
       <recent name="C:\Users\david\IdeaProjects\Welcome\src\test" />
       <recent name="C:\Users\david\IdeaProjects\Welcome\src\test\groovy\resources" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="service" />
+    </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.WelcomeApplication">
-    <configuration name="ReviewControllerTestIT.create Review test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.AuthenticationServiceUnitTest.sendSimpleEmailTest">
+    <configuration name="AuthenticationServiceUnitTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Welcome" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ReviewControllerTestIT" />
-      <option name="METHOD_NAME" value="create Review test" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TourControllerTestIT.delete Tour API" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Welcome" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TourControllerTestIT" />
-      <option name="METHOD_NAME" value="delete Tour API" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TourControllerTestIT.search Tour API" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Welcome" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TourControllerTestIT" />
-      <option name="METHOD_NAME" value="search Tour API" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TouristControllerTestIT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Welcome" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TouristControllerTestIT" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="service.auth.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="service.auth" />
+      <option name="MAIN_CLASS_NAME" value="service.auth.AuthenticationServiceUnitTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TouristControllerTestIT.mark tour as completed by a tourist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AuthenticationServiceUnitTest.sendSimpleEmailTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Welcome" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TouristControllerTestIT" />
-      <option name="METHOD_NAME" value="mark tour as completed by a tourist" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="service.auth.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="service.auth" />
+      <option name="MAIN_CLASS_NAME" value="service.auth.AuthenticationServiceUnitTest" />
+      <option name="METHOD_NAME" value="sendSimpleEmailTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EmailServiceTestIT.sendSimpleEmailTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Welcome" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="service.integrationtest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="service.integrationtest" />
+      <option name="MAIN_CLASS_NAME" value="service.integrationtest.EmailServiceTestIT" />
+      <option name="METHOD_NAME" value="sendSimpleEmailTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EmailServiceUnitTest.sendSimpleEmailTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Welcome" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="service.unittest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="service.unittest" />
+      <option name="MAIN_CLASS_NAME" value="service.unittest.EmailServiceUnitTest" />
+      <option name="METHOD_NAME" value="sendSimpleEmailTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RandomValuesUnitTest.generateRandomStringTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Welcome" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="utils.unittest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="utils.unittest" />
+      <option name="MAIN_CLASS_NAME" value="utils.unittest.RandomValuesUnitTest" />
+      <option name="METHOD_NAME" value="generateRandomStringTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -178,11 +202,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TouristControllerTestIT.mark tour as completed by a tourist" />
-        <item itemvalue="JUnit.TouristControllerTestIT" />
-        <item itemvalue="JUnit.TourControllerTestIT.search Tour API" />
-        <item itemvalue="JUnit.TourControllerTestIT.delete Tour API" />
-        <item itemvalue="JUnit.ReviewControllerTestIT.create Review test" />
+        <item itemvalue="JUnit.AuthenticationServiceUnitTest.sendSimpleEmailTest" />
+        <item itemvalue="JUnit.AuthenticationServiceUnitTest" />
+        <item itemvalue="JUnit.EmailServiceUnitTest.sendSimpleEmailTest" />
+        <item itemvalue="JUnit.RandomValuesUnitTest.generateRandomStringTest" />
+        <item itemvalue="JUnit.EmailServiceTestIT.sendSimpleEmailTest" />
       </list>
     </recent_temporary>
   </component>
@@ -231,7 +255,10 @@
       <workItem from="1687244426144" duration="9517000" />
       <workItem from="1687292483802" duration="7212000" />
       <workItem from="1687353487824" duration="6722000" />
-      <workItem from="1687376792359" duration="961000" />
+      <workItem from="1687376792359" duration="6685000" />
+      <workItem from="1687437447155" duration="94000" />
+      <workItem from="1687441319763" duration="7088000" />
+      <workItem from="1687591814837" duration="12234000" />
     </task>
     <servers />
   </component>
@@ -273,11 +300,6 @@
           <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/service/JwtService.java</url>
-          <line>35</line>
-          <option name="timeStamp" value="45" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/target/generated-sources/annotations/mapper/AuthenticationResponseJwtDTOMapperImpl.java</url>
           <line>20</line>
           <option name="timeStamp" value="50" />
@@ -288,49 +310,24 @@
           <option name="timeStamp" value="51" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/service/AuthenticationService.java</url>
-          <line>41</line>
-          <option name="timeStamp" value="56" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/service/AuthenticationService.java</url>
-          <line>42</line>
-          <option name="timeStamp" value="57" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/service/AuthenticationService.java</url>
-          <line>50</line>
-          <option name="timeStamp" value="58" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/service/AuthenticationService.java</url>
-          <line>56</line>
-          <option name="timeStamp" value="59" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/controller/bo/UserControllerBO.java</url>
-          <line>24</line>
+          <line>31</line>
           <option name="timeStamp" value="60" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/config/JwtAuthenticationFilter.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="63" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/service/JwtService.java</url>
-          <line>72</line>
-          <option name="timeStamp" value="64" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/service/JwtService.java</url>
-          <line>40</line>
-          <option name="timeStamp" value="65" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/service/bo/UserServiceBO.java</url>
-          <line>17</line>
+          <line>22</line>
           <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/controller/bo/UserControllerBO.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="72" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-context-support/6.0.7/spring-context-support-6.0.7.jar!/org/springframework/mail/javamail/JavaMailSenderImpl.class</url>
+          <line>145</line>
+          <option name="timeStamp" value="74" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

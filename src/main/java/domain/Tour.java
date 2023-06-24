@@ -1,6 +1,5 @@
 package domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -30,9 +29,7 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@JsonIgnoreProperties(ignoreUnknown = true)
 @Data
-//@EqualsAndHashCode(callSuper = true)
 @SQLDelete(sql = "UPDATE tour SET status = 'DELETED' WHERE id = ?")
 @Where(clause = "status <> 'DELETED'")
 public class Tour /*extends SoftDeletable*/{
