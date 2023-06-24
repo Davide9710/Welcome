@@ -1,7 +1,7 @@
 package domain;
 
-import domain.softdeletable.ISoftDeletable;
 import domain.softdeletable.SoftDeletable;
+import domain.softdeletable.SoftDelete;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -30,7 +30,8 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
-public class Tour implements ISoftDeletable {
+@SoftDeletable
+public class Tour {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -44,12 +45,8 @@ public class Tour implements ISoftDeletable {
     @Column(name = "approx_duration")
     private Integer approxDuration;
 
-//    @Column(name = "status")
-//    @Enumerated(value = EnumType.STRING)
-//    private TourStatus status = TourStatus.ACTIVE;
-
     @OneToOne(fetch = FetchType.EAGER, optional = false)
-    private SoftDeletable softDeletable;
+    private SoftDelete softDelete;
 
     @CreationTimestamp
     @Column(updatable = false, nullable = false)
