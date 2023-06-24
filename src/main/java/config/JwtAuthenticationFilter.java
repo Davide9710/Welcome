@@ -13,7 +13,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
-import service.JwtService;
+import service.auth.JwtService;
 
 import java.io.IOException;
 
@@ -36,7 +36,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             return;
         }
         jwt = authHeader.substring(7); //"Bearer: " -> 7 chars
-        email =  jwtService.extractUsername(jwt);
+        email =  jwtService.extractEmail(jwt);
         if(email != null && SecurityContextHolder.getContext().getAuthentication() == null){
             UserDetails userDetails = this.userDetailsService.loadUserByUsername(email);
             if(jwtService.isTokenValid(jwt, userDetails)){

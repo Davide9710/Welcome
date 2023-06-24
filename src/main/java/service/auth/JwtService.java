@@ -1,4 +1,4 @@
-package service;
+package service.auth;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -25,7 +25,7 @@ public class JwtService {
     @Value("${expirationtime:60}")
     private Integer EXPIRATION_TIME_IN_SECONDS;
 
-    public String extractUsername(String jwt) {
+    public String extractEmail(String jwt) {
         return extractClaim(jwt, Claims::getSubject);
     }
 
@@ -48,8 +48,8 @@ public class JwtService {
     }
 
     public boolean isTokenValid(String jwt, UserDetails userDetails){
-        final String username = extractUsername(jwt);
-        return (username.equals(userDetails.getUsername()) && !isTokenExpired(jwt));
+        final String email = extractEmail(jwt);
+        return (email.equals(userDetails.getUsername()) && !isTokenExpired(jwt));
     }
 
     private boolean isTokenExpired(String jwt) {

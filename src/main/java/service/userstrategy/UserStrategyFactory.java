@@ -12,16 +12,29 @@ import java.util.Set;
 public class UserStrategyFactory {
     private Map<Role, UserStrategy> strategies;
 
+    /**
+     * This constructor leverage the Dependency Injection from Spring, the Set of Strategies are injected
+     * @param strategies set of user strategies
+     */
     @Autowired
     public UserStrategyFactory(Set<UserStrategy> strategies){
         createStrategies(strategies);
     }
 
+    /**
+     * Method that from a set of strategies populates a map
+     * @param strategies set of user strategies
+     */
     private void createStrategies(Set<UserStrategy> strategies) {
         this.strategies = new HashMap<>();
         strategies.forEach(strategy -> this.strategies.put(strategy.getRole(), strategy));
     }
 
+    /**
+     * Method that query the created map field
+     * @param role the role of the wanted strategy
+     * @return the user strategy found, if not found it returns null
+     */
     public UserStrategy findStrategy(Role role){
         return this.strategies.get(role);
     }

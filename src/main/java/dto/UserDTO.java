@@ -1,4 +1,6 @@
 package dto;
 
-public record UserDTO(String email) {
+import jakarta.validation.constraints.Email;
+
+public record UserDTO(@Email String email) {
 }

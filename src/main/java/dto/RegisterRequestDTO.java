@@ -1,6 +1,7 @@
 package dto;
 
+import jakarta.validation.Valid;
 import value.Role;
 
-public record RegisterRequestDTO(String username, String password, Role role) {
+public record RegisterRequestDTO(@Valid String email, String password, Role role) {
 }

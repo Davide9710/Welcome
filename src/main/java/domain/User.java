@@ -36,27 +36,15 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     protected Role role;
 
-    public User(String username, String password) {
-        this.email = username;
+    public User(String email, String password) {
+        this.email = email;
         this.password = password;
     }
 
-    public User(String username, String password, Role role) {
-        this.email = username;
+    public User(String email, String password, Role role) {
+        this.email = email;
         this.password = password;
         this.role = role;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    private Role getRole() {
-        return role;
     }
 
     @Override

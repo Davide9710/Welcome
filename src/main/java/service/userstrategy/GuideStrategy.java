@@ -25,13 +25,13 @@ public class GuideStrategy implements UserStrategy{
 
     @Override
     public User register(RegisterRequestDTO request, String encodedPsw) {
-        Guide guide = new Guide(request.username(), encodedPsw);
+        Guide guide = new Guide(request.email(), encodedPsw);
         guide = guideRepository.save(guide);
         return guide;
     }
 
     @Override
     public void create(CreateUserRequestDTO request, String encodedPsw) {
-        register(new RegisterRequestDTO(request.username(), request.password(), getRole()), encodedPsw);
+        register(new RegisterRequestDTO(request.email(), request.password(), getRole()), encodedPsw);
     }
 }

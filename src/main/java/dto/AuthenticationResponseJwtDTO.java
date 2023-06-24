@@ -1,4 +1,6 @@
 package dto;
 
-public record AuthenticationResponseJwtDTO(String jwt, UserDTO user) {
+import jakarta.validation.Valid;
+
+public record AuthenticationResponseJwtDTO(String jwt, @Valid UserDTO user) {
 }

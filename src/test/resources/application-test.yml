@@ -23,3 +23,15 @@ spring:
     init:
       platform: h2
       data-locations: data-test.sql
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: davidelaureti5@gmail.com
+    password: ujoagtkvzimzlnwx
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true

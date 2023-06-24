@@ -24,13 +24,13 @@ public class TouristStrategy implements UserStrategy{
 
     @Override
     public User register(RegisterRequestDTO request, String encodedPsw) {
-        Tourist tourist = new Tourist(request.username(), encodedPsw);
+        Tourist tourist = new Tourist(request.email(), encodedPsw);
         tourist = touristRepository.save(tourist);
         return tourist;
     }
 
     @Override
     public void create(CreateUserRequestDTO request, String encodedPsw) {
-        register(new RegisterRequestDTO(request.username(), request.password(), getRole()), encodedPsw);
+        register(new RegisterRequestDTO(request.email(), request.password(), getRole()), encodedPsw);
     }
 }

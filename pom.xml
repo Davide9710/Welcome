@@ -47,6 +47,7 @@
         <jjwt-api.version>0.11.5</jjwt-api.version>
         <jjwt-impl.version>0.11.5</jjwt-impl.version>
         <jjwt-jackson.version>0.11.5</jjwt-jackson.version>
+        <springmail.version>3.1.1</springmail.version>
     </properties>
 
     <dependencies>
@@ -98,9 +99,9 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.assertj</groupId>
-            <artifactId>assertj-core</artifactId>
-            <version>${assertj.version}</version>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-inline</artifactId>
+            <version>5.2.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -186,6 +187,12 @@
             <artifactId>spring-boot-starter-cache</artifactId>
             <version>${springboot-cache.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+            <version>${springmail.version}</version>
+        </dependency>
+
     </dependencies>
 
     <dependencyManagement>
