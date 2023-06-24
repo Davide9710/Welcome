@@ -5,6 +5,7 @@ import dto.GetAllCityResponseDTO;
 import lombok.RequiredArgsConstructor;
 import mapper.CityResponseDTOMapper;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,9 +21,8 @@ public class CityController {
     private final CityService cityService;
 
     @GetMapping
-    public GetAllCityResponseDTO getAll() {
+    public ResponseEntity<GetAllCityResponseDTO> getAll() {
         List<City> cities = cityService.getAll();
-        return new GetAllCityResponseDTO(CityResponseDTOMapper.INSTANCE.convert(cities));
+        return ResponseEntity.ok(new GetAllCityResponseDTO(CityResponseDTOMapper.INSTANCE.convert(cities)));
     }
-
 }

@@ -1,22 +1,22 @@
 package service.auth;
 
 import domain.User;
-import dto.ResetPasswordRequestDTO;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import service.mailing.EmailService;
-import service.userstrategy.UserStrategy;
-import service.userstrategy.UserStrategyFactory;
 import dto.AuthenticationRequestDTO;
 import dto.AuthenticationResponseJwtDTO;
 import dto.RegisterRequestDTO;
+import dto.ResetPasswordRequestDTO;
 import exception.notfound.EmailNotFoundException;
 import lombok.RequiredArgsConstructor;
 import mapper.AuthenticationResponseJwtDTOMapper;
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import repository.UserRepository;
+import service.mailing.EmailService;
+import service.userstrategy.UserStrategy;
+import service.userstrategy.UserStrategyFactory;
 import utils.RandomValues;
 
 import static value.Constants.JWT;

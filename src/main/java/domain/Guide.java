@@ -7,14 +7,11 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import lombok.NoArgsConstructor;
-import org.springframework.security.core.GrantedAuthority;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import static value.Role.GUIDE;
-import static value.Role.TOURIST;
 
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)

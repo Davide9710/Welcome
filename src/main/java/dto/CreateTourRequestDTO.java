@@ -5,7 +5,7 @@ import jakarta.validation.constraints.PositiveOrZero;
 
 import java.util.List;
 
-public record CreateTourRequestDTO(String title,
+public record CreateTourRequestDTO(@NotBlank String title,
                                    CityRequestDTO city,
                                    ThemeDTO theme,
                                    List<TagRequestDTO> tags,

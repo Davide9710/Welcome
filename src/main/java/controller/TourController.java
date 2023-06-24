@@ -41,16 +41,14 @@ public class TourController {
     private final TourService tourService;
 
     @GetMapping("/{id}")
-    public TourResponseDTO get(@PathVariable("id") @NotNull Long id) {
-        log.info("get tour, id {}", id);
+    public ResponseEntity<TourResponseDTO> get(@PathVariable("id") @NotNull Long id) {
         Tour tour = tourService.getTour(id);
         log.info("tour retrieved {}", tour);
-        return TourResponseDTOMapper.INSTANCE.convert(tour);
+        return ResponseEntity.ok(TourResponseDTOMapper.INSTANCE.convert(tour));
     }
 
     @PostMapping("/create")
     public ResponseEntity<CreateTourResponseDTO> create(@RequestBody @Valid CreateTourRequestDTO createTourRequestDTO) {
-        log.info("create tour, request {}", createTourRequestDTO);
         Tour tour = CreateTourRequestDTOMapper.INSTANCE.convert(createTourRequestDTO);
         log.info("request converted into tour {}", tour);
         Tour savedTour = tourService.create(tour);
@@ -61,7 +59,6 @@ public class TourController {
     @PatchMapping("/{tourId}")
     public ResponseEntity<EditTourResponseDTO> edit(@PathVariable("tourId") @NotNull Long tourId,
                                                     @RequestBody @Valid EditTourRequestDTO editTourRequestDTO) {
-        log.info("edit tour, tourId {}, edit request {}", tourId, editTourRequestDTO);
         Tour editedTour = tourService.edit(tourId, editTourRequestDTO);
         log.info("edited tour {}", editedTour);
         return ResponseEntity.ok(EditTourResponseDTOMapper.INSTANCE.convert(editedTour));
@@ -69,17 +66,15 @@ public class TourController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") @NotNull Long id) {
-        log.info("delete tour, id {}", id);
         tourService.delete(id);
         return ResponseEntity.ok().build();
     }
 
     @PostMapping("/search")
-    public SearchTourResponseDTO search(@RequestBody SearchTourRequestDTO searchTourRequestDTO) {
-        log.info("search tour, request {}", searchTourRequestDTO);
+    public ResponseEntity<SearchTourResponseDTO> search(@RequestBody @Valid SearchTourRequestDTO searchTourRequestDTO) {
         List<Tour> tours = tourService.search(searchTourRequestDTO);
         log.info("found tours {}", tours);
         List<TourResponseDTO> tourDTOList = TourResponseDTOMapper.INSTANCE.convert(tours);
-        return new SearchTourResponseDTO(tourDTOList);
+        return ResponseEntity.ok(new SearchTourResponseDTO(tourDTOList));
     }
 }

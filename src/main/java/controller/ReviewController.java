@@ -25,7 +25,7 @@ public class ReviewController {
     private final ReviewService reviewService;
 
     @PostMapping("/create")
-    public ResponseEntity<CreateReviewResponseDTO> create(CreateReviewRequestDTO createReviewRequestDTO){
+    public ResponseEntity<CreateReviewResponseDTO> create(CreateReviewRequestDTO createReviewRequestDTO) {
         log.info("create Review, request {}", createReviewRequestDTO);
         Review review = reviewService.createReview(createReviewRequestDTO);
         ReviewDTO reviewDTO = ReviewDTOMapper.INSTANCE.convert(review);

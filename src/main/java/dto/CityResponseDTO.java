@@ -1,4 +1,7 @@
 package dto;
 
-public record CityResponseDTO(Long id, String name) {
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
+public record CityResponseDTO(@NotNull Long id, @NotBlank String name) {
 }

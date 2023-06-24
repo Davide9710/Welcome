@@ -5,6 +5,7 @@ import dto.GetAllThemeResponseDTO;
 import lombok.RequiredArgsConstructor;
 import mapper.ThemeResponseDTOMapper;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,8 +20,8 @@ public class ThemeController {
     private final ThemeService themeService;
 
     @GetMapping
-    public GetAllThemeResponseDTO getAll(){
+    public ResponseEntity<GetAllThemeResponseDTO> getAll(){
         List<Theme> themes = themeService.getAll();
-        return new GetAllThemeResponseDTO(ThemeResponseDTOMapper.INSTANCE.convert(themes));
+        return ResponseEntity.ok(new GetAllThemeResponseDTO(ThemeResponseDTOMapper.INSTANCE.convert(themes)));
     }
 }

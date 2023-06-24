@@ -1,7 +1,6 @@
 package service.userstrategy;
 
 import domain.Guide;
-import domain.Tourist;
 import domain.User;
 import dto.RegisterRequestDTO;
 import dto.bo.CreateUserRequestDTO;

@@ -29,4 +29,10 @@ public class ErrorHandlerController extends ResponseEntityExceptionHandler {
         log.error(e.getMessage());
     }
 
+    @ExceptionHandler(Exception.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ResponseBody
+    void onGenericException(Exception e) {
+        log.error(e.getMessage());
+    }
 }

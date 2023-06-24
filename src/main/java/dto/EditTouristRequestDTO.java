@@ -1,4 +1,6 @@
 package dto;
 
-public record EditTouristRequestDTO(String firstName, String lastName) {
+import jakarta.validation.constraints.NotBlank;
+
+public record EditTouristRequestDTO(@NotBlank String firstName, @NotBlank String lastName) {
 }

@@ -13,5 +13,5 @@ public record TourStopDTO(@NotBlank String title,
                           @NotBlank String duration,
                           GeographicCoordinatesDTO coordinates,
                           TransportDTO transport,
-                          List<String> images) {
+                          List<@NotBlank String> images) {
 }

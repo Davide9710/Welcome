@@ -3,8 +3,8 @@ package controller;
 import dto.AuthenticationRequestDTO;
 import dto.AuthenticationResponseDTO;
 import dto.AuthenticationResponseJwtDTO;
-import dto.ResetPasswordRequestDTO;
 import dto.RegisterRequestDTO;
+import dto.ResetPasswordRequestDTO;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +19,6 @@ import service.auth.AuthenticationService;
 @RequestMapping("/auth")
 @RequiredArgsConstructor
 public class AuthenticationController {
-
 
     private final AuthenticationService authenticationService;
 

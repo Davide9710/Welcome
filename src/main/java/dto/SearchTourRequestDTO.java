@@ -1,11 +1,15 @@
 package dto;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
+
 import java.util.List;
 
-public record SearchTourRequestDTO(Long cityId,
-                                   Integer maxDuration,
-                                   String themeName,
-                                   List<String> tagNames,
-                                   int pageNumber,
-                                   int pageSize) {
+public record SearchTourRequestDTO(@NotNull Long cityId,
+                                   @NotNull Integer maxDuration,
+                                   @NotBlank String themeName,
+                                   List<@NotBlank String> tagNames,
+                                   @Positive int pageNumber,
+                                   @Positive int pageSize) {
 }
