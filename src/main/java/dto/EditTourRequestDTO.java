@@ -8,7 +8,7 @@ import java.util.List;
 
 public record EditTourRequestDTO(@NotBlank String title,
                                  @NotNull Double approxCost,
-                                 @NotNull Long approxDuration,
+                                 @NotNull Integer approxDuration,
                                  CityDTO city,
                                  List<TagRequestDTO> tags) {
 }

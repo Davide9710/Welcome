@@ -11,7 +11,7 @@ import org.hibernate.annotations.Where;
 import value.Status;
 
 @Entity
-public abstract class SoftDelete {
+public class SoftDelete {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

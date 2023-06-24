@@ -9,11 +9,11 @@ import org.springframework.context.annotation.Configuration;
 public class CacheConfiguration {
 
     @Bean
-    CacheManagerCustomizer<ConcurrentMapCacheManager> customizer(){
+    CacheManagerCustomizer<ConcurrentMapCacheManager> customizer() {
         return new ConcurrentCustomizer();
     }
 
-    class ConcurrentCustomizer implements CacheManagerCustomizer<ConcurrentMapCacheManager>{
+    class ConcurrentCustomizer implements CacheManagerCustomizer<ConcurrentMapCacheManager> {
 
         @Override
         public void customize(ConcurrentMapCacheManager cacheManager) {

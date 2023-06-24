@@ -30,9 +30,9 @@ public class TourService {
     }
 
     public Tour edit(Long id, EditTourRequestDTO editTourRequestDTO) throws TourNotFoundException {
-        Tour byId = tourRepository.findById(id).orElseThrow(() -> new TourNotFoundException(id));
-        byId = EditTourRequestDTOMapper.INSTANCE.updateTourFromDto(editTourRequestDTO, byId);
-        return tourRepository.save(byId);
+        Tour tour = tourRepository.findById(id).orElseThrow(() -> new TourNotFoundException(id));
+        tour = EditTourRequestDTOMapper.INSTANCE.updateTourFromDto(editTourRequestDTO, tour);
+        return tourRepository.save(tour);
     }
 
     public void delete(Long id) {

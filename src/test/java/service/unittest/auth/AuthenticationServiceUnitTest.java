@@ -1,8 +1,9 @@
-package service.auth;
+package service.unittest.auth;
 
 import domain.User;
 import dto.ResetPasswordRequestDTO;
 import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringBootConfiguration;
@@ -12,6 +13,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import repository.UserRepository;
+import service.auth.AuthenticationService;
+import service.auth.JwtService;
 import service.mailing.EmailService;
 import service.userstrategy.UserStrategyFactory;
 import utils.RandomValues;

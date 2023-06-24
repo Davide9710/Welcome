@@ -15,6 +15,7 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
@@ -79,10 +80,10 @@ public class Tour {
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinTable(name = "tour_tag",
-        joinColumns = @JoinColumn(name = "tour_id"),
-        inverseJoinColumns = @JoinColumn(name = "tag_id")
+            joinColumns = @JoinColumn(name = "tour_id"),
+            inverseJoinColumns = @JoinColumn(name = "tag_id")
     )
-    private Set<Tag> tags = new HashSet<>();
+    private List<Tag> tags = new ArrayList<>();
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     private Theme theme;
@@ -91,7 +92,7 @@ public class Tour {
     private Double rating;
 
     @Column(name = "number_of_reviews")
-    private Long numberOfReviews;
+    private Long numberOfReviews = 0L;
 
     public void incrementNumberOfReviews() {
         this.numberOfReviews++;
@@ -114,12 +115,12 @@ public class Tour {
         theme.getTours().add(this);
     }
 
-    public void addTag(Tag tag){
+    public void addTag(Tag tag) {
         this.tags.add(tag);
         tag.getTours().add(this);
     }
 
-    public void removeTag(Tag tag){
+    public void removeTag(Tag tag) {
         this.tags.remove(tag);
         tag.getTours().remove(this);
     }

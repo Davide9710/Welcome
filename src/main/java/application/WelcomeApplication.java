@@ -36,6 +36,7 @@ public class WelcomeApplication {
     public static void main(String[] args) {
         SpringApplication.run(WelcomeApplication.class, args);
     }
+
     @Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {

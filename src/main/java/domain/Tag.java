@@ -8,12 +8,13 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import lombok.Getter;
 
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@JsonIgnoreProperties(ignoreUnknown = true)
+@Getter
 public class Tag {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,16 +26,8 @@ public class Tag {
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "tags")
     private Set<Tour> tours = new HashSet<>();
 
-    public Long getId() {
-        return id;
-    }
-
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public void setName(String name) {
@@ -44,6 +37,8 @@ public class Tag {
     public Set<Tour> getTours() {
         return tours;
     }
+
+
 
     @Override
     public String toString() {

@@ -18,19 +18,19 @@ import value.Role;
 
 import java.util.List;
 
-@Entity(name="platform_user")
+@Entity(name = "platform_user")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="user_type", discriminatorType = DiscriminatorType.STRING)
+@DiscriminatorColumn(name = "user_type", discriminatorType = DiscriminatorType.STRING)
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Table(
-        name="platform_user",
-        uniqueConstraints=
-        @UniqueConstraint(name = "UniqueFirstNameAndLastName", columnNames={"first_name", "last_name"})
+        name = "platform_user",
+        uniqueConstraints =
+        @UniqueConstraint(name = "UniqueFirstNameAndLastName", columnNames = {"first_name", "last_name"})
 )
 @NoArgsConstructor
 @Getter
 @Setter
-public class PlatformUser extends User{
+public class PlatformUser extends User {
 
     @Column(name = "first_name")
     protected String firstName;
