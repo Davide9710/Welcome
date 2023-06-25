@@ -1,6 +1,3 @@
--- INSERT INTO City(name) VALUES ( 'Roma' );
--- INSERT INTO City(name) VALUES ( 'Milano' );
--- INSERT INTO City(name) VALUES ( 'Napoli' );
 INSERT INTO City(name) VALUES ('Agrigento');
 INSERT INTO City(name) VALUES ('Alessandria');
 INSERT INTO City(name) VALUES ('Ancona');
@@ -111,5 +108,24 @@ INSERT INTO City(name) VALUES ('Verona');
 INSERT INTO City(name) VALUES ('Vibo Valentia');
 INSERT INTO City(name) VALUES ('Vicenza');
 INSERT INTO City(name) VALUES ('Viterbo');
-INSERT INTO _user(id, email, password, role) VALUES ( 1000, 'gummiband', '$2a$10$hd2XdfqtnBbtRt.Otkaab.4CsdOW1p1O5X7VxRe0QL7xtxcSsF96.', 'ADMIN' );
+
+-- password: "test"
+INSERT INTO _user(id, email, password, role) VALUES ( 998, 'email1@gmail.com', '$2a$10$hd2XdfqtnBbtRt.Otkaab.4CsdOW1p1O5X7VxRe0QL7xtxcSsF96.', 'TOURIST' );
+INSERT INTO platform_user ( id ) VALUES ( 998 );
+INSERT INTO Tourist( id ) VALUES ( 998 );
+
+-- password: "test"
+INSERT INTO _user(id, email, password, role) VALUES ( 999, 'email2@gmail.com', '$2a$10$hd2XdfqtnBbtRt.Otkaab.4CsdOW1p1O5X7VxRe0QL7xtxcSsF96.', 'GUIDE' );
+INSERT INTO platform_user ( id ) VALUES ( 999 );
+INSERT INTO Guide( id ) VALUES ( 999 );
+
+INSERT INTO Message( id, content, sender, receiver, creation_time) VALUES ( 1, 'content first message', 998, 999, now() );
+INSERT INTO Message( id, content, sender, receiver, creation_time) VALUES ( 2, 'content second message', 999, 998, now() );
+
+-- password: "test"
+INSERT INTO _user(id, email, password, role) VALUES ( 1000, 'gummiband@gmail.com', '$2a$10$hd2XdfqtnBbtRt.Otkaab.4CsdOW1p1O5X7VxRe0QL7xtxcSsF96.', 'ADMIN' );
 INSERT INTO administrator( id ) VALUES ( 1000 );
+
+INSERT INTO theme(id, name) VALUES ( 1, 'panoramico' );
+INSERT INTO soft_delete( id, status ) VALUES ( 1, 'ACTIVE' );
+INSERT INTO tour( id, title, approx_cost, approx_duration, soft_delete_id, creation_time, last_update, guide_id, city_id ) VALUES ( 1, 'title', 1, 60, 1, now(), now(), 999, 1);

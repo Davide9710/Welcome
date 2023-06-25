@@ -3,6 +3,7 @@ package repository;
 import domain.Tour;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.jpa.repository.Query;
 import value.Status;
 
 import java.util.List;
@@ -12,5 +13,8 @@ import java.util.List;
  */
 public interface TourRepository extends JpaRepository<Tour, Long>, JpaSpecificationExecutor<Tour> {
 
-    List<Tour> findByIdAndStatus(Long id, Status status);
+    @Query(value = "select t " +
+            "from Tour t join SoftDelete s on t.softDelete.id = s.id " +
+            "where s.status = :status and t.id = :id")
+    List<Tour> findTourByIdAndStatus(Long id, Status status);
 }

@@ -4,9 +4,9 @@ import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 
 /**
- * Annotation that groups the soft deletable annotations
+ * Annotation that groups the soft deletable annotations, it requires composition with SoftDelete Entity
  */
 @SQLDelete(sql = "UPDATE #{#entityName} SET status = 'DELETED' WHERE id = ?")
-@Where(clause = "status <> 'DELETED'")
+@Where(clause = "soft_delete.status <> 'DELETED'")
 public @interface SoftDeletable {
 }

@@ -5,6 +5,7 @@ import dto.AuthenticationResponseDTO;
 import dto.AuthenticationResponseJwtDTO;
 import dto.RegisterRequestDTO;
 import dto.ResetPasswordRequestDTO;
+import exception.WrongRoleException;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import service.auth.AuthenticationService;
+import value.Role;
 
 /**
  * Controller that defined authentication's endpoint, reachable without auth
@@ -34,7 +36,7 @@ public class AuthenticationController {
     public ResponseEntity<AuthenticationResponseDTO> register(
             @RequestBody @Valid RegisterRequestDTO request
     ) {
-
+        if(request.role().equals(Role.ADMIN)) throw new WrongRoleException();
         AuthenticationResponseJwtDTO authenticate = authenticationService.register(request);
         return ResponseEntity.ok()
                 .headers(authenticationService.putJwtInHttpHeaders(authenticate.jwt()))

@@ -1,0 +1,72 @@
+Hibernate:
+    select
+        t1_0.id,
+        t1_0.approx_cost,
+        t1_0.approx_duration,
+        t1_0.city_id,
+        t1_0.creation_time,
+        t1_0.guide_id,
+        t1_0.last_update,
+        t1_0.number_of_reviews,
+        SELECT
+            AVG(r.stars)
+        FROM
+            Review r
+        WHERE
+            r.tour_id = t1_0.id,s1_0.id,s1_0.status,t1_0.theme_id,t1_0.title
+        from
+            tour t1_0
+        join
+            soft_delete s1_0
+                on s1_0.id=t1_0.soft_delete_id
+        where
+            t1_0.id=?
+
+Hibernate:
+    select
+        t1_0.id,
+        t1_0.approx_cost,
+        t1_0.approx_duration,
+        t1_0.city_id,
+        t1_0.creation_time,
+        t1_0.guide_id,
+        t1_0.last_update,
+        t1_0.number_of_reviews,
+        SELECT
+            AVG(r.stars)
+        FROM
+            Review r
+        WHERE
+            r.tour_id = t1_0.id,s1_0.id,s1_0.status,t1_0.theme_id,t1_0.title
+        from
+            tour t1_0
+        join
+            soft_delete s1_0
+                on s1_0.id=t1_0.soft_delete_id
+        where
+            t1_0.id=?
+
+
+Hibernate:
+    select
+        t1_0.id,
+        t1_0.approx_cost,
+        t1_0.approx_duration,
+        t1_0.city_id,
+        t1_0.creation_time,
+        t1_0.guide_id,
+        t1_0.last_update,
+        t1_0.number_of_reviews,
+        SELECT
+            AVG(r.stars)
+        FROM
+            Review r
+        WHERE
+            r.tour_id = t1_0.id,s1_0.id,s1_0.status,t1_0.theme_id,t1_0.title
+        from
+            tour t1_0
+        join
+            soft_delete s1_0
+                on s1_0.id=t1_0.soft_delete_id
+        where
+            t1_0.id=?

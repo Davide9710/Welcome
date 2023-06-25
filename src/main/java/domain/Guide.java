@@ -1,12 +1,13 @@
 package domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,9 +18,10 @@ import static value.Role.GUIDE;
  * entity that contains guide specific field
  */
 @Entity
-@JsonIgnoreProperties(ignoreUnknown = true)
 @DiscriminatorValue(value = "guide")
 @NoArgsConstructor
+@Getter
+@Setter
 public class Guide extends PlatformUser{
 
     private String organizationName;

@@ -4,12 +4,14 @@ import domain.Review;
 import dto.CreateReviewRequestDTO;
 import dto.CreateReviewResponseDTO;
 import dto.ReviewDTO;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import mapper.ReviewDTOMapper;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import service.ReviewService;
@@ -33,7 +35,7 @@ public class ReviewController {
      * @return the created Review, projected into a DTO
      */
     @PostMapping("/create")
-    public ResponseEntity<CreateReviewResponseDTO> create(CreateReviewRequestDTO createReviewRequestDTO) {
+    public ResponseEntity<CreateReviewResponseDTO> create(@RequestBody @Valid CreateReviewRequestDTO createReviewRequestDTO) {
         log.info("create Review, request {}", createReviewRequestDTO);
         Review review = reviewService.createReview(createReviewRequestDTO);
         ReviewDTO reviewDTO = ReviewDTOMapper.INSTANCE.convert(review);

@@ -1,6 +1,8 @@
 package dto;
 
 import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.PositiveOrZero;
+import lombok.Builder;
 
 import java.util.List;
 
@@ -11,6 +13,8 @@ public record SearchTourRequestDTO(Long cityId,
                                    Integer maxDuration,
                                    String themeName,
                                    List<String> tagNames,
-                                   @Positive int pageNumber,
+                                   @PositiveOrZero int pageNumber,
                                    @Positive int pageSize) {
+    @Builder
+    public SearchTourRequestDTO{}
 }

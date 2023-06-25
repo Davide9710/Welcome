@@ -7,14 +7,12 @@ import org.springframework.http.HttpEntity
 import org.springframework.http.HttpMethod
 import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.context.TestPropertySource
-import org.springframework.test.context.jdbc.Sql
 import spock.lang.Specification
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = WelcomeApplication.class)
 @TestPropertySource(locations = ["classpath:application-test.yml"],
         properties = ["spring.sql.init.data-locations=classpath:data-test.sql"])
 @ActiveProfiles("test")
-@Sql("/data-test.sql")
 class ThemeControllerTestIT extends Specification{
 
     @Autowired

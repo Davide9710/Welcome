@@ -33,7 +33,7 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
-@SoftDeletable
+//@SoftDeletable
 public class Tour {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -45,6 +45,7 @@ public class Tour {
     @Column(name = "approx_cost", nullable = false)
     private Double approxCost;
 
+    //in minutes
     @Column(name = "approx_duration", nullable = false)
     private Integer approxDuration;
 
@@ -97,6 +98,9 @@ public class Tour {
     private Long numberOfReviews = 0L;
 
     public void incrementNumberOfReviews() {
+        if (this.numberOfReviews == null){
+            this.numberOfReviews = 0L;
+        }
         this.numberOfReviews++;
     }
 

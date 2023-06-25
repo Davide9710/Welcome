@@ -13,6 +13,7 @@ import mapper.EditTouristResponseDTOMapper;
 import mapper.TourDTOMapper;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -39,6 +40,7 @@ public class TouristController {
      * @return Response Entity indicating the operation result
      */
     @PostMapping("/mark-tour-as-complete")
+    @PreAuthorize("hasRole('TOURIST')")
     public ResponseEntity<?> markAsComplete(@RequestBody @Valid MarkAsCompleteRequestDTO request) {
         touristService.markAsComplete(request.touristId(), request.tourId());
         return ResponseEntity.ok().build();

@@ -3,6 +3,7 @@ package exception;
 import exception.notfound.ResourceNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -32,13 +33,24 @@ public class ErrorHandlerController extends ResponseEntityExceptionHandler {
     }
 
     /**
-     * handler of the Authentication exception, that handles the exception thrown by Spring
+     * handler of the BadCredentialsException exception, that handles the exception thrown by authentication control
      * @param e the exception thrown
      */
-    @ExceptionHandler(AuthenticationException.class)
+    @ExceptionHandler(BadCredentialsException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ResponseBody
-    void onAuthenticationException(AuthenticationException e) {
+    void onBadCredentialsException(BadCredentialsException e) {
+        log.error(e.getMessage());
+    }
+
+    /**
+     * handler of the EmailAlreadyUsedException exception, that handles the exception thrown when user already existing
+     * @param e the exception thrown
+     */
+    @ExceptionHandler(EmailAlreadyUsedException.class)
+    @ResponseStatus(HttpStatus.CONFLICT)
+    @ResponseBody
+    void onEmailAlreadyUsedException(EmailAlreadyUsedException e) {
         log.error(e.getMessage());
     }
 

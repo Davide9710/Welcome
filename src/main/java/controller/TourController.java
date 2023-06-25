@@ -8,7 +8,6 @@ import dto.EditTourResponseDTO;
 import dto.SearchTourRequestDTO;
 import dto.SearchTourResponseDTO;
 import dto.TourResponseDTO;
-import exception.notfound.TourNotFoundException;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;

@@ -5,6 +5,7 @@ import dto.AuthenticationRequestDTO;
 import dto.AuthenticationResponseJwtDTO;
 import dto.RegisterRequestDTO;
 import dto.ResetPasswordRequestDTO;
+import exception.EmailAlreadyUsedException;
 import exception.notfound.EmailNotFoundException;
 import lombok.RequiredArgsConstructor;
 import mapper.AuthenticationResponseJwtDTOMapper;
@@ -19,7 +20,7 @@ import service.userstrategy.UserStrategy;
 import service.userstrategy.UserStrategyFactory;
 import utils.RandomValues;
 
-import static value.Constants.JWT;
+import static value.Constants.AUTHORIZATION;
 
 @Service
 @RequiredArgsConstructor
@@ -38,6 +39,7 @@ public class AuthenticationService {
      * @return the jwt token and the user's email
      */
     public AuthenticationResponseJwtDTO register(RegisterRequestDTO request) {
+        if(userRepository.existsByEmail(request.email())) throw new EmailAlreadyUsedException(request.email());
         String encodedPsw = passwordEncoder.encode(request.password());
         UserStrategy strategy = userStrategyFactory.findStrategy(request.role());
         User user = strategy.register(request, encodedPsw);
@@ -51,14 +53,14 @@ public class AuthenticationService {
      * @return the jwt token and the user's email
      */
     public AuthenticationResponseJwtDTO authenticate(AuthenticationRequestDTO request) {
+        User user = userRepository.findByEmail(request.email())
+                .orElseThrow(() -> new EmailNotFoundException("user not found, username " + request.email()));
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         request.email(),
                         request.password()
                 )
         );
-        User user = userRepository.findByEmail(request.email())
-                .orElseThrow(() -> new EmailNotFoundException("user not found, username " + request.email()));
         String jwt = jwtService.generateToken(user);
         return AuthenticationResponseJwtDTOMapper.INSTANCE.convert(jwt, user);
     }
@@ -70,13 +72,13 @@ public class AuthenticationService {
      */
     public HttpHeaders putJwtInHttpHeaders(String jwt){
         HttpHeaders headers = new HttpHeaders();
-        headers.add(JWT, jwt);
+        headers.add(AUTHORIZATION, jwt);
         return headers;
     }
 
     /**
      * Method that reset the password of the given user's email, it does so by generating a random string
-     * and setting it as the new passsword, it then email the password to the user's email address
+     * and setting it as the new password, it then email the password to the user's email address
      * @param request user's email
      */
     public void resetPassword(ResetPasswordRequestDTO request) {

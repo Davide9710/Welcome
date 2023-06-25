@@ -83,7 +83,7 @@ public class AuthenticationServiceUnitTest {
         User userMock = new User("email", "password");
         String mockNewPassword = "alpha12345";
         String mockNewPasswordEncoded = "alpha12345Encoded";
-        ResetPasswordRequestDTO request = ResetPasswordRequestDTO.builder().email(email).build();
+        ResetPasswordRequestDTO request = new ResetPasswordRequestDTO(email);
         Mockito.when(userRepository.findByEmail(anyString())).thenReturn(Optional.of(userMock));
         Mockito.mockStatic(RandomValues.class).when(RandomValues::generateRandomString).thenReturn(mockNewPassword);
         Mockito.when(passwordEncoder.encode(anyString())).thenReturn(mockNewPasswordEncoded);
