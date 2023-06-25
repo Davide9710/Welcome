@@ -18,6 +18,9 @@ import service.bo.UserServiceBO;
 
 import java.util.List;
 
+/**
+ * BO controller with utility endpoint about the user; it authorizes request only from the ADMIN role
+ */
 @RestController
 @RequestMapping(value = "/bo/user", produces = MediaType.APPLICATION_JSON_VALUE)
 @RequiredArgsConstructor

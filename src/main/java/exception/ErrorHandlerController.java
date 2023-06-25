@@ -3,14 +3,13 @@ package exception;
 import exception.notfound.ResourceNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
-
-import javax.naming.AuthenticationException;
 
 /**
  * AOP Error handling, the exception thrown by the spring components are propagated through the MVC layers until the
@@ -42,6 +41,18 @@ public class ErrorHandlerController extends ResponseEntityExceptionHandler {
     void onBadCredentialsException(BadCredentialsException e) {
         log.error(e.getMessage());
     }
+
+    /**
+     * handler of the BadCredentialsException exception, that handles the exception thrown by authentication control
+     * @param e the exception thrown
+     */
+    @ExceptionHandler(AccessDeniedException.class)
+    @ResponseStatus(HttpStatus.FORBIDDEN)
+    @ResponseBody
+    void onAccessDeniedException(AccessDeniedException e) {
+        log.error(e.getMessage());
+    }
+
 
     /**
      * handler of the EmailAlreadyUsedException exception, that handles the exception thrown when user already existing

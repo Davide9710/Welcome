@@ -16,7 +16,6 @@ import static org.apache.commons.collections4.CollectionUtils.isEmpty;
 public class SpecificationUtils {
     /**
      *
-     * @param p predicate to be updated
      * @param root query root
      * @param fieldName the name of the fields to be selected
      * @param listOfValues the list of values to run against the "IN" query
@@ -29,12 +28,11 @@ public class SpecificationUtils {
 
     /**
      * Method used for the equal criteria query, with null check
-     * @param p predicate to be updated
      * @param cb criteria builder
      * @param expression expression to be equal
      * @param value value to be equal
      * @param <T> generic
-     * @return updated predicate, if value is not null
+     * @return predicate, if value is not null
      */
     public static <T> Predicate equalWithNullControl(CriteriaBuilder cb,
                                                      Expression<?> expression,
@@ -44,12 +42,11 @@ public class SpecificationUtils {
 
     /**
      * Method used for the "less than" criteria query, with null check
-     * @param p predicate to be updated
      * @param cb criteria builder
      * @param expression expression to be equal
      * @param value value to be equal
      * @param <T> generic
-     * @return updated predicate, if value is not null
+     * @return predicate, if value is not null
      */
     public static <T extends Comparable<? super T>> Predicate lessThanWithNullControl(CriteriaBuilder cb,
                                                                                       Expression<? extends T> expression,

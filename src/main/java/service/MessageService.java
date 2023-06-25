@@ -2,7 +2,6 @@ package service;
 
 import domain.Message;
 import domain.PlatformUser;
-import dto.GetNewMessagesRequestDTO;
 import dto.MessageDTO;
 import dto.SendMessageRequestDTO;
 import lombok.RequiredArgsConstructor;
@@ -22,15 +21,16 @@ public class MessageService {
     /**
      * Method that get new messages from the specified epoch for the specified couple of platform user
      * It first gets the messages from Platform User A to B, then the opposite, then it joins the lists
-     *
-     * @param getNewMessagesRequestDTO epoch in seconds, and two users id
+     * @param epoch epoch in seconds form 1970
+     * @param firstId id of the first user
+     * @param secondId id of the second user
      * @return the messages list
      */
-    public List<MessageDTO> getNewMessages(GetNewMessagesRequestDTO getNewMessagesRequestDTO) {
+    public List<MessageDTO> getNewMessages(Long epoch, Long firstId, Long secondId) {
         List<Message> messages = messageRepository.findMessagesByCoupleOfUsersAfterEpoch(
-                Instant.ofEpochSecond(getNewMessagesRequestDTO.lastMessageEpochInSec()),
-                getNewMessagesRequestDTO.firstPlatformUserId(),
-                getNewMessagesRequestDTO.secondPlatformUserId());
+                Instant.ofEpochSecond(epoch),
+                firstId,
+                secondId);
         return getMessagesDTOFromEntity(messages);
     }
 

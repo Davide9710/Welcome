@@ -18,6 +18,7 @@ import mapper.EditTourResponseDTOMapper;
 import mapper.TourResponseDTOMapper;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -31,7 +32,7 @@ import service.TourService;
 import java.util.List;
 
 /**
- * Tour Controller that contains tour related endpoints
+ * Tour Controller that contains tour related endpoints, it requires GUIDE role
  */
 @RestController
 @RequestMapping(value = "/tour",
@@ -39,6 +40,7 @@ import java.util.List;
         produces = MediaType.APPLICATION_JSON_VALUE)
 @Slf4j
 @RequiredArgsConstructor
+@PreAuthorize("hasRole('TOURIST')")
 public class TourController {
     private final TourService tourService;
 
@@ -93,6 +95,11 @@ public class TourController {
         return ResponseEntity.ok().build();
     }
 
+    /**
+     * Post endpoint that filter tour by optional params
+     * @param searchTourRequestDTO optional params
+     * @return a list of tour projections
+     */
     @PostMapping("/search")
     public ResponseEntity<SearchTourResponseDTO> search(@RequestBody @Valid SearchTourRequestDTO searchTourRequestDTO) {
         List<Tour> tours = tourService.search(searchTourRequestDTO);

@@ -9,7 +9,6 @@ import exception.WrongRoleException;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -59,11 +58,11 @@ public class AuthenticationController {
     }
 
     /**
-     * Get Endpoint that reset the password
+     * Post Endpoint that reset the password
      * @param request user's email
      * @return Response Entity indicating the reset password result
      */
-    @GetMapping("/reset-psw")
+    @PostMapping("/reset-psw")
     public ResponseEntity<?> resetPassword(
             @RequestBody @Valid ResetPasswordRequestDTO request
     ) {

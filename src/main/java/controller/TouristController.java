@@ -26,11 +26,12 @@ import service.TouristService;
 import java.util.List;
 
 /**
- * Controller that contains all the tourist related endpoints
+ * Controller that contains all the tourist related endpoints, it requires TOURIST role
  */
 @RestController
 @RequestMapping(value = "/tourist", produces = MediaType.APPLICATION_JSON_VALUE)
 @RequiredArgsConstructor
+@PreAuthorize("hasRole('TOURIST')")
 public class TouristController {
     private final TouristService touristService;
 
@@ -39,8 +40,7 @@ public class TouristController {
      * @param request tour and tourist id
      * @return Response Entity indicating the operation result
      */
-    @PostMapping("/mark-tour-as-complete")
-    @PreAuthorize("hasRole('TOURIST')")
+    @PostMapping("/mark-as-completed")
     public ResponseEntity<?> markAsComplete(@RequestBody @Valid MarkAsCompleteRequestDTO request) {
         touristService.markAsComplete(request.touristId(), request.tourId());
         return ResponseEntity.ok().build();

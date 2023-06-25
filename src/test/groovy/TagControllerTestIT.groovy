@@ -1,7 +1,6 @@
 import application.WelcomeApplication
 import domain.User
-import dto.SearchTourRequestDTO
-import dto.SearchTourResponseDTO
+import dto.GetAllTagDTO
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.web.client.TestRestTemplate
@@ -20,7 +19,7 @@ import static value.Constants.AUTHORIZATION
 @TestPropertySource(locations = ["classpath:application-test.yml"],
         properties = ["spring.sql.init.data-locations=classpath:data-test.sql"])
 @ActiveProfiles("test")
-class TourControllerTestIT extends Specification {
+class TagControllerTestIT extends Specification{
 
     @Autowired
     TestRestTemplate testRestTemplate
@@ -28,39 +27,35 @@ class TourControllerTestIT extends Specification {
     @Autowired
     JwtService jwtService
 
-    def "search Tour API"() {
+    def "get All themes test"() {
         given:
-        SearchTourRequestDTO request = new SearchTourRequestDTO(cityId, duration, themeName, tagNames, page, size)
+        int expectedStatusCode = 200
+        int exceptedListSize = 1
 
         UserDetails userDetails = new User()
         userDetails.setEmail("email1@gmail.com")
         userDetails.setPassword("test")
         String token = jwtService.generateToken(userDetails)
 
-        HttpHeaders headers = new HttpHeaders()
+        HttpHeaders headers = new HttpHeaders();
         headers.add(AUTHORIZATION, "Bearer: " + token)
 
-        HttpEntity<String> httpEntity = new HttpEntity<>(request, headers)
+        HttpEntity<String> httpEntity = new HttpEntity<>(headers)
 
         when:
         def response =
                 testRestTemplate.exchange(
-                        "/tour/search",
-                        HttpMethod.POST,
+                        "/tag",
+                        HttpMethod.GET,
                         httpEntity,
-                        SearchTourResponseDTO)
+                        GetAllTagDTO
+                )
 
         then:
         println response
         response.getStatusCode().value() == expectedStatusCode
-        response.getBody().tours() != null
-        response.getBody().tours().size() == expectedListSize
-
-        where:
-        cityId | duration | themeName    | tagNames | page | size || expectedStatusCode | expectedListSize
-        1      | 30       | "panoramico" | null     | 0    | 10   || 200                | 0 //duration too little
-        2      | 120      | "panoramico" | null     | 0    | 10   || 200                | 0 //wrong city
-        1      | 120      | "avventura"  | null     | 0    | 10   || 200                | 0 //different theme
-
+        response.getBody().tags().size() == exceptedListSize
+        response.getBody().tags().get(0) != null
+        response.getBody().tags().get(0).name() == "tag"
     }
 }

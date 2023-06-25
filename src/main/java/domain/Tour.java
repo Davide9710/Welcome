@@ -1,6 +1,5 @@
 package domain;
 
-import domain.softdeletable.SoftDeletable;
 import domain.softdeletable.SoftDelete;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -42,6 +41,7 @@ public class Tour {
     @Column(name = "title", nullable = false)
     private String title;
 
+    //in euros
     @Column(name = "approx_cost", nullable = false)
     private Double approxCost;
 

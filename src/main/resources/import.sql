@@ -119,13 +119,17 @@ INSERT INTO _user(id, email, password, role) VALUES ( 999, 'email2@gmail.com', '
 INSERT INTO platform_user ( id ) VALUES ( 999 );
 INSERT INTO Guide( id ) VALUES ( 999 );
 
-INSERT INTO Message( id, content, sender, receiver, creation_time) VALUES ( 1, 'content first message', 998, 999, now() );
-INSERT INTO Message( id, content, sender, receiver, creation_time) VALUES ( 2, 'content second message', 999, 998, now() );
+INSERT INTO Message( id, content, sender, receiver, creation_time) VALUES ( 999, 'content first message', 998, 999, now() );
+INSERT INTO Message( id, content, sender, receiver, creation_time) VALUES ( 1000, 'content second message', 999, 998, now() );
 
 -- password: "test"
 INSERT INTO _user(id, email, password, role) VALUES ( 1000, 'gummiband@gmail.com', '$2a$10$hd2XdfqtnBbtRt.Otkaab.4CsdOW1p1O5X7VxRe0QL7xtxcSsF96.', 'ADMIN' );
 INSERT INTO administrator( id ) VALUES ( 1000 );
 
-INSERT INTO theme(id, name) VALUES ( 1, 'panoramico' );
-INSERT INTO soft_delete( id, status ) VALUES ( 1, 'ACTIVE' );
-INSERT INTO tour( id, title, approx_cost, approx_duration, soft_delete_id, creation_time, last_update, guide_id, city_id ) VALUES ( 1, 'title', 1, 60, 1, now(), now(), 999, 1);
+INSERT INTO theme(id, name) VALUES ( 999, 'panoramico' );
+INSERT INTO soft_delete( id, status ) VALUES ( 999, 'ACTIVE' );
+INSERT INTO tour( id, title, approx_cost, approx_duration, soft_delete_id, creation_time, last_update, guide_id, city_id) VALUES ( 999, 'title', 1, 60, 999, now(), now(), 999, 1);
+INSERT INTO tourist_tour (tour_id, tourist_id) VALUES ( 999, 998 );
+
+INSERT INTO review(id, creation_timestamp, title, stars, content, tour_id) VALUES ( 999, now(), 'title', 3, 'Not good not bad', 999 );
+INSERT INTO tag(id, name) VALUES ( 999, 'tag' );

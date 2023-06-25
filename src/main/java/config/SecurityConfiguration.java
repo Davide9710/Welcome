@@ -21,6 +21,13 @@ public class SecurityConfiguration {
     private final AuthenticationProvider authenticationProvider;
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
 
+    /**
+     * The filterChain filters so that all request must be authenticated except for the /auth ones; There is no session
+     * that means that every request has to be authenticated by JWT token
+     * @param httpSecurity filter chain
+     * @return SecurityFilterChain
+     * @throws Exception
+     */
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity

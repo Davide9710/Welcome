@@ -53,7 +53,7 @@ class ReviewControllerTestIT extends Specification {
         then:
         println response
         response.getStatusCode().value() == expectedStatusCode
-        if(response.getStatusCode().value() == 200) {
+        if (response.getStatusCode().value() == 200) {
             response.getBody().review() != null
             response.getBody().review().title() == title
             response.getBody().review().stars() == stars
@@ -62,7 +62,7 @@ class ReviewControllerTestIT extends Specification {
 
         where:
         title      | stars | content             | authorId | tourId || expectedStatusCode
-        "Orribile" | 1     | "Pessima scelta..." | 998      | 1      || 200
+        "Orribile" | 1     | "Pessima scelta..." | 998      | 999    || 200
         "Orribile" | null  | "Pessima scelta..." | null     | null   || 400 //Bad request because of validation
     }
 }

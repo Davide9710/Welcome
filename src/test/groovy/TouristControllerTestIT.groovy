@@ -1,7 +1,7 @@
 import application.WelcomeApplication
 import domain.User
 import dto.MarkAsCompleteRequestDTO
-import org.aspectj.lang.annotation.Before
+import dto.MarkedToursResponseDTO
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.web.client.TestRestTemplate
@@ -11,7 +11,6 @@ import org.springframework.http.HttpMethod
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.context.TestPropertySource
-import repository.UserRepository
 import service.auth.JwtService
 import spock.lang.Specification
 
@@ -29,34 +28,54 @@ class TouristControllerTestIT extends Specification {
     @Autowired
     JwtService jwtService
 
-    @Autowired
-    UserRepository userRepository
+    def "get all marked tour test"(){
+        given:
+        Long touristId = 998L
+        int expectedStatusCode = 200
+        int tourSize = 1
 
-    @Before
-    void setup(){
-//        userRepository.findByEmail(_) >> Optional.of(new User("email", "psw"))
+        UserDetails userDetails = new User()
+        userDetails.setEmail("email1@gmail.com")
+        userDetails.setPassword("test")
+        String token = jwtService.generateToken(userDetails)
+
+        HttpHeaders headers = new HttpHeaders()
+        headers.add(AUTHORIZATION, "Bearer: " + token)
+
+        HttpEntity<String> httpEntity = new HttpEntity<>(headers)
+
+        when:
+        def response =
+                testRestTemplate.exchange(
+                        "/tourist/" + touristId + "/marked-tours",
+                        HttpMethod.GET,
+                        httpEntity,
+                        MarkedToursResponseDTO)
+
+        then:
+        println response
+        response.getStatusCode().value() == expectedStatusCode
+        response.getBody().tours().size() == tourSize
     }
 
-    //TODO controlla se stai fetchando tutti i tour
     def "mark tour as completed by a tourist"() {
         given:
         Long touristId = 998L
-        Long tourId = 1L
+        Long tourId = 999L
         int expectedStatusCode = 200
 
         when:
         MarkAsCompleteRequestDTO request = new MarkAsCompleteRequestDTO(touristId, tourId)
 
         UserDetails userDetails = new User()
-        userDetails.setEmail("email1")
-        userDetails.setPassword("password")
+        userDetails.setEmail("email1@gmail.com")
+        userDetails.setPassword("test")
         String token = jwtService.generateToken(userDetails)
 
         HttpHeaders headers = new HttpHeaders();
         headers.add(AUTHORIZATION, "Bearer: " + token)
 
         HttpEntity<String> httpEntity = new HttpEntity<>(request, headers)
-
 
         def response =
                 testRestTemplate.exchange(

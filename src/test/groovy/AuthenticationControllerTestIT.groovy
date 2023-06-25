@@ -2,6 +2,7 @@ import application.WelcomeApplication
 import dto.AuthenticationRequestDTO
 import dto.RegisterRequestDTO
 import dto.ResetPasswordRequestDTO
+import org.aspectj.lang.annotation.Before
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.web.client.TestRestTemplate
@@ -9,6 +10,7 @@ import org.springframework.http.HttpEntity
 import org.springframework.http.HttpMethod
 import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.context.TestPropertySource
+import service.mailing.EmailService
 import spock.lang.Specification
 import value.Role
 
@@ -19,6 +21,14 @@ import value.Role
 class AuthenticationControllerTestIT extends Specification {
     @Autowired
     TestRestTemplate testRestTemplate
+
+    @Autowired
+    EmailService emailService
+
+    @Before
+    void setup() {
+        emailService.sendSimpleEmail(_, _, _) >> null
+    }
 
     def "test login"() {
         given:
@@ -79,7 +89,7 @@ class AuthenticationControllerTestIT extends Specification {
         def response =
                 testRestTemplate.exchange(
                         "/auth/reset-psw",
-                        HttpMethod.GET,
+                        HttpMethod.POST,
                         httpEntity,
                         Object)
 
@@ -90,7 +100,7 @@ class AuthenticationControllerTestIT extends Specification {
 
         where:
         email                        || expectedStatusCode
-        "newmail@gmail.com"          || 200
+        "email1@gmail.com"           || 200
         "notexistingemail@gmail.com" || 404
         "wrong email"                || 400
     }

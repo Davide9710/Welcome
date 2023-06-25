@@ -29,7 +29,7 @@
         <gmavenplus-plugin.version>1.13.1</gmavenplus-plugin.version>
         <org.mapstruct.version>1.5.3.Final</org.mapstruct.version>
         <sld-feign-okhttp.version>11.8</sld-feign-okhttp.version>
-        <spring-cloud.version>2021.0.2</spring-cloud.version>
+        <spring-cloud.version>2022.0.3</spring-cloud.version>
         <sld-feign-jackson.version>11.8</sld-feign-jackson.version>
         <springdoc.version>1.6.15</springdoc.version>
         <springfox.version>3.0.0</springfox.version>

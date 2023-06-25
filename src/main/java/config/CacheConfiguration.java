@@ -16,6 +16,9 @@ public class CacheConfiguration {
         return new ConcurrentCustomizer();
     }
 
+    /**
+     * this class is responsible for cache configuration
+     */
     class ConcurrentCustomizer implements CacheManagerCustomizer<ConcurrentMapCacheManager> {
 
         @Override

@@ -36,10 +36,6 @@ public class SearchTourSpecification implements Specification<Tour> {
         p = cb.and(p, lessThanWithNullControl(cb, root.get(Tour_.approxDuration), filter.maxDuration()));
         p = cb.and(p, equalWithNullControl(cb, root.get(Tour_.theme).get(Theme_.NAME), filter.themeName()));
         p = cb.and(p, inPredicate(cb, root, Tour_.TAGS, filter.tagNames()));
-//        Predicate p = cb.and(equalWithNullControl(cb, root.get(Tour_.city).get(City_.ID), filter.cityId()),
-//                lessThanWithNullControl(cb, root.get(Tour_.approxDuration), filter.maxDuration()),
-//                equalWithNullControl(cb, root.get(Tour_.theme).get(Theme_.NAME), filter.themeName()),
-//                inPredicate(cb, root, Tour_.TAGS, filter.tagNames()));
         return p;
     }
 }

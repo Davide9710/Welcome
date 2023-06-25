@@ -21,6 +21,7 @@ import service.userstrategy.UserStrategyFactory;
 import utils.RandomValues;
 
 import static value.Constants.AUTHORIZATION;
+import static value.Constants.BEARER;
 
 @Service
 @RequiredArgsConstructor
@@ -72,7 +73,7 @@ public class AuthenticationService {
      */
     public HttpHeaders putJwtInHttpHeaders(String jwt){
         HttpHeaders headers = new HttpHeaders();
-        headers.add(AUTHORIZATION, jwt);
+        headers.add(AUTHORIZATION, BEARER + jwt);
         return headers;
     }
 
