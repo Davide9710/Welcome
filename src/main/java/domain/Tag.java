@@ -1,17 +1,24 @@
 package domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
+import lombok.Getter;
+import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
+import java.util.HashSet;
+import java.util.Set;
 
+/**
+ * entity that contains tag data
+ */
 @Entity
-@JsonIgnoreProperties(ignoreUnknown = true)
+@Getter
+@Setter
 public class Tag {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,4 +26,15 @@ public class Tag {
 
     @Column(unique = true)
     private String name;
+
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "tags")
+    private Set<Tour> tours = new HashSet<>();
+
+    @Override
+    public String toString() {
+        return "Tag{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

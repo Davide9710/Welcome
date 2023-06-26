@@ -1,0 +1,38 @@
+package domain;
+
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static value.Role.GUIDE;
+
+/**
+ * entity that contains guide specific field
+ */
+@Entity
+@DiscriminatorValue(value = "guide")
+@NoArgsConstructor
+@Getter
+@Setter
+public class Guide extends PlatformUser{
+
+    private String organizationName;
+
+    @OneToMany(mappedBy = "guide", fetch = FetchType.LAZY)
+    private List<Tour> tours = new ArrayList<>();
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private City city;
+
+    public Guide(String email, String password) {
+        super(email, password, GUIDE);
+    }
+}

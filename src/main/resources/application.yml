@@ -1,0 +1,38 @@
+spring:
+  application:
+      name: welcome
+  datasource:
+    url: jdbc:h2:file:./data/WelcomeDB
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.H2Dialect
+    database: h2
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: davidelaureti5@gmail.com
+    password: ujoagtkvzimzlnwx
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+expirationtime: 3600
+
+secretkey: 4D18A3F7E9B1C6A025EDD6F82A1404425F00E9797B7DB30299811AC180995C14
+logging:
+  level:
+    org:
+      springframework:
+        cache: TRACE

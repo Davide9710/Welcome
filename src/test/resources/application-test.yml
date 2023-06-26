@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: welcome
+  h2:
+    console:
+      enabled: true
+  datasource:
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.H2Dialect
+    show-sql: true
+    database: H2
+    database-platform: org.hibernate.dialect.H2Dialect
+  sql:
+    init:
+      platform: h2
+      data-locations: data-test.sql
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: davidelaureti5@gmail.com
+    password: ujoagtkvzimzlnwx
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true

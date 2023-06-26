@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ae4ab8eb-788c-4ce3-9c02-59964e1fe0b9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/WelcomeDB.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/WelcomeDB.mv.db" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="AnnotationType" />
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Record" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="dev" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/5.6.2/spring-security-web-5.6.2.jar!/org/springframework/security/web/util/matcher/RequestMatcher.class" root0="FORCE_HIGHLIGHTING" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-config/5.6.2/spring-security-config-5.6.2-sources.jar!/org/springframework/security/config/annotation/web/AbstractRequestMatcherRegistry.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2IVKEaAx6I1F2ipqw46wsT10uXP" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_MARK_IGNORED_FILES_AS_EXCLUDED" value="true" />
+    <property name="DatabaseDriversLRU" value="h2" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelOrder2" value="2" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RequestMappingsPanelWidth2" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/controller" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../MyGym" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.47410008" />
+    <property name="settings.editor.selected.configurable" value="spring.boot" />
+  </component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="ReaderModeSettings">
+    <option name="enabled" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="service.auth" />
+      <recent name="service.bo" />
+      <recent name="repository" />
+      <recent name="controller.bo" />
+      <recent name="dto.bo" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\david\IdeaProjects\Welcome\src\main\java\test" />
+      <recent name="C:\Users\david\IdeaProjects\Welcome\src\test\resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\david\IdeaProjects\Welcome\src\test\java\service\" />
+      <recent name="C:\Users\david\IdeaProjects\Welcome\src\test" />
+      <recent name="C:\Users\david\IdeaProjects\Welcome\src\test\groovy\resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="service" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.AuthenticationServiceUnitTest.sendSimpleEmailTest">
+    <configuration name="AuthenticationServiceUnitTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Welcome" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="service.auth.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="service.auth" />
+      <option name="MAIN_CLASS_NAME" value="service.auth.AuthenticationServiceUnitTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AuthenticationServiceUnitTest.sendSimpleEmailTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Welcome" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="service.auth.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="service.auth" />
+      <option name="MAIN_CLASS_NAME" value="service.auth.AuthenticationServiceUnitTest" />
+      <option name="METHOD_NAME" value="sendSimpleEmailTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EmailServiceTestIT.sendSimpleEmailTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Welcome" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="service.integrationtest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="service.integrationtest" />
+      <option name="MAIN_CLASS_NAME" value="service.integrationtest.EmailServiceTestIT" />
+      <option name="METHOD_NAME" value="sendSimpleEmailTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EmailServiceUnitTest.sendSimpleEmailTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Welcome" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="service.unittest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="service.unittest" />
+      <option name="MAIN_CLASS_NAME" value="service.unittest.EmailServiceUnitTest" />
+      <option name="METHOD_NAME" value="sendSimpleEmailTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RandomValuesUnitTest.generateRandomStringTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Welcome" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="utils.unittest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="utils.unittest" />
+      <option name="MAIN_CLASS_NAME" value="utils.unittest.RandomValuesUnitTest" />
+      <option name="METHOD_NAME" value="generateRandomStringTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WelcomeApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="Welcome" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="application.WelcomeApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.AuthenticationServiceUnitTest.sendSimpleEmailTest" />
+        <item itemvalue="JUnit.AuthenticationServiceUnitTest" />
+        <item itemvalue="JUnit.EmailServiceUnitTest.sendSimpleEmailTest" />
+        <item itemvalue="JUnit.RandomValuesUnitTest.generateRandomStringTest" />
+        <item itemvalue="JUnit.EmailServiceTestIT.sendSimpleEmailTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ae4ab8eb-788c-4ce3-9c02-59964e1fe0b9" name="Changes" comment="" />
+      <created>1670261206574</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1670261206574</updated>
+      <workItem from="1670261206574" duration="1332000" />
+      <workItem from="1672157709932" duration="1199000" />
+      <workItem from="1672503575061" duration="2310000" />
+      <workItem from="1674680781392" duration="316000" />
+      <workItem from="1677083826791" duration="1221000" />
+      <workItem from="1677085115364" duration="1682000" />
+      <workItem from="1677426630490" duration="343000" />
+      <workItem from="1677426630490" duration="2188000" />
+      <workItem from="1677429925771" duration="4935000" />
+      <workItem from="1678090838799" duration="1377000" />
+      <workItem from="1678113669541" duration="8937000" />
+      <workItem from="1678457680237" duration="2956000" />
+      <workItem from="1681968953242" duration="768000" />
+      <workItem from="1681970651176" duration="13479000" />
+      <workItem from="1682057533668" duration="8212000" />
+      <workItem from="1682085680174" duration="1203000" />
+      <workItem from="1682087020990" duration="3200000" />
+      <workItem from="1682156770852" duration="3428000" />
+      <workItem from="1682405496350" duration="3523000" />
+      <workItem from="1682540240682" duration="3929000" />
+      <workItem from="1682625841610" duration="2146000" />
+      <workItem from="1685451802579" duration="13033000" />
+      <workItem from="1685696531062" duration="16039000" />
+      <workItem from="1685742962546" duration="2429000" />
+      <workItem from="1686314831407" duration="635000" />
+      <workItem from="1686391085718" duration="3163000" />
+      <workItem from="1686474324124" duration="3612000" />
+      <workItem from="1686478125333" duration="6356000" />
+      <workItem from="1686833547515" duration="7546000" />
+      <workItem from="1686926696375" duration="6118000" />
+      <workItem from="1686944510672" duration="2954000" />
+      <workItem from="1686993397181" duration="5983000" />
+      <workItem from="1687076653926" duration="9552000" />
+      <workItem from="1687181041731" duration="3541000" />
+      <workItem from="1687244426144" duration="9517000" />
+      <workItem from="1687292483802" duration="7212000" />
+      <workItem from="1687353487824" duration="6722000" />
+      <workItem from="1687376792359" duration="6685000" />
+      <workItem from="1687437447155" duration="94000" />
+      <workItem from="1687441319763" duration="7088000" />
+      <workItem from="1687591814837" duration="12234000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/target/generated-sources/annotations/mapper/CreateTourResponseDTOMapperImpl.java</url>
+          <line>58</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/target/generated-sources/annotations/mapper/CreateTourResponseDTOMapperImpl.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/target/generated-sources/annotations/mapper/CityRequestDTOMapperImpl.java</url>
+          <line>19</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/target/generated-sources/annotations/mapper/CityRequestDTOMapperImpl.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/target/generated-sources/annotations/mapper/AuthenticationResponseJwtDTOMapperImpl.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/target/generated-sources/annotations/mapper/AuthenticationResponseJwtDTOMapperImpl.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="51" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/controller/bo/UserControllerBO.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="60" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/service/bo/UserServiceBO.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/controller/bo/UserControllerBO.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="72" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-context-support/6.0.7/spring-context-support-6.0.7.jar!/org/springframework/mail/javamail/JavaMailSenderImpl.class</url>
+          <line>145</line>
+          <option name="timeStamp" value="74" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="SpringBootApplicationConfigurationType">
+        <watch expression="((Logger)((Logger)log).parent).effectiveLevelInt" custom="ch.qos.logback.classic.Logger" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

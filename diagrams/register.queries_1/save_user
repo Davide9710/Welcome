@@ -1,0 +1,43 @@
+Hibernate:
+    insert
+    into
+        _user
+        (id, email, password, role)
+    values
+        (default, ?, ?, ?)
+Hibernate:
+    select
+        u1_0.id,
+        case
+            when u1_1.id is not null then 3
+            when u1_2.id is not null then 4
+            when u1_3.id is not null then 1
+            when u1_4.id is not null then 2
+            when u1_0.id is not null then 0
+        end,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role,
+        u1_1.city_id,
+        u1_1.organization_name,
+        u1_1.id,
+        u1_4.first_name,
+        u1_4.last_name,
+        u1_4.id,
+        u1_2.id
+    from
+        _user u1_0
+    left join
+        guide u1_1
+            on u1_0.id=u1_1.id
+    left join
+        tourist u1_2
+            on u1_0.id=u1_2.id
+    left join
+        administrator u1_3
+            on u1_0.id=u1_3.id
+    left join
+        platform_user u1_4
+            on u1_0.id=u1_4.id
+    where
+        u1_0.email=?

@@ -1,28 +1,43 @@
 package domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.Column;
+import jakarta.persistence.DiscriminatorColumn;
+import jakarta.persistence.DiscriminatorType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
+import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import value.Role;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
-
-@Entity
+/**
+ * entity that contains platform user common data, like the first and last name
+ */
+@Entity(name = "platform_user")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "user_type", discriminatorType = DiscriminatorType.STRING)
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Table(
-        name="PLATFORMUSER",
-        uniqueConstraints=
-        @UniqueConstraint(name = "UniqueFirstNameAndLastName",columnNames={"firstName", "lastName"})
+        name = "platform_user",
+        uniqueConstraints =
+        @UniqueConstraint(name = "UniqueFirstNameAndLastName", columnNames = {"first_name", "last_name"})
 )
-public class PlatformUser {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+@NoArgsConstructor
+@Getter
+@Setter
+public class PlatformUser extends User {
 
-    private String firstName;
+    @Column(name = "first_name")
+    protected String firstName;
 
-    private String lastName;
+    @Column(name = "last_name")
+    protected String lastName;
 
+    public PlatformUser(String email, String password, Role role) {
+        super(email, password, role);
+    }
 }

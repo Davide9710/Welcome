@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "custom.expirationtime",
+      "type": "java.lang.String",
+      "description": "Description for custom.expirationtime."
+    }
+  ] }
