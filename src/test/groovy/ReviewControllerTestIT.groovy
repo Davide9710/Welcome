@@ -1,7 +1,7 @@
 import application.WelcomeApplication
 import domain.User
-import dto.CreateReviewRequestDTO
-import dto.CreateReviewResponseDTO
+import dto.request.CreateReviewRequestDTO
+import dto.response.CreateReviewResponseDTO
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.web.client.TestRestTemplate

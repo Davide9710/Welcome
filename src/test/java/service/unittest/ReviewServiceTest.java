@@ -3,7 +3,7 @@ package service.unittest;
 import domain.Review;
 import domain.Tour;
 import domain.Tourist;
-import dto.CreateReviewRequestDTO;
+import dto.request.CreateReviewRequestDTO;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,7 +1,7 @@
 import application.WelcomeApplication
 import domain.User
-import dto.GetNewMessagesResponseDTO
-import dto.SendMessageRequestDTO
+import dto.response.GetNewMessagesResponseDTO
+import dto.request.SendMessageRequestDTO
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.web.client.TestRestTemplate

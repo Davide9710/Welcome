@@ -2,11 +2,11 @@ package service;
 
 import domain.Tour;
 import domain.Tourist;
-import dto.EditTouristRequestDTO;
+import dto.request.EditTouristRequestDTO;
 import exception.notfound.TourNotFoundException;
 import exception.notfound.TouristNotFoundException;
 import lombok.RequiredArgsConstructor;
-import mapper.EditTouristRequestDTOMapper;
+import mapper.tourist.EditTouristRequestDTOMapper;
 import org.springframework.stereotype.Service;
 import repository.TourRepository;
 import repository.TouristRepository;

@@ -1,12 +1,12 @@
 package controller;
 
 import domain.Theme;
-import dto.GetAllThemeResponseDTO;
+import dto.response.GetAllThemeResponseDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.RequiredArgsConstructor;
-import mapper.ThemeResponseDTOMapper;
+import mapper.theme.ThemeResponseDTOMapper;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;

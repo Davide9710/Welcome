@@ -2,7 +2,7 @@ package service.unittest;
 
 import domain.Guide;
 import domain.Tour;
-import dto.EditGuideRequestDTO;
+import dto.request.EditGuideRequestDTO;
 import dto.SelectedCityDTO;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

@@ -1,6 +1,6 @@
 import application.WelcomeApplication
 import domain.User
-import dto.GetAllThemeResponseDTO
+import dto.response.GetAllThemeResponseDTO
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.web.client.TestRestTemplate

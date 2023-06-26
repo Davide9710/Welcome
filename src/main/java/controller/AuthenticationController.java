@@ -1,16 +1,17 @@
 package controller;
 
-import dto.AuthenticationRequestDTO;
-import dto.AuthenticationResponseDTO;
-import dto.AuthenticationResponseJwtDTO;
+import dto.request.AuthenticationRequestDTO;
+import dto.response.AuthenticationResponseDTO;
+import dto.response.AuthenticationResponseJwtDTO;
 import dto.RegisterRequestDTO;
-import dto.ResetPasswordRequestDTO;
+import dto.request.ResetPasswordRequestDTO;
 import exception.WrongRoleException;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -37,7 +38,7 @@ public class AuthenticationController {
     @PostMapping("/register")
     @Operation(summary = "Register a new user")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Registration Successful"),
+            @ApiResponse(responseCode = "201", description = "Registration Successful"),
             @ApiResponse(responseCode = "400", description = "Invalid request payload"),
             @ApiResponse(responseCode = "409", description = "User's email already registered"),
             @ApiResponse(responseCode = "500", description = "Server Error")
@@ -47,7 +48,7 @@ public class AuthenticationController {
     ) {
         if(request.role().equals(Role.ADMIN)) throw new WrongRoleException();
         AuthenticationResponseJwtDTO authenticate = authenticationService.register(request);
-        return ResponseEntity.ok()
+        return ResponseEntity.status(HttpStatus.CREATED)
                 .headers(authenticationService.putJwtInHttpHeaders(authenticate.jwt()))
                 .body(new AuthenticationResponseDTO(authenticate.user()));
     }

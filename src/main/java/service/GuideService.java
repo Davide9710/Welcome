@@ -2,10 +2,10 @@ package service;
 
 import domain.Guide;
 import domain.Tour;
-import dto.EditGuideRequestDTO;
+import dto.request.EditGuideRequestDTO;
 import exception.notfound.GuideNotFoundException;
 import lombok.RequiredArgsConstructor;
-import mapper.EditGuideRequestDTOMapper;
+import mapper.guide.EditGuideRequestDTOMapper;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import repository.GuideRepository;

@@ -3,9 +3,9 @@ package service;
 import domain.Message;
 import domain.PlatformUser;
 import dto.MessageDTO;
-import dto.SendMessageRequestDTO;
+import dto.request.SendMessageRequestDTO;
 import lombok.RequiredArgsConstructor;
-import mapper.PlatformUserDTOMapper;
+import mapper.platformuser.PlatformUserDTOMapper;
 import org.springframework.stereotype.Service;
 import repository.MessageRepository;
 

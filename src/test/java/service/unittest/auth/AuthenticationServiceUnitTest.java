@@ -1,7 +1,7 @@
 package service.unittest.auth;
 
 import domain.User;
-import dto.ResetPasswordRequestDTO;
+import dto.request.ResetPasswordRequestDTO;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;

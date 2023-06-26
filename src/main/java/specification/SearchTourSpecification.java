@@ -4,7 +4,7 @@ import domain.City_;
 import domain.Theme_;
 import domain.Tour;
 import domain.Tour_;
-import dto.SearchTourRequestDTO;
+import dto.request.SearchTourRequestDTO;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Predicate;

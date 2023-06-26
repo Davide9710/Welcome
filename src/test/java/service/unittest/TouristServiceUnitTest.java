@@ -2,7 +2,7 @@ package service.unittest;
 
 import domain.Tour;
 import domain.Tourist;
-import dto.EditTouristRequestDTO;
+import dto.request.EditTouristRequestDTO;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;

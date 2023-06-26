@@ -5,7 +5,7 @@ import domain.User;
 import dto.bo.CreateUserRequestDTO;
 import dto.bo.GetAllUserResponseDTO;
 import lombok.RequiredArgsConstructor;
-import mapper.UserDTOMapper;
+import mapper.user.UserDTOMapper;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;

@@ -1,11 +1,11 @@
 package service;
 
 import domain.Tour;
-import dto.EditTourRequestDTO;
-import dto.SearchTourRequestDTO;
+import dto.request.EditTourRequestDTO;
+import dto.request.SearchTourRequestDTO;
 import exception.notfound.TourNotFoundException;
 import lombok.RequiredArgsConstructor;
-import mapper.EditTourRequestDTOMapper;
+import mapper.tour.EditTourRequestDTOMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;

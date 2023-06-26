@@ -1,8 +1,8 @@
 package controller;
 
-import dto.GetNewMessagesResponseDTO;
+import dto.response.GetNewMessagesResponseDTO;
 import dto.MessageDTO;
-import dto.SendMessageRequestDTO;
+import dto.request.SendMessageRequestDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;

@@ -1,8 +1,7 @@
 import application.WelcomeApplication
-import dto.AuthenticationRequestDTO
+import dto.request.AuthenticationRequestDTO
 import dto.RegisterRequestDTO
-import dto.ResetPasswordRequestDTO
-import org.aspectj.lang.annotation.Before
+import dto.request.ResetPasswordRequestDTO
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.mock.mockito.MockBean
@@ -71,7 +70,7 @@ class AuthenticationControllerTestIT extends Specification {
 
         where:
         email               || expectedStatusCode
-        "newmail@gmail.com" || 200
+        "newmail@gmail.com" || 201
         "email1@gmail.com"  || 409 //existing email -> Conflict
         "wrong email"       || 400
     }

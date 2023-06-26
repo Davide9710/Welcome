@@ -1,14 +1,14 @@
 package service.auth;
 
 import domain.User;
-import dto.AuthenticationRequestDTO;
-import dto.AuthenticationResponseJwtDTO;
+import dto.request.AuthenticationRequestDTO;
+import dto.response.AuthenticationResponseJwtDTO;
 import dto.RegisterRequestDTO;
-import dto.ResetPasswordRequestDTO;
+import dto.request.ResetPasswordRequestDTO;
 import exception.EmailAlreadyUsedException;
 import exception.notfound.EmailNotFoundException;
 import lombok.RequiredArgsConstructor;
-import mapper.AuthenticationResponseJwtDTOMapper;
+import mapper.jwt.AuthenticationResponseJwtDTOMapper;
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
