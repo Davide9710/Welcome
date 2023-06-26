@@ -3,6 +3,9 @@ package controller;
 import dto.GetNewMessagesResponseDTO;
 import dto.MessageDTO;
 import dto.SendMessageRequestDTO;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
@@ -36,6 +39,11 @@ public class MessageController {
      * @return list of new messages
      */
     @GetMapping("/new")
+    @Operation(summary = "get all new messages")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "OK"),
+            @ApiResponse(responseCode = "500", description = "Server Error")
+    })
     public ResponseEntity<GetNewMessagesResponseDTO> getNewMessages(@RequestParam("epoch") Long epoch,
                                                                     @RequestParam("firstId") Long firstId,
                                                                     @RequestParam("secondId") Long secondId){
@@ -49,6 +57,11 @@ public class MessageController {
      * @return response entity
      */
     @PostMapping("/send")
+    @Operation(summary = "send message")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "OK"),
+            @ApiResponse(responseCode = "500", description = "Server Error")
+    })
     public ResponseEntity<?> sendMessage(@RequestBody @Valid SendMessageRequestDTO sendMessageRequestDTO){
         messageService.sendMessage(sendMessageRequestDTO);
         return ResponseEntity.ok().build();

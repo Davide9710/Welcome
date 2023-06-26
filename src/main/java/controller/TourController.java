@@ -8,6 +8,9 @@ import dto.EditTourResponseDTO;
 import dto.SearchTourRequestDTO;
 import dto.SearchTourResponseDTO;
 import dto.TourResponseDTO;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
@@ -50,6 +53,12 @@ public class TourController {
      * @return the Tour object from the db
      */
     @GetMapping("/{id}")
+    @Operation(summary = "get tour by id")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "OK"),
+            @ApiResponse(responseCode = "404", description = "TourNotFoundException"),
+            @ApiResponse(responseCode = "500", description = "Server Error")
+    })
     public ResponseEntity<TourResponseDTO> get(@PathVariable("id") @NotNull Long id) {
         Tour tour = tourService.getTour(id);
         log.info("tour retrieved {}", tour);
@@ -62,6 +71,11 @@ public class TourController {
      * @return a prohection of the saved tour
      */
     @PostMapping("/create")
+    @Operation(summary = "create tour")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "OK"),
+            @ApiResponse(responseCode = "500", description = "Server Error")
+    })
     public ResponseEntity<CreateTourResponseDTO> create(@RequestBody @Valid CreateTourRequestDTO createTourRequestDTO) {
         Tour tour = CreateTourRequestDTOMapper.INSTANCE.convert(createTourRequestDTO);
         log.info("request converted into tour {}", tour);
@@ -77,6 +91,12 @@ public class TourController {
      * @return a projection of the updated tour
      */
     @PatchMapping("/{tourId}")
+    @Operation(summary = "edit tour")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "OK"),
+            @ApiResponse(responseCode = "404", description = "TourNotFoundException"),
+            @ApiResponse(responseCode = "500", description = "Server Error")
+    })
     public ResponseEntity<EditTourResponseDTO> edit(@PathVariable("tourId") @NotNull Long tourId,
                                                     @RequestBody @Valid EditTourRequestDTO editTourRequestDTO) {
         Tour editedTour = tourService.edit(tourId, editTourRequestDTO);
@@ -90,6 +110,11 @@ public class TourController {
      * @return Response Entity indicating the operation result
      */
     @DeleteMapping("/{id}")
+    @Operation(summary = "delete tour")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "OK"),
+            @ApiResponse(responseCode = "500", description = "Server Error")
+    })
     public ResponseEntity<?> delete(@PathVariable("id") @NotNull Long id) {
         tourService.delete(id);
         return ResponseEntity.ok().build();
@@ -101,6 +126,11 @@ public class TourController {
      * @return a list of tour projections
      */
     @PostMapping("/search")
+    @Operation(summary = "search tour by filters")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "OK"),
+            @ApiResponse(responseCode = "500", description = "Server Error")
+    })
     public ResponseEntity<SearchTourResponseDTO> search(@RequestBody @Valid SearchTourRequestDTO searchTourRequestDTO) {
         List<Tour> tours = tourService.search(searchTourRequestDTO);
         log.info("found tours {}", tours);

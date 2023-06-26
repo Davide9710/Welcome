@@ -4,6 +4,9 @@ import domain.Review;
 import dto.CreateReviewRequestDTO;
 import dto.CreateReviewResponseDTO;
 import dto.ReviewDTO;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -37,6 +40,12 @@ public class ReviewController {
      * @return the created Review, projected into a DTO
      */
     @PostMapping("/create")
+    @Operation(summary = "get all marked tours")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "OK"),
+            @ApiResponse(responseCode = "404", description = "ResourceNotFoundException"),
+            @ApiResponse(responseCode = "500", description = "Server Error")
+    })
     public ResponseEntity<CreateReviewResponseDTO> create(@RequestBody @Valid CreateReviewRequestDTO createReviewRequestDTO) {
         log.info("create Review, request {}", createReviewRequestDTO);
         Review review = reviewService.createReview(createReviewRequestDTO);

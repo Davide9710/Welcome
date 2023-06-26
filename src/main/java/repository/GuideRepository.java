@@ -14,7 +14,6 @@ import java.util.List;
  */
 public interface GuideRepository extends JpaRepository<Guide, Long> {
 
-    //TODO controlla che la richiesta venga paginata, magari facendo una cosa simile con le città
     @Query("select tour from Guide g inner join g.tours tour where g.id = :guideId")
     List<Tour> findTourByGuideId(@Param("guideId") Long guideId, Pageable pageable);
 }

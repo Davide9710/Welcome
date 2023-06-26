@@ -6,6 +6,9 @@ import dto.AuthenticationResponseJwtDTO;
 import dto.RegisterRequestDTO;
 import dto.ResetPasswordRequestDTO;
 import exception.WrongRoleException;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -32,6 +35,13 @@ public class AuthenticationController {
      * @return Response Entity with the jwt token and the user's email
      */
     @PostMapping("/register")
+    @Operation(summary = "Register a new user")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Registration Successful"),
+            @ApiResponse(responseCode = "400", description = "Invalid request payload"),
+            @ApiResponse(responseCode = "409", description = "User's email already registered"),
+            @ApiResponse(responseCode = "500", description = "Server Error")
+    })
     public ResponseEntity<AuthenticationResponseDTO> register(
             @RequestBody @Valid RegisterRequestDTO request
     ) {
@@ -48,6 +58,13 @@ public class AuthenticationController {
      * @return Response Entity indicating the auth result
      */
     @PostMapping("/authenticate")
+    @Operation(summary = "Authenticate the user with the given credentials")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Authentication Successful"),
+            @ApiResponse(responseCode = "401", description = "Invalid Credentials"),
+            @ApiResponse(responseCode = "404", description = "Resource not found"),
+            @ApiResponse(responseCode = "500", description = "Server Error")
+    })
     public ResponseEntity<AuthenticationResponseDTO> authenticate(
             @RequestBody @Valid AuthenticationRequestDTO request
     ) {
@@ -63,6 +80,12 @@ public class AuthenticationController {
      * @return Response Entity indicating the reset password result
      */
     @PostMapping("/reset-psw")
+    @Operation(summary = "Reset the password")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Password reset Successful"),
+            @ApiResponse(responseCode = "404", description = "Email not found"),
+            @ApiResponse(responseCode = "500", description = "Server Error")
+    })
     public ResponseEntity<?> resetPassword(
             @RequestBody @Valid ResetPasswordRequestDTO request
     ) {

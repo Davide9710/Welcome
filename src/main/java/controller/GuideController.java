@@ -5,6 +5,9 @@ import domain.Tour;
 import dto.EditGuideRequestDTO;
 import dto.EditGuideResponseDTO;
 import dto.GetTourByGuideIdResponseDTO;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
@@ -45,6 +48,11 @@ public class GuideController {
      * @return pages list of tours
      */
     @GetMapping("/{guideId}/tours")
+    @Operation(summary = "get tour by guide id paged")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "OK"),
+            @ApiResponse(responseCode = "500", description = "Server Error")
+    })
     public ResponseEntity<GetTourByGuideIdResponseDTO> getTourByGuideId(@NotNull @PathVariable("guideId") Long guideId,
                                                                         @PositiveOrZero @RequestParam("page") Integer page,
                                                                         @Positive @RequestParam("size") Integer size) {
@@ -59,6 +67,12 @@ public class GuideController {
      * @return Response Entity
      */
     @PatchMapping("/{guideId}")
+    @Operation(summary = "edit guide info")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "OK"),
+            @ApiResponse(responseCode = "404", description = "GuideNotFoundException"),
+            @ApiResponse(responseCode = "500", description = "Server Error")
+    })
     public ResponseEntity<EditGuideResponseDTO> edit(@PathVariable("guideId") @NotNull Long guideId,
                                                      @RequestBody @Valid EditGuideRequestDTO editGuideRequestDTO) {
         Guide guide = guideService.edit(guideId, editGuideRequestDTO);

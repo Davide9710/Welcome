@@ -2,6 +2,9 @@ package controller;
 
 import domain.Theme;
 import dto.GetAllThemeResponseDTO;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.RequiredArgsConstructor;
 import mapper.ThemeResponseDTOMapper;
 import org.springframework.http.MediaType;
@@ -29,6 +32,11 @@ public class ThemeController {
      * @return the themes in the db
      */
     @GetMapping
+    @Operation(summary = "get all themes")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "OK"),
+            @ApiResponse(responseCode = "500", description = "Server Error")
+    })
     public ResponseEntity<GetAllThemeResponseDTO> getAll(){
         List<Theme> themes = themeService.getAll();
         return ResponseEntity.ok(new GetAllThemeResponseDTO(ThemeResponseDTOMapper.INSTANCE.convert(themes)));

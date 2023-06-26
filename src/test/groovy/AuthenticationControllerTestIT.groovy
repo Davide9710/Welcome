@@ -5,6 +5,7 @@ import dto.ResetPasswordRequestDTO
 import org.aspectj.lang.annotation.Before
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.boot.test.mock.mockito.MockBean
 import org.springframework.boot.test.web.client.TestRestTemplate
 import org.springframework.http.HttpEntity
 import org.springframework.http.HttpMethod
@@ -22,13 +23,8 @@ class AuthenticationControllerTestIT extends Specification {
     @Autowired
     TestRestTemplate testRestTemplate
 
-    @Autowired
+    @MockBean
     EmailService emailService
-
-    @Before
-    void setup() {
-        emailService.sendSimpleEmail(_, _, _) >> null
-    }
 
     def "test login"() {
         given:
@@ -84,6 +80,7 @@ class AuthenticationControllerTestIT extends Specification {
         given:
         ResetPasswordRequestDTO request = new ResetPasswordRequestDTO(email)
         HttpEntity<String> httpEntity = new HttpEntity<>(request)
+        emailService.sendSimpleEmail(_, _, _) >> null
 
         when:
         def response =

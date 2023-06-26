@@ -1,5 +1,6 @@
 package domain;
 
+import domain.softdeletable.SoftDeletable;
 import domain.softdeletable.SoftDelete;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -32,7 +33,7 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
-//@SoftDeletable
+@SoftDeletable
 public class Tour {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -91,6 +92,9 @@ public class Tour {
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     private Theme theme;
 
+    /**
+     * Calculated attributed, averaging the stars of the reviews
+     */
     @Formula("SELECT AVG(r.stars) FROM Review r WHERE r.tour_id = id")
     private Double rating;
 

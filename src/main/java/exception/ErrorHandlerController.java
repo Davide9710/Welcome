@@ -4,7 +4,8 @@ import exception.notfound.ResourceNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.AccessDeniedException;
-import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -32,13 +33,13 @@ public class ErrorHandlerController extends ResponseEntityExceptionHandler {
     }
 
     /**
-     * handler of the BadCredentialsException exception, that handles the exception thrown by authentication control
+     * handler of the AuthenticationException exception, that handles the exception thrown by authentication method
      * @param e the exception thrown
      */
-    @ExceptionHandler(BadCredentialsException.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(AuthenticationException.class)
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
     @ResponseBody
-    void onBadCredentialsException(BadCredentialsException e) {
+    void onAuthenticationException(AuthenticationException e) {
         log.error(e.getMessage());
     }
 
@@ -62,6 +63,17 @@ public class ErrorHandlerController extends ResponseEntityExceptionHandler {
     @ResponseStatus(HttpStatus.CONFLICT)
     @ResponseBody
     void onEmailAlreadyUsedException(EmailAlreadyUsedException e) {
+        log.error(e.getMessage());
+    }
+
+    /**
+     * handler of the WrongRoleException exception, that handles the exception thrown when user register with role ADMIN
+     * @param e the exception thrown
+     */
+    @ExceptionHandler(WrongRoleException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ResponseBody
+    void onWrongRoleException(WrongRoleException e) {
         log.error(e.getMessage());
     }
 

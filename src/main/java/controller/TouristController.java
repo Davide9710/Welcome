@@ -6,6 +6,10 @@ import dto.EditTouristRequestDTO;
 import dto.EditTouristResponseDTO;
 import dto.MarkAsCompleteRequestDTO;
 import dto.MarkedToursResponseDTO;
+import exception.notfound.TouristNotFoundException;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
@@ -41,6 +45,12 @@ public class TouristController {
      * @return Response Entity indicating the operation result
      */
     @PostMapping("/mark-as-completed")
+    @Operation(summary = "mark tour as completed")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "OK"),
+            @ApiResponse(responseCode = "404", description = "ResourceNotFound"),
+            @ApiResponse(responseCode = "500", description = "Server Error")
+    })
     public ResponseEntity<?> markAsComplete(@RequestBody @Valid MarkAsCompleteRequestDTO request) {
         touristService.markAsComplete(request.touristId(), request.tourId());
         return ResponseEntity.ok().build();
@@ -52,6 +62,12 @@ public class TouristController {
      * @return the marked tours
      */
     @GetMapping("/{touristId}/marked-tours")
+    @Operation(summary = "get all marked tours")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "OK"),
+            @ApiResponse(responseCode = "404", description = "TouristNotFoundException"),
+            @ApiResponse(responseCode = "500", description = "Server Error")
+    })
     public ResponseEntity<MarkedToursResponseDTO> getAllMarkedTour(@PathVariable("touristId") @NotNull Long touristId) {
         List<Tour> allMarkedTour = touristService.getAllMarkedTour(touristId);
         return ResponseEntity.ok(new MarkedToursResponseDTO(TourDTOMapper.INSTANCE.convert(allMarkedTour)));
@@ -64,6 +80,12 @@ public class TouristController {
      * @return the updated tourist
      */
     @PatchMapping("/{touristId}")
+    @Operation(summary = "edit tourist")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "OK"),
+            @ApiResponse(responseCode = "404", description = "TouristNotFoundException"),
+            @ApiResponse(responseCode = "500", description = "Server Error")
+    })
     public ResponseEntity<EditTouristResponseDTO> edit(@PathVariable("touristId") @NotNull Long touristId,
                                                        @RequestBody @Valid EditTouristRequestDTO requestDTO) {
         Tourist tourist = touristService.edit(touristId, requestDTO);

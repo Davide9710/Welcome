@@ -2,6 +2,9 @@ package controller;
 
 import domain.Tag;
 import dto.GetAllTagDTO;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.RequiredArgsConstructor;
 import mapper.TagResponseDTOMapper;
 import org.springframework.http.MediaType;
@@ -29,6 +32,11 @@ public class TagController {
      * @return the tags in the db
      */
     @GetMapping
+    @Operation(summary = "get all cities")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "OK"),
+            @ApiResponse(responseCode = "500", description = "Server Error")
+    })
     public ResponseEntity<GetAllTagDTO> getAll(){
         List<Tag> tagList = tagService.getAll();
         return ResponseEntity.ok(new GetAllTagDTO(TagResponseDTOMapper.INSTANCE.convert(tagList)));
