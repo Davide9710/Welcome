@@ -1,6 +1,10 @@
 package service;
 
+import domain.City;
+import domain.Guide;
 import domain.Tour;
+import domain.elastic.TourDocument;
+import domain.softdeletable.SoftDelete;
 import dto.request.EditTourRequestDTO;
 import dto.request.SearchTourRequestDTO;
 import exception.notfound.TourNotFoundException;
@@ -10,7 +14,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import repository.CityRepository;
+import repository.GuideRepository;
 import repository.TourRepository;
+import elastic.TourRepositoryFullText;
 import specification.SearchTourSpecification;
 
 import java.util.List;
@@ -19,6 +26,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class TourService {
     private final TourRepository tourRepository;
+    private final TourRepositoryFullText tourRepositoryFullText;
 
     /**
      * method that return a tour by its id
@@ -73,6 +81,17 @@ public class TourService {
                 Sort.by("rating").descending().and(Sort.by("numberOfReviews")));
         Page<Tour> tours = tourRepository.findAll(specification, of);
         return tours.getContent();
+    }
+
+    public List<TourDocument> searchText(String text) {
+        return tourRepositoryFullText.searchByTitleFullText(text);
+    }
+
+    public void test() {
+        TourDocument tourDocument = TourDocument.builder()
+                .title("title")
+                .build();
+        tourRepositoryFullText.save(tourDocument);
     }
 }
 

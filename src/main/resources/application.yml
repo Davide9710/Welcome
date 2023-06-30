@@ -28,6 +28,13 @@ spring:
           starttls:
             enable: true
 
+
+  data:
+    elasticsearch:
+      client:
+        reactive:
+          endpoints: localhost:9200
+
 expirationtime: 3600
 
 secretkey: 4D18A3F7E9B1C6A025EDD6F82A1404425F00E9797B7DB30299811AC180995C14

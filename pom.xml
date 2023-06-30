@@ -49,6 +49,8 @@
         <jjwt-jackson.version>0.11.5</jjwt-jackson.version>
         <springmail.version>3.1.1</springmail.version>
         <springvalidation.version>3.1.1</springvalidation.version>
+        <springelastic.version>3.0.4</springelastic.version>
+        <elastic-rest-client.version>7.17.10</elastic-rest-client.version>
     </properties>
 
     <dependencies>
@@ -198,7 +200,16 @@
             <artifactId>spring-boot-starter-validation</artifactId>
             <version>${springvalidation.version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+            <version>${springelastic.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.elasticsearch.client</groupId>
+            <artifactId>elasticsearch-rest-high-level-client</artifactId>
+            <version>${elastic-rest-client.version}</version>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>

@@ -17,7 +17,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
+import repository.CityRepository;
+import repository.GuideRepository;
 import repository.TourRepository;
+import elastic.TourRepositoryFullText;
 import service.TourService;
 
 import java.util.List;
@@ -36,9 +39,12 @@ public class TourServiceUnitTest {
         @Autowired
         TourRepository tourRepository;
 
+        @Autowired
+        TourRepositoryFullText tourRepositoryFullText;
+
         @Bean
         public TourService tourService() {
-            return new TourService(tourRepository);
+            return new TourService(tourRepository, tourRepositoryFullText);
         }
     }
 
