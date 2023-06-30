@@ -158,6 +158,19 @@ public class TourController {
         return ResponseEntity.ok(new SearchTourResponseDTO(tourDTOList));
     }
 
+    @GetMapping(value = "/search/tourstop/text", produces = MediaType.APPLICATION_JSON_VALUE)
+    @Operation(summary = "search tour by fulltext")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "OK"),
+            @ApiResponse(responseCode = "500", description = "Server Error")
+    })
+    public ResponseEntity<SearchTourResponseDTO> searchByTourNamesText(@RequestParam String text) {
+        List<TourDocument> tours = tourService.searchByTourNamesText(text);
+        log.info("found tours {}", tours);
+        List<TourResponseDTO> tourDTOList = TourResponseDTOFromDocumentMapper.INSTANCE.convert(tours);
+        return ResponseEntity.ok(new SearchTourResponseDTO(tourDTOList));
+    }
+
     @GetMapping("/test")
     @Operation(summary = "TEST") //TODO remove, use normal new tour
     @ApiResponses(value = {

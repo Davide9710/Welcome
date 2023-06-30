@@ -9,6 +9,8 @@ import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
 
+import java.util.List;
+
 @Document(indexName = "tours_index")
 @Builder
 @AllArgsConstructor
@@ -21,4 +23,7 @@ public class TourDocument {
 
     @Field(name = "title", type = FieldType.Text)
     private String title;
+
+    @Field(name = "tourstopnames", type = FieldType.Text)
+    private List<String> tourStopNames;
 }

@@ -87,9 +87,14 @@ public class TourService {
         return tourRepositoryFullText.searchByTitleFullText(text);
     }
 
+    public List<TourDocument> searchByTourNamesText(String text) {
+        return tourRepositoryFullText.searchByTourStopNames(text);
+    }
+
     public void test() {
         TourDocument tourDocument = TourDocument.builder()
                 .title("title")
+                .tourStopNames(List.of("Colosseum", "San Pietro", "San Giovanni in Laterano"))
                 .build();
         tourRepositoryFullText.save(tourDocument);
     }

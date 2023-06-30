@@ -10,4 +10,7 @@ public interface TourRepositoryFullText extends ElasticsearchRepository<TourDocu
 
     @Query("{\"match\": {\"title\": {\"query\": \"?0\"}}}")
     List<TourDocument> searchByTitleFullText(String title);
+
+    @Query("{\"match\": {\"tourstopnames\": {\"query\": \"?0\"}}}")
+    List<TourDocument> searchByTourStopNames(String tourStopName);
 }
