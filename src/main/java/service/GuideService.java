@@ -25,6 +25,9 @@ public class GuideService {
      * @return the list of tours
      */
     public List<Tour> getToursByGuideId(Long guideId, int page, int size) {
+        if(!guideRepository.existsById(guideId)){
+            throw new GuideNotFoundException(guideId);
+        }
         return guideRepository.findTourByGuideId(guideId, PageRequest.of(page, size));
     }
 
