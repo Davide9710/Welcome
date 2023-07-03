@@ -60,6 +60,7 @@ public class MessageController {
     @Operation(summary = "send message")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "OK"),
+            @ApiResponse(responseCode = "404", description = "PlatformUserNotFoundException, User not found"),
             @ApiResponse(responseCode = "500", description = "Server Error")
     })
     public ResponseEntity<?> sendMessage(@RequestBody @Valid SendMessageRequestDTO sendMessageRequestDTO){
