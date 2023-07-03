@@ -14,7 +14,7 @@ import org.springframework.data.jpa.domain.Specification;
 
 import static specification.SpecificationUtils.equalWithNullControl;
 import static specification.SpecificationUtils.inPredicate;
-import static specification.SpecificationUtils.lessThanWithNullControl;
+import static specification.SpecificationUtils.greaterThanOrEqualTo;
 
 @AllArgsConstructor
 public class SearchTourSpecification implements Specification<Tour> {
@@ -33,7 +33,7 @@ public class SearchTourSpecification implements Specification<Tour> {
     public Predicate toPredicate(Root<Tour> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
         Predicate p = cb.and();
         p = cb.and(p, equalWithNullControl(cb, root.get(Tour_.city).get(City_.ID), filter.cityId()));
-        p = cb.and(p, lessThanWithNullControl(cb, root.get(Tour_.approxDuration), filter.maxDuration()));
+        p = cb.and(p, greaterThanOrEqualTo(cb, root.get(Tour_.approxDuration), filter.maxDuration()));
         p = cb.and(p, equalWithNullControl(cb, root.get(Tour_.theme).get(Theme_.NAME), filter.themeName()));
         p = cb.and(p, inPredicate(cb, root, Tour_.TAGS, filter.tagNames()));
         return p;
