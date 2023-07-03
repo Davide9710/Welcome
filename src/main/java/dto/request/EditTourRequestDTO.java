@@ -7,9 +7,8 @@ import jakarta.validation.constraints.NotNull;
 
 import java.util.List;
 
-public record EditTourRequestDTO(@NotBlank String title,
-                                 @NotNull Double approxCost,
-                                 @NotNull Integer approxDuration,
-                                 CityDTO city,
-                                 List<TagRequestDTO> tags) {
+public record EditTourRequestDTO(String title,
+                                 Double approxCost,
+                                 Integer approxDuration,
+                                 CityDTO city) {
 }

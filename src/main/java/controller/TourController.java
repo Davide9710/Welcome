@@ -27,6 +27,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -43,7 +44,6 @@ import java.util.List;
         produces = MediaType.APPLICATION_JSON_VALUE)
 @Slf4j
 @RequiredArgsConstructor
-@PreAuthorize("hasRole('TOURIST')")
 public class TourController {
     private final TourService tourService;
 
@@ -70,16 +70,17 @@ public class TourController {
      * @param createTourRequestDTO tour projection object
      * @return a prohection of the saved tour
      */
-    @PostMapping("/create")
+    @PostMapping("/create/{guideId}")
     @Operation(summary = "create tour")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "OK"),
             @ApiResponse(responseCode = "500", description = "Server Error")
     })
-    public ResponseEntity<CreateTourResponseDTO> create(@RequestBody @Valid CreateTourRequestDTO createTourRequestDTO) {
+    @PreAuthorize("hasRole('GUIDE')")
+    public ResponseEntity<CreateTourResponseDTO> create(@PathVariable("guideId") Long guideId, @RequestBody @Valid CreateTourRequestDTO createTourRequestDTO) {
         Tour tour = CreateTourRequestDTOMapper.INSTANCE.convert(createTourRequestDTO);
         log.info("request converted into tour {}", tour);
-        Tour savedTour = tourService.create(tour);
+        Tour savedTour = tourService.create(tour, guideId);
         log.info("tour create successfully, saved tour {}", savedTour);
         return ResponseEntity.ok(CreateTourResponseDTOMapper.INSTANCE.convert(savedTour));
     }
@@ -90,15 +91,16 @@ public class TourController {
      * @param editTourRequestDTO data to be updated
      * @return a projection of the updated tour
      */
-    @PatchMapping("/{tourId}")
+    @PutMapping("/{tourId}")
     @Operation(summary = "edit tour")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "OK"),
             @ApiResponse(responseCode = "404", description = "TourNotFoundException"),
             @ApiResponse(responseCode = "500", description = "Server Error")
     })
+    @PreAuthorize("hasRole('GUIDE')")
     public ResponseEntity<EditTourResponseDTO> edit(@PathVariable("tourId") @NotNull Long tourId,
-                                                    @RequestBody @Valid EditTourRequestDTO editTourRequestDTO) {
+                                                    @RequestBody EditTourRequestDTO editTourRequestDTO) {
         Tour editedTour = tourService.edit(tourId, editTourRequestDTO);
         log.info("edited tour {}", editedTour);
         return ResponseEntity.ok(EditTourResponseDTOMapper.INSTANCE.convert(editedTour));
@@ -115,6 +117,7 @@ public class TourController {
             @ApiResponse(responseCode = "200", description = "OK"),
             @ApiResponse(responseCode = "500", description = "Server Error")
     })
+    @PreAuthorize("hasRole('GUIDE')")
     public ResponseEntity<?> delete(@PathVariable("id") @NotNull Long id) {
         tourService.delete(id);
         return ResponseEntity.ok().build();
@@ -131,6 +134,7 @@ public class TourController {
             @ApiResponse(responseCode = "200", description = "OK"),
             @ApiResponse(responseCode = "500", description = "Server Error")
     })
+    @PreAuthorize("hasRole('TOURIST')")
     public ResponseEntity<SearchTourResponseDTO> search(@RequestBody @Valid SearchTourRequestDTO searchTourRequestDTO) {
         List<Tour> tours = tourService.search(searchTourRequestDTO);
         log.info("found tours {}", tours);

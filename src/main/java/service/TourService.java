@@ -1,8 +1,15 @@
 package service;
 
+import domain.City;
+import domain.Guide;
+import domain.Tag;
+import domain.Theme;
 import domain.Tour;
+import domain.softdeletable.SoftDelete;
 import dto.request.EditTourRequestDTO;
 import dto.request.SearchTourRequestDTO;
+import exception.CityNotFoundException;
+import exception.notfound.GuideNotFoundException;
 import exception.notfound.TourNotFoundException;
 import lombok.RequiredArgsConstructor;
 import mapper.tour.EditTourRequestDTOMapper;
@@ -10,15 +17,27 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import repository.CityRepository;
+import repository.GuideRepository;
+import repository.SoftDeleteRepository;
+import repository.TagRepository;
+import repository.ThemeRepository;
 import repository.TourRepository;
 import specification.SearchTourSpecification;
+import value.Status;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
 public class TourService {
     private final TourRepository tourRepository;
+    private final GuideRepository guideRepository;
+    private final CityRepository cityRepository;
+    private final TagRepository tagRepository;
+    private final ThemeRepository themeRepository;
+    private final SoftDeleteRepository softDeleteRepository;
 
     /**
      * method that return a tour by its id
@@ -35,7 +54,26 @@ public class TourService {
      * @param tour tour object
      * @return the saved tour
      */
-    public Tour create(Tour tour) {
+    public Tour create(Tour tour, Long guideId) {
+        Guide guide = guideRepository.findById(guideId).orElseThrow(() -> new GuideNotFoundException(guideId));
+        tour.setGuide(guide);
+        City city = cityRepository.findById(tour.getCity().getId())
+                .orElseThrow(() -> new CityNotFoundException(tour.getCity().getId()));
+        tour.setCity(city);
+        List<Tag> tags = tour.getTags().stream().map(tagName -> {
+            Optional<Tag> tag = tagRepository.findByName(tagName.getName());
+            return tag.orElseGet(() -> tagRepository.save(tagName));
+        }).toList();
+
+        Optional<Theme> theme = themeRepository.findByName(tour.getTheme().getName());
+        Theme tourTheme = theme.orElseGet(() -> themeRepository.save(tour.getTheme()));
+        SoftDelete softDelete = new SoftDelete();
+        softDelete.setStatus(Status.ACTIVE);
+        softDelete = softDeleteRepository.save(softDelete);
+
+        tour.setTheme(tourTheme);
+        tour.setTags(tags);
+        tour.setSoftDelete(softDelete);
         return tourRepository.save(tour);
     }
 
