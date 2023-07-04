@@ -4,5 +4,5 @@ import dto.TourDTO;
 
 import java.util.List;
 
-public record GetTourByGuideIdResponseDTO(List<TourDTO> tourDTOS) {
+public record GetTourByGuideIdResponseDTO(List<TourDTO> tours) {
 }

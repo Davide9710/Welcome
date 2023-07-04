@@ -14,6 +14,7 @@ import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import static value.Role.GUIDE;
 
@@ -40,5 +41,20 @@ public class Guide extends PlatformUser{
 
     public Guide(String email, String password) {
         super(email, password, GUIDE);
+    }
+
+    @Override
+    public String toString() {
+        return "Guide{" +
+                "organizationName='" + organizationName + '\'' +
+                ", tours=" + tours +
+                ", city=" + city +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", id=" + id +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", role=" + role +
+                '}';
     }
 }

@@ -5,6 +5,7 @@ import domain.User;
 import dto.RegisterRequestDTO;
 import dto.bo.CreateUserRequestDTO;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.java.Log;
 import org.springframework.stereotype.Component;
 import repository.GuideRepository;
 import value.Role;
@@ -13,6 +14,7 @@ import static value.Role.GUIDE;
 
 @Component
 @RequiredArgsConstructor
+@Log
 public class GuideStrategy implements UserStrategy{
 
     private final GuideRepository guideRepository;
@@ -36,6 +38,7 @@ public class GuideStrategy implements UserStrategy{
     public User register(RegisterRequestDTO request, String encodedPsw) {
         Guide guide = new Guide(request.email(), encodedPsw);
         guide = guideRepository.save(guide);
+        log.info("guide saved: " + guide);
         return guide;
     }
 

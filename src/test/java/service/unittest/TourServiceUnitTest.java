@@ -1,5 +1,9 @@
 package service.unittest;
 
+import domain.City;
+import domain.Guide;
+import domain.Tag;
+import domain.Theme;
 import domain.Tour;
 import domain.softdeletable.SoftDelete;
 import dto.CityDTO;
@@ -7,6 +11,7 @@ import dto.request.EditTourRequestDTO;
 import dto.request.SearchTourRequestDTO;
 import dto.request.TagRequestDTO;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringBootConfiguration;
@@ -19,6 +24,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import repository.CityRepository;
 import repository.GuideRepository;
+import repository.SoftDeleteRepository;
+import repository.TagRepository;
+import repository.ThemeRepository;
 import repository.TourRepository;
 import elastic.TourRepositoryFullText;
 import service.TourService;
@@ -40,16 +48,55 @@ public class TourServiceUnitTest {
         TourRepository tourRepository;
 
         @Autowired
+        GuideRepository guideRepository;
+
+        @Autowired
+        CityRepository cityRepository;
+
+        @Autowired
+        TagRepository tagRepository;
+
+        @Autowired
+        ThemeRepository themeRepository;
+
+        @Autowired
+        SoftDeleteRepository softDeleteRepository;
+
+        @Autowired
         TourRepositoryFullText tourRepositoryFullText;
 
         @Bean
         public TourService tourService() {
-            return new TourService(tourRepository, tourRepositoryFullText);
+            return new TourService(tourRepository,
+                    guideRepository,
+                    cityRepository,
+                    tagRepository,
+                    themeRepository,
+                    softDeleteRepository,
+                    tourRepositoryFullText);
         }
     }
 
     @MockBean
     TourRepository tourRepository;
+
+    @MockBean
+    GuideRepository guideRepository;
+
+    @MockBean
+    CityRepository cityRepository;
+
+    @MockBean
+    TagRepository tagRepository;
+
+    @MockBean
+    ThemeRepository themeRepository;
+
+    @MockBean
+    SoftDeleteRepository softDeleteRepository;
+
+    @MockBean
+    TourRepositoryFullText tourRepositoryFullText;
 
     @Autowired
     TourService tourService;
@@ -59,8 +106,27 @@ public class TourServiceUnitTest {
         SoftDelete softDelete = new SoftDelete();
         Tour tour = new Tour();
         tour.setSoftDelete(softDelete);
+        City city = new City();
+        city.setId(1L);
+        tour.setCity(city);
+        Theme theme = new Theme();
+        theme.setName("theme");
+        tour.setTheme(theme);
+        Long guideIdMock = 1L;
         Mockito.when(tourRepository.save(any())).thenReturn(null);
-        assertDoesNotThrow(() -> tourService.create(tour));
+        Guide guideMock = new Guide();
+        Mockito.when(guideRepository.findById(any())).thenReturn(Optional.of(guideMock));
+        Tag mockTag = new Tag();
+        Mockito.when(tagRepository.findByName(any())).thenReturn(Optional.of(mockTag));
+        Mockito.when(tagRepository.save(any())).thenReturn(Optional.of(mockTag));
+        City mockCity = new City();
+        Mockito.when(cityRepository.findById(any())).thenReturn(Optional.of(mockCity));
+        Theme mockTheme = new Theme();
+        Mockito.when(themeRepository.findByName(any())).thenReturn(Optional.of(mockTheme));
+        Mockito.when(themeRepository.save(any())).thenReturn(Optional.of(mockTheme));
+        SoftDelete mockSoftDelete = new SoftDelete();
+        Mockito.when(softDeleteRepository.save(any())).thenReturn(mockSoftDelete);
+        assertDoesNotThrow(() -> tourService.create(tour, guideIdMock));
     }
 
     @Test
@@ -71,13 +137,10 @@ public class TourServiceUnitTest {
         Double mockApproxCost = 20D;
         Integer mockApproxDuration = 20;
         String mockCityName = "mockCityName";
-        Long mockTagId = 1L;
-        String mockTagName = "mockTagName";
         EditTourRequestDTO mockEditTourRequest = new EditTourRequestDTO(mockTitle,
                 mockApproxCost,
                 mockApproxDuration,
-                new CityDTO(mockCityName),
-                List.of(new TagRequestDTO(mockTagId, mockTagName)));
+                new CityDTO(mockCityName));
 
         Mockito.when(tourRepository.save(any())).thenReturn(mockResult);
         Mockito.when(tourRepository.findById(anyLong())).thenReturn(Optional.of(mockResult));
@@ -90,12 +153,6 @@ public class TourServiceUnitTest {
         //City
         assertNotNull(tourEdited.getCity());
         assertEquals(tourEdited.getCity().getName(), mockCityName);
-        //Tags
-        assertNotNull(tourEdited.getTags());
-        assertEquals(tourEdited.getTags().size(), 1);
-        assertNotNull(tourEdited.getTags().get(0));
-        assertEquals(tourEdited.getTags().get(0).getId(), mockId);
-        assertEquals(tourEdited.getTags().get(0).getName(), mockTagName);
     }
 
     @Test

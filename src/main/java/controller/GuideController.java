@@ -21,6 +21,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -51,6 +52,7 @@ public class GuideController {
     @Operation(summary = "get tour by guide id paged")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "OK"),
+            @ApiResponse(responseCode = "404", description = "Guide Not Found Exception"),
             @ApiResponse(responseCode = "500", description = "Server Error")
     })
     public ResponseEntity<GetTourByGuideIdResponseDTO> getTourByGuideId(@NotNull @PathVariable("guideId") Long guideId,
@@ -66,7 +68,7 @@ public class GuideController {
      * @param editGuideRequestDTO the data to be updated
      * @return Response Entity
      */
-    @PatchMapping("/{guideId}")
+    @PutMapping("/{guideId}")
     @Operation(summary = "edit guide info")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "OK"),

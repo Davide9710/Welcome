@@ -10,6 +10,8 @@
     <list default="true" id="ae4ab8eb-788c-4ce3-9c02-59964e1fe0b9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/WelcomeDB.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/WelcomeDB.mv.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/TourController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/TourController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/TouristController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/TouristController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,18 +21,18 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="AnnotationType" />
         <option value="Enum" />
-        <option value="Interface" />
+        <option value="AnnotationType" />
         <option value="Record" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="dev" />
+        <entry key="$PROJECT_DIR$" value="2-analysis-of-elastic-search-tour-name-auto-complete-seacrh-feature" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -75,7 +77,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/controller" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/repository" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../MyGym" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -84,7 +86,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.47410008" />
-    <property name="settings.editor.selected.configurable" value="spring.boot" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
@@ -94,11 +96,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
-      <recent name="service.auth" />
-      <recent name="service.bo" />
       <recent name="repository" />
-      <recent name="controller.bo" />
-      <recent name="dto.bo" />
+      <recent name="exception" />
+      <recent name="repository.elastic" />
+      <recent name="service" />
+      <recent name="dto" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\david\IdeaProjects\Welcome\src\main\java\test" />
@@ -113,55 +115,8 @@
       <recent name="service" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AuthenticationServiceUnitTest.sendSimpleEmailTest">
-    <configuration name="AuthenticationServiceUnitTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Welcome" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="service.auth.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="service.auth" />
-      <option name="MAIN_CLASS_NAME" value="service.auth.AuthenticationServiceUnitTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AuthenticationServiceUnitTest.sendSimpleEmailTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Welcome" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="service.auth.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="service.auth" />
-      <option name="MAIN_CLASS_NAME" value="service.auth.AuthenticationServiceUnitTest" />
-      <option name="METHOD_NAME" value="sendSimpleEmailTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="EmailServiceTestIT.sendSimpleEmailTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Welcome" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="service.integrationtest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="service.integrationtest" />
-      <option name="MAIN_CLASS_NAME" value="service.integrationtest.EmailServiceTestIT" />
-      <option name="METHOD_NAME" value="sendSimpleEmailTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="EmailServiceUnitTest.sendSimpleEmailTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Spring Boot.WelcomeApplication">
+    <configuration name="TourServiceUnitTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Welcome" />
       <extension name="coverage">
         <pattern>
@@ -170,25 +125,98 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="service.unittest" />
-      <option name="MAIN_CLASS_NAME" value="service.unittest.EmailServiceUnitTest" />
-      <option name="METHOD_NAME" value="sendSimpleEmailTest" />
+      <option name="MAIN_CLASS_NAME" value="service.unittest.TourServiceUnitTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TourServiceUnitTest.createTourTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Welcome" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="service.unittest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="service.unittest" />
+      <option name="MAIN_CLASS_NAME" value="service.unittest.TourServiceUnitTest" />
+      <option name="METHOD_NAME" value="createTourTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RandomValuesUnitTest.generateRandomStringTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TourServiceUnitTest.editTourTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Welcome" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="utils.unittest.*" />
+          <option name="PATTERN" value="service.unittest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="utils.unittest" />
-      <option name="MAIN_CLASS_NAME" value="utils.unittest.RandomValuesUnitTest" />
-      <option name="METHOD_NAME" value="generateRandomStringTest" />
+      <option name="PACKAGE_NAME" value="service.unittest" />
+      <option name="MAIN_CLASS_NAME" value="service.unittest.TourServiceUnitTest" />
+      <option name="METHOD_NAME" value="editTourTest" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="groovy in Welcome (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Welcome" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/groovy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="groovy in Welcome (2)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Welcome" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/groovy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="groovy in Welcome" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="Welcome" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="controller.bo.*" />
+          <option name="ENABLED" value="true" />
+          <option name="INCLUDE" value="false" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="dto.*" />
+          <option name="ENABLED" value="true" />
+          <option name="INCLUDE" value="false" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="exception.*" />
+          <option name="ENABLED" value="true" />
+          <option name="INCLUDE" value="false" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="mapper.*" />
+          <option name="ENABLED" value="true" />
+          <option name="INCLUDE" value="false" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="domain.*" />
+          <option name="ENABLED" value="true" />
+          <option name="INCLUDE" value="false" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="config.*" />
+          <option name="ENABLED" value="true" />
+          <option name="INCLUDE" value="false" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/groovy" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -200,13 +228,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="JUnit.groovy in Welcome" />
+      <item itemvalue="JUnit.groovy in Welcome (1)" />
+      <item itemvalue="JUnit.TourServiceUnitTest.createTourTest" />
+      <item itemvalue="JUnit.TourServiceUnitTest.editTourTest" />
+      <item itemvalue="JUnit.TourServiceUnitTest" />
+      <item itemvalue="JUnit.groovy in Welcome (2)" />
+      <item itemvalue="Spring Boot.WelcomeApplication" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.AuthenticationServiceUnitTest.sendSimpleEmailTest" />
-        <item itemvalue="JUnit.AuthenticationServiceUnitTest" />
-        <item itemvalue="JUnit.EmailServiceUnitTest.sendSimpleEmailTest" />
-        <item itemvalue="JUnit.RandomValuesUnitTest.generateRandomStringTest" />
-        <item itemvalue="JUnit.EmailServiceTestIT.sendSimpleEmailTest" />
+        <item itemvalue="JUnit.groovy in Welcome (2)" />
+        <item itemvalue="JUnit.TourServiceUnitTest.createTourTest" />
+        <item itemvalue="JUnit.TourServiceUnitTest.editTourTest" />
+        <item itemvalue="JUnit.TourServiceUnitTest" />
+        <item itemvalue="JUnit.groovy in Welcome (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -258,7 +295,25 @@
       <workItem from="1687376792359" duration="6685000" />
       <workItem from="1687437447155" duration="94000" />
       <workItem from="1687441319763" duration="7088000" />
-      <workItem from="1687591814837" duration="12234000" />
+      <workItem from="1687591814837" duration="25134000" />
+      <workItem from="1687637116354" duration="12527000" />
+      <workItem from="1687649760906" duration="922000" />
+      <workItem from="1687686343411" duration="8061000" />
+      <workItem from="1687695975416" duration="14953000" />
+      <workItem from="1687720926344" duration="1429000" />
+      <workItem from="1687722389401" duration="10603000" />
+      <workItem from="1687769363187" duration="3633000" />
+      <workItem from="1687779950975" duration="18404000" />
+      <workItem from="1687806324722" duration="1025000" />
+      <workItem from="1687809995635" duration="3622000" />
+      <workItem from="1688053824641" duration="4200000" />
+      <workItem from="1688076959734" duration="1253000" />
+      <workItem from="1688078644578" duration="1439000" />
+      <workItem from="1688114104061" duration="10331000" />
+      <workItem from="1688325098824" duration="4419000" />
+      <workItem from="1688402029647" duration="2606000" />
+      <workItem from="1688416403613" duration="9607000" />
+      <workItem from="1688453237484" duration="2160000" />
     </task>
     <servers />
   </component>
@@ -280,65 +335,32 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/target/generated-sources/annotations/mapper/CreateTourResponseDTOMapperImpl.java</url>
-          <line>58</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/target/generated-sources/annotations/mapper/CreateTourResponseDTOMapperImpl.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/target/generated-sources/annotations/mapper/CityRequestDTOMapperImpl.java</url>
-          <line>19</line>
-          <option name="timeStamp" value="28" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/target/generated-sources/annotations/mapper/CityRequestDTOMapperImpl.java</url>
-          <line>15</line>
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/target/generated-sources/annotations/mapper/AuthenticationResponseJwtDTOMapperImpl.java</url>
-          <line>20</line>
-          <option name="timeStamp" value="50" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/target/generated-sources/annotations/mapper/AuthenticationResponseJwtDTOMapperImpl.java</url>
-          <line>22</line>
-          <option name="timeStamp" value="51" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/controller/bo/UserControllerBO.java</url>
-          <line>31</line>
-          <option name="timeStamp" value="60" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/service/bo/UserServiceBO.java</url>
-          <line>22</line>
-          <option name="timeStamp" value="67" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/controller/bo/UserControllerBO.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="72" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-context-support/6.0.7/spring-context-support-6.0.7.jar!/org/springframework/mail/javamail/JavaMailSenderImpl.class</url>
-          <line>145</line>
-          <option name="timeStamp" value="74" />
+          <url>file://$PROJECT_DIR$/src/main/java/service/TourService.java</url>
+          <line>87</line>
+          <properties>
+            <option name="lambda-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="SpringBootApplicationConfigurationType">
-        <watch expression="((Logger)((Logger)log).parent).effectiveLevelInt" custom="ch.qos.logback.classic.Logger" />
-      </configuration>
-    </watches-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Welcome$All_in_Welcome.ic" NAME="All in Welcome Coverage Results" MODIFIED="1687801755826" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <EXCLUDED_FILTER>value.*</EXCLUDED_FILTER>
+      <EXCLUDED_FILTER>mapper.*</EXCLUDED_FILTER>
+      <EXCLUDED_FILTER>application.*</EXCLUDED_FILTER>
+      <EXCLUDED_FILTER>aspects.*</EXCLUDED_FILTER>
+      <EXCLUDED_FILTER>dto.*</EXCLUDED_FILTER>
+      <EXCLUDED_FILTER>domain.*</EXCLUDED_FILTER>
+      <EXCLUDED_FILTER>config.*</EXCLUDED_FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Welcome$groovy_in_Welcome__2_.ic" NAME="groovy in Welcome (2) Coverage Results" MODIFIED="1688424007192" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Welcome$groovy_in_Welcome.ic" NAME="groovy in Welcome Coverage Results" MODIFIED="1688325618287" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Welcome$groovy_in_Welcome__1_.ic" NAME="groovy in Welcome (1) Coverage Results" MODIFIED="1688326090160" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

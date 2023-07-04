@@ -13,5 +13,5 @@ public record CreateTourRequestDTO(@NotBlank String title,
                                    List<TagRequestDTO> tags,
                                    @NotBlank String approxDuration,
                                    @PositiveOrZero(message = "Cost must be greater than zero") Double approxCost,
-                                   List<TourStopDTO> stops) {
+                                   List<TourStopDTO> tourStops) {
 }

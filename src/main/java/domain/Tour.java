@@ -60,7 +60,7 @@ public class Tour {
     @Column(name = "approx_duration", nullable = false)
     private Integer approxDuration;
 
-    @OneToOne(fetch = FetchType.EAGER, optional = false)
+    @OneToOne(fetch = FetchType.EAGER, optional = false, cascade = CascadeType.PERSIST)
     private SoftDelete softDelete;
 
     @CreationTimestamp
@@ -88,19 +88,19 @@ public class Tour {
     private List<Suggestion> suggestions = new ArrayList<>();
 
     @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, mappedBy = "tour")
-    private List<TourStop> TourStops = new ArrayList<>();
+    private List<TourStop> tourStops = new ArrayList<>();
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL) //TODO remove cascade
     private City city;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "tour_tag",
             joinColumns = @JoinColumn(name = "tour_id"),
             inverseJoinColumns = @JoinColumn(name = "tag_id")
     )
     private List<Tag> tags = new ArrayList<>();
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Theme theme;
 
     /**

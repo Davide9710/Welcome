@@ -28,7 +28,7 @@ public class Theme {
     @Column(unique = true)
     private String name;
 
-    @OneToMany(mappedBy = "theme", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "theme", fetch = FetchType.LAZY)
     private List<Tour> tours = new ArrayList<>();
 
     @Override
