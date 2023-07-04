@@ -50,6 +50,7 @@ public class GuideServiceTest {
         Mockito.when(guideRepository.findTourByGuideId(anyLong(), any())).thenReturn(
                 List.of(mockTour)
         );
+        Mockito.when(guideRepository.existsById(any())).thenReturn(true);
         Long mockGuideId = 1L;
         int mockPage = 0;
         int mockSize = 10;
