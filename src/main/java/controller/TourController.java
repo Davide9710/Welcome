@@ -59,6 +59,7 @@ public class TourController {
             @ApiResponse(responseCode = "404", description = "TourNotFoundException"),
             @ApiResponse(responseCode = "500", description = "Server Error")
     })
+    @PreAuthorize("hasRole('GUIDE')")
     public ResponseEntity<TourResponseDTO> get(@PathVariable("id") @NotNull Long id) {
         Tour tour = tourService.getTour(id);
         log.info("tour retrieved {}", tour);
@@ -74,10 +75,12 @@ public class TourController {
     @Operation(summary = "create tour")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "OK"),
+            @ApiResponse(responseCode = "404", description = "Resource Not Found Exception"),
             @ApiResponse(responseCode = "500", description = "Server Error")
     })
     @PreAuthorize("hasRole('GUIDE')")
-    public ResponseEntity<CreateTourResponseDTO> create(@PathVariable("guideId") Long guideId, @RequestBody @Valid CreateTourRequestDTO createTourRequestDTO) {
+    public ResponseEntity<CreateTourResponseDTO> create(@PathVariable("guideId") Long guideId,
+                                                        @RequestBody @Valid CreateTourRequestDTO createTourRequestDTO) {
         Tour tour = CreateTourRequestDTOMapper.INSTANCE.convert(createTourRequestDTO);
         log.info("request converted into tour {}", tour);
         Tour savedTour = tourService.create(tour, guideId);

@@ -32,7 +32,7 @@ import java.util.List;
  * Controller that contains all the tourist related endpoints, it requires TOURIST role
  */
 @RestController
-@RequestMapping(value = "/tourist", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/tourist")
 @RequiredArgsConstructor
 @PreAuthorize("hasRole('TOURIST')")
 public class TouristController {
@@ -41,7 +41,6 @@ public class TouristController {
     /**
      * Post endpoint that mark a tour as completed by logged user
      * @param request tour and tourist id
-     * @return Response Entity indicating the operation result
      */
     @PostMapping("/mark-as-completed")
     @Operation(summary = "mark tour as completed")
@@ -60,7 +59,7 @@ public class TouristController {
      * @param touristId logged user id
      * @return the marked tours
      */
-    @GetMapping("/{touristId}/marked-tours")
+    @GetMapping(path = "/{touristId}/marked-tours", produces = MediaType.APPLICATION_JSON_VALUE)
     @Operation(summary = "get all marked tours")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "OK"),
@@ -78,7 +77,7 @@ public class TouristController {
      * @param requestDTO data to be saved
      * @return the updated tourist
      */
-    @PatchMapping("/{touristId}")
+    @PatchMapping(path = "/{touristId}", produces = MediaType.APPLICATION_JSON_VALUE)
     @Operation(summary = "edit tourist")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "OK"),
